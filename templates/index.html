@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萬能科大【創意行銷企劃實務 ✕ Agentic AI】互動教學與自主練習平台</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Google Fonts: Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <!-- 自案樣式表 -->
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <!-- 頂部導航列 -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container-fluid px-3">
+      <a class="navbar-brand d-flex align-items-center text-white" href="#">
+        <div class="brand-badge me-2">VNU 萬能科大</div>
+        <div class="lh-1">
+          <span class="fw-bold fs-6">創意行銷企劃實務</span>
+          <span class="badge bg-warning text-dark ms-1" style="font-size: 0.7rem;">✕ Agentic AI</span>
+        </div>
+      </a>
+
+      <!-- 教室環境提示 -->
+      <div class="d-none d-md-flex align-items-center ms-auto me-3 text-light small">
+        <span class="badge bg-dark border border-secondary me-2">
+          <i class="fas fa-location-dot text-warning me-1"></i>上課教室：F401
+        </span>
+        <span class="text-muted me-1">手機連線：</span>
+        <code class="text-warning fw-bold" id="classroom-url-display">載入中...</code>
+      </div>
+
+      <!-- 個人學號按鈕 -->
+      <button class="btn btn-sm btn-outline-light d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#userProfileModal">
+        <i class="fas fa-user-circle me-1"></i>
+        <span id="student-info-badge">學號登記</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 主內容容器 -->
+  <div class="container my-3">
+
+    <!-- 頂部 Hero 橫幅 -->
+    <div class="hero-banner">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-primary px-3 py-1">11501 學期</span>
+            <span class="badge bg-secondary">進企管四系3甲 (週二 10~11節)</span>
+            <span class="badge bg-success">2 學分 / 2 小時</span>
+          </div>
+          <h1 class="hero-title mb-2">創意行銷企劃實務 ✕ Agentic AI 實戰</h1>
+          <p class="hero-subtitle mb-3">
+            實務行銷企劃 ✕ Agentic AI 智慧代理人協同實戰（參考用書：曾光華《行銷企劃：邏輯、創意、執行力》2026 第五版）
+          </p>
+          <div class="d-flex flex-wrap gap-2 small">
+              <span class="badge bg-secondary me-2">
+                <i class="fas fa-chalkboard-user text-warning me-1"></i>課堂學習：實務個案 ✕ 個人獨立實作 ✕ 即時互動
+              </span>
+            <span class="badge bg-dark text-light border border-secondary">
+              <i class="fas fa-robot text-info me-1"></i>課後延伸：Agentic AI 行銷企劃工作坊
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end mt-3 mt-lg-0 d-flex flex-column gap-2">
+          <a href="Full_Screen_Presentation.html" target="_blank" class="btn btn-warning px-4 py-2 fw-bold shadow-sm text-dark">
+            <i class="fas fa-desktop me-1"></i>📽️ 18週課堂簡報投影系統
+          </a>
+          <button class="btn btn-primary px-4 py-2 fw-bold shadow-sm" onclick="document.getElementById('tab-classroom-btn').click()">
+            <i class="fas fa-users-rectangle me-1"></i>課堂即時互動專區
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 導航分頁籤 (Desktop) -->
+    <ul class="nav nav-pills mb-4 nav-justified bg-white p-2 rounded-3 shadow-sm border" id="mainTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active fw-semibold" id="tab-intro-btn" data-bs-toggle="pill" data-bs-target="#tab-intro" type="button" role="tab">
+          <i class="fas fa-flag-checkered me-1"></i>第一週破冰與課程導覽
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-curriculum-btn" data-bs-toggle="pill" data-bs-target="#tab-curriculum" type="button" role="tab">
+          <i class="fas fa-calendar-alt me-1"></i>18週教學地圖
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-classroom-btn" data-bs-toggle="pill" data-bs-target="#tab-classroom" type="button" role="tab">
+          <i class="fas fa-comments text-primary me-1"></i>課堂即時互動工具
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-takehome-btn" data-bs-toggle="pill" data-bs-target="#tab-takehome" type="button" role="tab">
+          <i class="fas fa-robot me-1"></i>回家練習：AI 企劃工坊
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-works-btn" data-bs-toggle="pill" data-bs-target="#tab-works" type="button" role="tab">
+          <i class="fas fa-cloud-arrow-up text-success me-1"></i>學生作品成果展示廊
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-vibe-btn" data-bs-toggle="pill" data-bs-target="#tab-vibe" type="button" role="tab">
+          <i class="fas fa-book-bookmark text-warning me-1"></i>Vibe Coding 操作手冊
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-quiz-btn" data-bs-toggle="pill" data-bs-target="#tab-quiz" type="button" role="tab">
+          <i class="fas fa-certificate me-1"></i>IPAS 證照模擬題庫
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link fw-semibold" id="tab-badges-btn" data-bs-toggle="pill" data-bs-target="#tab-badges" type="button" role="tab">
+          <i class="fas fa-medal me-1"></i>個人歷程與勳章
+        </button>
+      </li>
+    </ul>
+
+    <!-- 分頁內容區域 -->
+    <div class="tab-content" id="mainTabContent">
+
+      <!-- TAB 1: 第一週破冰與課程導引 -->
+      <div class="tab-pane fade show active" id="tab-intro" role="tabpanel">
+        
+        <!-- 授課教師卡片 -->
+        <div class="card-custom p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-user-tie text-primary me-2"></i>第一週導覽：授課教師個人介紹</h5>
+            <span class="badge bg-primary">萬能科技大學 企業管理系</span>
+          </div>
+          <div id="teacher-profile-box">
+            <!-- 由 JS 動態注入 -->
+            <div class="text-center py-3 text-muted"><i class="fas fa-spinner fa-spin me-1"></i>正在載入教師資訊...</div>
+          </div>
+        </div>
+
+        <!-- 評分標準卡片 -->
+        <div class="card-custom p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-clipboard-check text-primary me-2"></i>學期成績評分標準 (期中 30% ✕ 期末 30% ✕ 平時 40%)</h5>
+            <span class="badge bg-success">通過標準 60 分</span>
+          </div>
+          <div id="grading-policy-box">
+            <!-- 由 JS 動態注入 -->
+            <div class="text-center py-3 text-muted"><i class="fas fa-spinner fa-spin me-1"></i>正在載入評分細則...</div>
+          </div>
+        </div>
+
+        <!-- 雙軌教學架構說明 -->
+        <div class="card-custom p-4 mb-4" style="background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);">
+          <div class="d-flex align-items-center mb-3">
+            <div class="p-2 bg-primary text-white rounded-circle me-3">
+              <i class="fas fa-graduation-cap fs-4"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold mb-0 text-dark">教學模式與修課指引：實務互動 ✕ Agentic AI 協同實踐</h5>
+              <p class="text-muted small mb-0">專為進修部企管系打造的「課堂個案探討 ✕ 課後智慧工坊」雙軌學習架構（各做各的個人獨立企劃）</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-white h-100">
+                <h6 class="fw-bold text-primary"><i class="fas fa-user-check me-2"></i>課堂實務演練：即時反饋與個人創意激盪</h6>
+                <p class="small text-secondary mb-2">
+                  課堂聚焦於行銷個案剖析、個人企劃架構建立與獨立發想：
+                </p>
+                <ul class="small text-secondary ps-3 mb-0">
+                  <li><strong>每週觀念隨堂練習</strong>：透過互動選項即時檢驗理解度，掌握核心企劃邏輯。</li>
+                  <li><strong>個人 SCAMPER 腦力激盪</strong>：搭配 SCAMPER 奔馳法計時器與靈感抽卡機，現場動手發想創意。</li>
+                  <li><strong>即時反饋與個案研討</strong>：隨機抽問互動與同儕觀摩互評，活絡課堂思辨氛圍。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-white h-100">
+                <h6 class="fw-bold text-success"><i class="fas fa-robot me-2"></i>課後自主延伸：Agentic AI 企劃工坊</h6>
+                <p class="small text-secondary mb-2">
+                  課後可隨時打開本平台，深度演練 8 大行銷 AI 代理人企劃任務：
+                </p>
+                <ul class="small text-secondary ps-3 mb-0">
+                  <li><strong>ReAct 推理軌跡視覺化</strong>：親眼觀察 AI 如何思考 (Thought)、調用工具 (Action)、產出決策。</li>
+                  <li><strong>一鍵生成企劃草案</strong>：填入自訂品牌想法，快速產出一頁式企劃構想書。</li>
+                  <li><strong>專業 Prompt 精煉複製</strong>：直接複製結構化提示詞至 ChatGPT / Gemini 進行深度對話。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: 18 週教學地圖 -->
+      <div class="tab-pane fade" id="tab-curriculum" role="tabpanel">
+        <div class="card-custom p-3 mb-3">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div>
+              <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-map-marked-alt text-primary me-2"></i>18 週完整課程進度地圖</h5>
+              <small class="text-muted">參考用書：曾光華《行銷企劃：邏輯、創意、執行力》(2026 第五版) ✕ 現代行銷科技 (MarTech) 實務</small>
+            </div>
+            <div class="btn-group btn-group-sm">
+              <button class="btn btn-primary filter-curriculum-btn active" onclick="filterCurriculum('all', this)">全部 18 週</button>
+              <button class="btn btn-outline-primary filter-curriculum-btn" onclick="filterCurriculum('phase1', this)">第 1~6 週 (基礎與創意)</button>
+              <button class="btn btn-outline-primary filter-curriculum-btn" onclick="filterCurriculum('phase2', this)">第 7~12 週 (實務與MarTech)</button>
+              <button class="btn btn-outline-primary filter-curriculum-btn" onclick="filterCurriculum('phase3', this)">第 13~18 週 (撰寫與發表)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18 週卡片清單 -->
+        <div id="curriculum-weeks-list">
+          <div class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-1"></i>載入課程地圖中...</div>
+        </div>
+      </div>
+
+      <!-- TAB 3: 課堂即時互動專區 -->
+      <div class="tab-pane fade" id="tab-classroom" role="tabpanel">
+        
+        <!-- 課堂即時連線看板 -->
+        <div class="card-custom p-4 mb-4 bg-dark text-white text-center">
+          <h4 class="fw-bold text-warning mb-2"><i class="fas fa-network-wired me-2"></i>課堂即時互動專區</h4>
+          <p class="text-secondary small mb-3">請透過瀏覽器開啟下方專屬網址，即可參與課堂互動工具與即時隨堂練習：</p>
+          <div class="d-inline-block p-3 bg-white rounded-3 shadow-lg mb-3">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=http://127.0.0.1:5000" 
+                 id="classroom-qr-img" alt="連線條碼" class="img-fluid" style="width: 180px; height: 180px;">
+          </div>
+          <div class="fs-5">
+            互動連線網址：<span class="badge bg-primary px-3 py-2" id="qr-url-text">http://localhost:5000</span>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          
+          <!-- 工具 1: 行銷企劃靈感抽卡機 -->
+          <div class="col-lg-6">
+            <div class="card-custom p-3 h-100">
+              <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-layer-group text-primary me-2"></i>行銷企劃靈感抽卡機 (Idea Deck)</h5>
+                <button class="btn btn-sm btn-primary" onclick="refreshIdeaCards()">
+                  <i class="fas fa-random me-1"></i>重新隨機抽卡
+                </button>
+              </div>
+              <p class="small text-muted mb-3">
+                隨機組合「受眾 ✕ 痛點 ✕ 科技 ✕ 情境」4 大元素，各組進行 5 分鐘現場即興企劃發想！
+              </p>
+
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="idea-card target-card">
+                    <span class="badge bg-primary mb-2 w-auto self-start">目標受眾 (Target)</span>
+                    <h6 class="fw-bold text-dark mb-0" id="card-target-text">抽卡中...</h6>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="idea-card pain-card">
+                    <span class="badge bg-danger mb-2 w-auto self-start">核心痛點 (Pain)</span>
+                    <h6 class="fw-bold text-dark mb-0" id="card-pain-text">抽卡中...</h6>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="idea-card tech-card">
+                    <span class="badge bg-purple text-white mb-2 w-auto self-start">行銷科技 (MarTech)</span>
+                    <h6 class="fw-bold text-dark mb-0" id="card-tech-text">抽卡中...</h6>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="idea-card scene-card">
+                    <span class="badge bg-warning text-dark mb-2 w-auto self-start">關鍵情境 (Scene)</span>
+                    <h6 class="fw-bold text-dark mb-0" id="card-scene-text">抽卡中...</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 工具 2: 創意大轉盤 / 隨機點名抽籤機 -->
+          <div class="col-lg-6">
+            <div class="card-custom p-3 h-100 text-center">
+              <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-dharmachakra text-danger me-2"></i>課堂隨機抽籤與發表大轉盤</h5>
+                <button class="btn btn-sm btn-outline-secondary" onclick="updateWheelNames()">
+                  <i class="fas fa-edit me-1"></i>編輯名單
+                </button>
+              </div>
+
+              <!-- Canvas 轉盤 -->
+              <div class="wheel-container mb-3">
+                <div class="wheel-pointer"></div>
+                <canvas id="wheel-canvas" width="320" height="320"></canvas>
+              </div>
+
+              <div class="mb-3">
+                <button class="btn btn-danger px-4 py-2 fw-bold" onclick="spinWheel()">
+                  <i class="fas fa-play me-1"></i>開始旋轉抽籤！
+                </button>
+              </div>
+              <div class="alert alert-light border py-2 mb-0" id="wheel-result-text">
+                點擊上方按鈕，隨機抽出一名同學進行課堂分享！
+              </div>
+            </div>
+          </div>
+
+          <!-- 工具 3: SCAMPER 課堂討論倒數計時器 -->
+          <div class="col-12">
+            <div class="card-custom p-4 text-center">
+              <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+                <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-stopwatch text-warning me-2"></i>SCAMPER 個人創意便利貼發想計時器</h5>
+                <div class="btn-group btn-group-sm">
+                  <button class="btn btn-outline-secondary" onclick="setWorkshopTimer(180)">3 分鐘</button>
+                  <button class="btn btn-outline-secondary active" onclick="setWorkshopTimer(300)">5 分鐘</button>
+                  <button class="btn btn-outline-secondary" onclick="setWorkshopTimer(600)">10 分鐘</button>
+                </div>
+              </div>
+
+              <div class="my-3">
+                <div class="timer-display" id="workshop-timer-text">05:00</div>
+              </div>
+
+              <div class="d-flex justify-content-center gap-2 mb-3">
+                <button class="btn btn-success px-4" id="timer-start-btn" onclick="startWorkshopTimer()">
+                  <i class="fas fa-play me-1"></i>開始計時
+                </button>
+                <button class="btn btn-warning px-4" onclick="stopWorkshopTimer()">
+                  <i class="fas fa-pause me-1"></i>暫停
+                </button>
+                <button class="btn btn-secondary px-4" onclick="resetWorkshopTimer()">
+                  <i class="fas fa-redo me-1"></i>重設
+                </button>
+              </div>
+
+              <div class="alert alert-info border py-2 mb-0" id="scamper-hint-box">
+                準備就緒：請拿出彩色便利貼，點擊開始計時展開個人創意發想！
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: 回家練習：Take-Home Agentic AI 企劃工作坊 -->
+      <div class="tab-pane fade" id="tab-takehome" role="tabpanel">
+        
+        <div class="row g-4">
+          
+          <!-- 左側：8 大 Agent 選擇與參數輸入 -->
+          <div class="col-lg-5">
+            
+            <div class="card-custom p-3 mb-3">
+              <h6 class="fw-bold text-dark mb-2"><i class="fas fa-users-gear text-primary me-2"></i>選擇行銷企劃 Agent 專家 (共 8 款)</h6>
+              <div id="agent-template-selector" style="max-height: 280px; overflow-y: auto;">
+                <!-- 由 JS 動態注入 8 大 Agent 選單 -->
+              </div>
+            </div>
+
+            <div class="card-custom p-3 mb-3">
+              <h6 class="fw-bold text-dark mb-2"><i class="fas fa-sliders text-primary me-2"></i>輸入自訂品牌與企劃參數</h6>
+              <div id="agent-dynamic-fields">
+                <!-- 由 JS 動態依選中的 Agent 注入欄位 -->
+              </div>
+              <div class="mb-3">
+                <label class="form-label fw-semibold small text-muted">模擬外接工具庫 (Tools)：</label>
+                <div id="agent-simulated-tools"></div>
+              </div>
+              <button class="btn btn-primary w-100 fw-bold py-2 shadow-sm" id="run-agent-btn" onclick="runAgentReActSimulation()">
+                <i class="fas fa-play me-1"></i>啟動 ReAct 思考推理
+              </button>
+            </div>
+
+            <!-- 外接 AI 黃金 Prompt 複製庫 -->
+            <div class="card-custom p-3">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="fw-bold text-dark mb-0"><i class="fas fa-magic text-warning me-2"></i>外部 AI 黃金 Prompt (免費用)</h6>
+                <button class="btn btn-sm btn-outline-primary" onclick="copyGoldenPrompt()">
+                  <i class="fas fa-copy me-1"></i>複製 Prompt
+                </button>
+              </div>
+              <p class="small text-muted mb-2">同學回家亦可將此結構化 Prompt 複製貼入 ChatGPT、Gemini 或 Claude 進行二次對話！</p>
+              <textarea class="form-control form-control-sm font-monospace" id="agent-golden-prompt-text" rows="5" readonly></textarea>
+            </div>
+
+          </div>
+
+          <!-- 右側：ReAct 終端機模擬與一頁式企劃書預覽 -->
+          <div class="col-lg-7">
+            
+            <!-- Agent 職能說明 -->
+            <div class="card-custom p-3 mb-3 bg-white">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="fw-bold text-dark mb-0" id="current-agent-title">市場情資與 PESTEL 洞察 Agent</h5>
+                <span class="badge bg-primary" id="current-agent-role">情資雷達專家</span>
+              </div>
+              <p class="small text-muted mt-2 mb-0" id="current-agent-mission">任務目標描述...</p>
+            </div>
+
+            <!-- ReAct 思考軌跡終端機 -->
+            <div class="terminal-window mb-3">
+              <div class="terminal-header">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+                <small class="ms-2 text-muted fw-semibold">Agentic AI ReAct 思考與推理動態軌跡 (Thought ➔ Action ➔ Observation ➔ Decision)</small>
+              </div>
+              <div class="terminal-body" id="react-terminal-output">
+                <div class="text-muted">
+                  點擊左側「<span class="text-warning">啟動 ReAct 思考推理</span>」按鈕，立即展開 AI 代理人逐步思考過程！
+                </div>
+              </div>
+            </div>
+
+            <!-- 一頁式企劃草案預覽容器 -->
+            <div id="proposal-draft-output" style="display: none;">
+              <div id="proposal-draft-content">
+                <!-- 由 JS 動態注入企劃書 Markdown 預覽 -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TAB 5: IPAS 證照模擬題庫與檢定 -->
+      <div class="tab-pane fade" id="tab-quiz" role="tabpanel">
+        
+        <!-- 題庫模式選擇面板 (Setup) -->
+        <div id="quiz-setup-panel" class="card-custom p-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 border-bottom pb-2 gap-2">
+            <div>
+              <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-certificate text-primary me-2"></i>經濟部 IPAS 品牌規劃師 ✕ AI 應用規劃師 證照模擬題庫</h5>
+              <small class="text-muted">對標經濟部產業人才能力鑑定標準，收錄 <span id="total-questions-stat" class="fw-bold text-primary">180</span> 題專業考題 (含詳細題解、考點歸納與落點分析)</small>
+            </div>
+            <button class="btn btn-sm btn-outline-danger" onclick="clearWrongQuestionsNotebook()">
+              <i class="fas fa-trash-alt me-1"></i>清空錯題筆記
+            </button>
+          </div>
+
+          <!-- IPAS 兩大能力鑑定專項模擬捷徑 -->
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <div class="p-3 bg-light rounded border border-primary d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="badge bg-primary mb-1"><i class="fas fa-tag me-1"></i>經濟部能力鑑定</span>
+                  <h6 class="fw-bold mb-1 text-dark">IPAS 品牌規劃師 專項模擬</h6>
+                  <small class="text-secondary">精選 25 題：品牌策略、STP定位、整合傳播、顧客體驗與公關危機</small>
+                </div>
+                <button class="btn btn-primary btn-sm px-3 ms-2" onclick="startExamMode('ipas_brand')">
+                  開始測驗
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 bg-light rounded border border-success d-flex align-items-center justify-content-between">
+                <div>
+                  <span class="badge bg-success mb-1"><i class="fas fa-robot me-1"></i>經濟部能力鑑定</span>
+                  <h6 class="fw-bold mb-1 text-dark">IPAS AI 應用規劃師 專項模擬</h6>
+                  <small class="text-secondary">精選 25 題：生成式 AI 應用、提示工程、流程自動化與倫理法規</small>
+                </div>
+                <button class="btn btn-success btn-sm px-3 ms-2" onclick="startExamMode('ipas_ai')">
+                  開始測驗
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-3">
+              <div class="card p-3 h-100 text-center border-primary bg-white shadow-sm">
+                <div class="fs-2 text-primary mb-2"><i class="fas fa-mobile-screen-button"></i></div>
+                <h6 class="fw-bold">隨堂 5 題快測</h6>
+                <p class="small text-muted">適合每週課堂重點概念與核心題型隨堂檢驗</p>
+                <button class="btn btn-primary btn-sm mt-auto" onclick="startExamMode('weekly_5')">開始 5 題快測</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card p-3 h-100 text-center border-warning bg-white shadow-sm">
+                <div class="fs-2 text-warning mb-2"><i class="fas fa-clipboard-list"></i></div>
+                <h6 class="fw-bold">期中 40 題鑑定模擬測驗</h6>
+                <p class="small text-muted">涵蓋 IPAS 品牌規劃基礎、外部環境分析、STP 與 AI 企劃賦能</p>
+                <button class="btn btn-warning btn-sm mt-auto" onclick="startExamMode('midterm_40')">進入期中測驗</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card p-3 h-100 text-center border-danger bg-white shadow-sm">
+                <div class="fs-2 text-danger mb-2"><i class="fas fa-trophy"></i></div>
+                <h6 class="fw-bold">期末 60 題綜合能力檢定</h6>
+                <p class="small text-muted">整合 IPAS 品牌策略、整合傳播、MarTech 與 AI 應用綜合評量</p>
+                <button class="btn btn-danger btn-sm mt-auto" onclick="startExamMode('final_60')">進入期末檢定</button>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="card p-3 h-100 text-center border-secondary bg-white shadow-sm">
+                <div class="fs-2 text-secondary mb-2"><i class="fas fa-book-bookmark"></i></div>
+                <h6 class="fw-bold">錯題筆記本</h6>
+                <p class="small text-muted">自動收集作答錯誤題目，考前針對弱點精準複習</p>
+                <button class="btn btn-secondary btn-sm mt-auto" onclick="startExamMode('wrong_notebook')">重練錯題</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 測驗作答進行中面板 (Active Quiz) -->
+        <div id="quiz-active-panel" class="card-custom p-4" style="display: none;">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+              <h5 class="fw-bold mb-0 text-dark" id="quiz-mode-title">測驗進行中</h5>
+              <small class="text-muted" id="quiz-progress-text">第 1 / 5 題</small>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span class="badge bg-light text-dark border"><i class="fas fa-clock me-1 text-danger"></i>計時：<span id="quiz-live-timer">00:00</span></span>
+              <button class="btn btn-sm btn-outline-danger" onclick="resetQuizToSetup()">放棄測驗</button>
+            </div>
+          </div>
+
+          <!-- 進度條 -->
+          <div class="progress mb-4" style="height: 6px;">
+            <div class="progress-bar bg-primary" id="quiz-progress-bar" style="width: 20%;"></div>
+          </div>
+
+          <!-- 題目卡片 -->
+          <div class="mb-3">
+            <div id="quiz-question-meta" class="mb-2"></div>
+            <h5 class="fw-bold text-dark lh-base" id="quiz-question-stem">載入題目中...</h5>
+          </div>
+
+          <!-- 選項容器 -->
+          <div id="quiz-options-container" class="mb-4"></div>
+
+          <!-- 底部控制列 -->
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary" id="quiz-prev-btn" onclick="prevQuizQuestion()">
+              <i class="fas fa-arrow-left me-1"></i>上一題
+            </button>
+            <button class="btn btn-primary px-4" id="quiz-next-btn" onclick="nextOrSubmitQuiz()">
+              下一題<i class="fas fa-arrow-right ms-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 測驗成績與錯題診斷面板 (Result) -->
+        <div id="quiz-result-panel" class="card-custom p-4" style="display: none;">
+          <div class="text-center py-3 border-bottom mb-4">
+            <span class="badge bg-success fs-6 mb-2" id="result-pass-badge">檢定合格</span>
+            <h1 class="display-3 fw-bold text-primary mb-0" id="result-score-number">85</h1>
+            <p class="text-muted">答對題數：<span id="result-correct-ratio">4 / 5</span> 題</p>
+            <div class="alert alert-light border d-inline-block px-4 py-2 mb-0" id="result-feedback-text">
+              診斷建議反饋...
+            </div>
+          </div>
+
+          <!-- 錯題解析清單 -->
+          <h5 class="fw-bold text-dark mb-3"><i class="fas fa-magnifying-glass-chart text-danger me-2"></i>個人錯題剖析與觀念解析</h5>
+          <div id="result-wrong-list"></div>
+
+          <div class="text-center mt-4 pt-3 border-top">
+            <button class="btn btn-primary px-4 me-2" onclick="resetQuizToSetup()">
+              <i class="fas fa-redo me-1"></i>返回測驗主頁
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TAB: 學生作品成果展示廊 -->
+      <div class="tab-pane fade" id="tab-works" role="tabpanel">
+        <div class="card-custom p-4 mb-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3 border-bottom pb-3">
+            <div>
+              <h5 class="fw-bold mb-1 text-dark">
+                <i class="fas fa-cloud-arrow-up text-success me-2"></i>進企管四系3甲 學生企劃作品展示廊
+              </h5>
+              <small class="text-muted">
+                匯整全班行銷企劃書、Agent 提示詞歷程、一頁式原型，以及 <strong>GitHub Pages 線上專屬網址</strong>！
+              </small>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-success fw-bold px-3 shadow-sm" data-bs-toggle="modal" data-bs-target="#uploadWorkModal">
+                <i class="fas fa-plus-circle me-1"></i>上傳我的企劃成果
+              </button>
+            </div>
+          </div>
+
+          <!-- 篩選與搜尋列 -->
+          <div class="row g-2 mb-4 align-items-center bg-light p-2.5 rounded-3 border">
+            <div class="col-md-7 d-flex flex-wrap gap-1" id="works-category-filters">
+              <button class="btn btn-sm btn-dark active" onclick="filterWorksByCategory('all', this)">全部作品</button>
+              <button class="btn btn-sm btn-outline-secondary" onclick="filterWorksByCategory('GitHub Pages 線上專案', this)">
+                <i class="fab fa-github me-1"></i>GitHub Pages 線上專案
+              </button>
+              <button class="btn btn-sm btn-outline-secondary" onclick="filterWorksByCategory('HTML 一頁式 MVP', this)">
+                <i class="fas fa-file-code me-1"></i>HTML 一頁式 MVP
+              </button>
+              <button class="btn btn-sm btn-outline-secondary" onclick="filterWorksByCategory('行銷企劃書 (PDF/PPTX)', this)">
+                <i class="fas fa-file-pdf me-1"></i>行銷企劃書
+              </button>
+            </div>
+            <div class="col-md-5">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text bg-white"><i class="fas fa-search text-muted"></i></span>
+                <input type="text" class="form-control" id="search-works-input" placeholder="搜尋組別、學號、專案名稱或關鍵字..." oninput="searchWorks(this.value)">
+                <button class="btn btn-outline-secondary" type="button" onclick="loadStudentWorks()"><i class="fas fa-sync-alt"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 作品卡片網格 -->
+          <div class="row g-3" id="student-works-gallery">
+            <div class="text-center py-5 text-muted col-12">
+              <i class="fas fa-spinner fa-spin fa-2x mb-2 text-primary"></i>
+              <div>正在載入學生作品展示清單...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: Vibe Coding 操作手冊 -->
+      <div class="tab-pane fade" id="tab-vibe" role="tabpanel">
+        <div class="card-custom p-4 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <div>
+              <h5 class="fw-bold mb-0 text-dark">
+                <i class="fas fa-book-sparkles text-warning me-2"></i>Vibe Coding ✕ CLEAR 提問框架操作手冊
+              </h5>
+              <small class="text-muted">自然語言意圖驅動 ✕ 30 秒 GitHub Pages 免費部署 ✕ PM 產品經理大局觀</small>
+            </div>
+            <a href="Full_Screen_Presentation.html" target="_blank" class="btn btn-sm btn-outline-warning text-dark fw-bold">
+              <i class="fas fa-desktop me-1"></i>投影簡報模式
+            </a>
+          </div>
+
+          <!-- 動態載入 / 預載 Vibe Coding 內容容器 -->
+          <div id="vibe-manual-content">
+            <div class="text-center py-5 text-muted">
+              <i class="fas fa-spinner fa-spin fa-2x mb-2 text-warning"></i>
+              <div>正在載入 Vibe Coding 操作指引...</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: 個人學習歷程與成就勳章 -->
+      <div class="tab-pane fade" id="tab-badges" role="tabpanel">
+        <div class="card-custom p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <div>
+              <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-trophy text-warning me-2"></i>個人學習歷程與 8 大榮譽成就勳章</h5>
+              <small class="text-muted">持續參與課堂抽卡、測驗與 AI 企劃實作即可累積解鎖勳章</small>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#userProfileModal">
+              <i class="fas fa-user-edit me-1"></i>修改個人資訊
+            </button>
+          </div>
+
+          <div class="row g-3" id="badges-container">
+            <!-- 由 JS 動態注入 8 大勳章 -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- 手機端底部導航列 (Mobile Friendly) -->
+  <div class="mobile-bottom-nav d-md-none no-print">
+    <a href="javascript:void(0)" class="mobile-nav-btn active" onclick="document.getElementById('tab-intro-btn').click(); updateMobileActive(this);">
+      <i class="fas fa-flag"></i>
+      <span>第一週</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-btn" onclick="document.getElementById('tab-curriculum-btn').click(); updateMobileActive(this);">
+      <i class="fas fa-calendar"></i>
+      <span>18週</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-btn" onclick="document.getElementById('tab-classroom-btn').click(); updateMobileActive(this);">
+      <i class="fas fa-mobile-screen"></i>
+      <span>課堂互動</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-btn" onclick="document.getElementById('tab-takehome-btn').click(); updateMobileActive(this);">
+      <i class="fas fa-robot"></i>
+      <span>AI工坊</span>
+    </a>
+    <a href="javascript:void(0)" class="mobile-nav-btn" onclick="document.getElementById('tab-quiz-btn').click(); updateMobileActive(this);">
+      <i class="fas fa-graduation-cap"></i>
+      <span>題庫</span>
+    </a>
+  </div>
+
+  <!-- 學號設定 Modal -->
+  <div class="modal fade" id="userProfileModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold"><i class="fas fa-id-card text-primary me-2"></i>設定學生學習身分</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p class="small text-muted mb-3">設定您的學號與姓名，系統將在瀏覽器自動儲存測驗歷程、錯題筆記與成就勳章！</p>
+          <div class="mb-3">
+            <label class="form-label fw-bold">學號 (Student ID)</label>
+            <input type="text" class="form-control" id="input-student-id" placeholder="例如：11200123">
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">姓名 (Student Name)</label>
+            <input type="text" class="form-control" id="input-student-name" placeholder="例如：王小明">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" onclick="saveUserProfile()">儲存並同步</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 學生作品成果上傳 Modal (含 GitHub Pages 專屬網址) -->
+  <div class="modal fade" id="uploadWorkModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title fw-bold">
+            <i class="fas fa-cloud-arrow-up me-2"></i>上傳行銷企劃專案成果 ✕ GitHub Pages 連結
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="upload-work-form" onsubmit="handleWorkSubmit(event)">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">學號 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="work-student-id" required placeholder="例如：11109012">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">學生姓名 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="work-student-name" required placeholder="例如：林郁翔">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">企劃模式</label>
+                <input type="text" class="form-control form-control-sm bg-light text-primary fw-bold" id="work-team-name" value="個人獨立企劃" readonly>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">對應課程週次</label>
+                <select class="form-select form-select-sm" id="work-week">
+                  <option value="9">第 09 週：期中企劃構想書 (Proposal Draft)</option>
+                  <option value="14">第 14 週：Multi-Agent 企劃整合衝刺</option>
+                  <option value="15">第 15 週：期末發表 Stage 1</option>
+                  <option value="16" selected>第 16 週：期末發表 Stage 2 (Vibe Coding 成果)</option>
+                  <option value="17">第 17 週：期末發表 Stage 3</option>
+                  <option value="18">第 18 週：期末總結全案作品</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">專案成果類型 <span class="text-danger">*</span></label>
+                <select class="form-select form-select-sm" id="work-category">
+                  <option value="GitHub Pages 線上專案" selected>🌐 GitHub Pages 線上專案 (推薦)</option>
+                  <option value="HTML 一頁式 MVP">📄 HTML 一頁式 MVP 原型</option>
+                  <option value="行銷企劃書 (PDF/PPTX)">📑 行銷企劃全案書 (PDF/PPTX)</option>
+                  <option value="品牌定位與視覺圖">🎨 品牌定位知覺圖 / Persona 畫像</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fw-bold small text-secondary">協同之 Agentic AI 特工</label>
+                <select class="form-select form-select-sm" id="work-agent-used">
+                  <option value="Agent 1：市場情資洞察 Agent">Agent 1：市場情資洞察 Agent</option>
+                  <option value="Agent 2：STP 市場定位 Agent">Agent 2：STP 市場定位 Agent</option>
+                  <option value="Agent 3：受眾 Persona 描繪 Agent">Agent 3：受眾 Persona 描繪 Agent</option>
+                  <option value="Agent 4：產品價值主張 Agent">Agent 4：產品價值主張 Agent</option>
+                  <option value="Agent 5：價格促銷試算 Agent">Agent 5：價格促銷試算 Agent</option>
+                  <option value="Agent 6：公關活動企劃 Agent">Agent 6：公關活動企劃 Agent</option>
+                  <option value="Agent 7：社群短影音文案 Agent">Agent 7：社群短影音文案 Agent</option>
+                  <option value="Agent 8：企劃審查評估 Agent">Agent 8：企劃審查評估 Agent</option>
+                  <option value="多代理人 Multi-Agent 整合">多代理人 Multi-Agent 整合工作流</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold small text-secondary">專案企劃完整名稱 <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-sm" id="work-title" required placeholder="例如：大園在地手作桑葚果茶 全通路快閃預約網">
+              </div>
+
+              <!-- GITHUB PAGES LINK (核心強調) -->
+              <div class="col-12">
+                <div class="p-3 bg-success bg-opacity-10 border border-success border-opacity-25 rounded-3">
+                  <label class="form-label fw-bold text-success mb-1">
+                    <i class="fab fa-github me-1"></i>GitHub Pages 公開網址 (學生可直接傳此連結)
+                  </label>
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text bg-white text-muted">https://</span>
+                    <input type="text" class="form-control" id="work-github-page-url" placeholder="username.github.io/repo-name/">
+                  </div>
+                  <small class="text-muted d-block mt-1">
+                    <i class="fas fa-info-circle text-primary me-1"></i>只需依據【Vibe Coding 操作手冊】3 步驟將 index.html 部署至 GitHub Pages，即可免費獲得永久公開網址！
+                  </small>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-secondary">
+                  <i class="fab fa-github text-dark me-1"></i>GitHub 儲存庫 Repo 連結 (選填)
+                </label>
+                <input type="url" class="form-control form-control-sm" id="work-github-repo-url" placeholder="https://github.com/username/repo-name">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fw-bold small text-secondary">
+                  <i class="fas fa-paperclip text-dark me-1"></i>上傳專案檔案 (HTML/PDF/圖片/ZIP 選填)
+                </label>
+                <input type="file" class="form-control form-control-sm" id="work-file-input" accept=".html,.htm,.pdf,.zip,.rar,.png,.jpg,.jpeg">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold small text-secondary">企劃痛點洞察與核心價值主張 (30~100字) <span class="text-danger">*</span></label>
+                <textarea class="form-control form-control-sm" id="work-concept" rows="3" required placeholder="簡述本專案為誰解決了什麼痛點？核心創意切角為何？運用了曾光華老師哪一章節的行銷策略？"></textarea>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label fw-bold small text-secondary">CLEAR 提示詞精簡歷程 (Prompt Record)</label>
+                <textarea class="form-control form-control-sm font-monospace" id="work-prompt-summary" rows="2" placeholder="【Role】... 【Context】... 【Action】... 【Limits】... 【Expectation】..."></textarea>
+              </div>
+            </div>
+
+            <div class="alert alert-info py-2 px-3 small mt-3 mb-0 d-flex align-items-center">
+              <i class="fas fa-shield-alt text-info me-2 fs-5"></i>
+              <span>上傳後作品將自動公開收錄於【學生作品成果展示廊】，供全班同學與授課教師即時點開預覽並給予評分與反饋。</span>
+            </div>
+
+            <div class="modal-footer px-0 pb-0 pt-3 mt-3 border-top">
+              <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">取消返回</button>
+              <button type="submit" class="btn btn-success btn-sm fw-bold px-4" id="submit-work-btn">
+                <i class="fas fa-cloud-upload-alt me-1"></i>確認上傳並發布
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 學生作品詳細預覽 Modal -->
+  <div class="modal fade" id="viewWorkDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-primary" id="modal-detail-category">成果專案</span>
+            <h5 class="modal-title fw-bold mb-0 text-truncate" id="modal-detail-title" style="max-width: 500px;">作品標題</h5>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4" id="modal-detail-body">
+          <!-- 由 JS 動態注入 -->
+        </div>
+        <div class="modal-footer" id="modal-detail-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">關閉視窗</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- 前端核心腳本 -->
+  <script src="/static/js/app.js"></script>
+
+  <script>
+    function updateMobileActive(el) {
+      document.querySelectorAll('.mobile-nav-btn').forEach(btn => btn.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
+</body>
+</html>

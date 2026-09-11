@@ -1,0 +1,787 @@
+[
+  {
+    "id": "market_intel",
+    "name": "市場情資與 PESTEL 洞察 Agent",
+    "role": "產業情資與競品雷達分析專家",
+    "icon": "fa-globe",
+    "badge_color": "bg-primary",
+    "description": "自動掃描總體政治、經濟、社會趨勢、科技發展，並深度比對 3 家核心競品之優劣勢與最新行銷動態。",
+    "mission": "協助企劃人員在 3 分鐘內完成紮實的外部環境分析與競品對照表，跳過枯燥的網海撈針。",
+    "fields": [
+      {
+        "id": "brand_product",
+        "label": "品牌與產品名稱",
+        "type": "text",
+        "default": "元氣燕麥生乳捲 (輕卡低負擔烘焙)"
+      },
+      {
+        "id": "target_industry",
+        "label": "所屬產業領域",
+        "type": "text",
+        "default": "冷藏烘焙甜點 / 網購伴手禮"
+      },
+      {
+        "id": "core_competitor",
+        "label": "主要競爭對手 (2~3家)",
+        "type": "text",
+        "default": "亞尼克生乳捲、金帛手製、微熱山丘"
+      },
+      {
+        "id": "macro_trend",
+        "label": "關注重點趨勢 (選填)",
+        "type": "text",
+        "default": "高齡化健康低糖、外送平台抽成、IG打卡視覺消費"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "PESTEL_Database_Query",
+        "desc": "調用台灣統計處與產業調研資料庫"
+      },
+      {
+        "name": "Social_Buzz_Scanner",
+        "desc": "即時抓取社群討論聲量與熱門負面痛點"
+      },
+      {
+        "name": "Competitor_Pricing_Scraper",
+        "desc": "抓取競品定價策略與主力檔期組合"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "分析用戶輸入之產品【元氣燕麥生乳捲】，屬冷藏即食烘焙品，需同時考量冷鏈物流成本與現代人減糖健康焦慮。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "PESTEL_Database_Query",
+        "params": {
+          "industry": "台灣冷藏甜品",
+          "year": 2026
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "檢索結果：台灣烘焙市場產值突破 600 億；其中標榜低卡/高纖/減糖產品年複合增長率達 18.5%，但冷鏈冷藏宅配成本年增 12%。"
+      },
+      {
+        "step": 4,
+        "type": "Thought",
+        "content": "調用 Social_Buzz_Scanner 深入探查亞尼克與金帛手製在 Dcard 美食板與 Threads 上的消費者真實評價。"
+      },
+      {
+        "step": 5,
+        "type": "Action",
+        "tool": "Social_Buzz_Scanner",
+        "params": {
+          "keywords": [
+            "亞尼克",
+            "生乳捲",
+            "生乳捲太甜",
+            "奶油膩"
+          ]
+        }
+      },
+      {
+        "step": 6,
+        "type": "Observation",
+        "content": "發現消費者正面評價著重蛋糕體濕潤，但負面評價高達 34% 提及「吃到第二塊會膩」、「熱量罪惡感重」、「運費太貴」。"
+      },
+      {
+        "step": 7,
+        "type": "Decision",
+        "content": "確立企劃利基點：以「機能燕麥高纖 ✕ 減糖 40% ✕ 零罪惡午茶」切入，主打都會粉領與自律健身族，跳脫純甜點殺價紅海。"
+      }
+    ],
+    "proposal_snippet": "### 【外部環境與競品情報分析報告】\n- **總體趨勢 (PESTEL 洞察)**：\n  - **S (社會文化)**：減糖健康風潮蔓延，25-40 歲女性對下午茶「抗罪惡感」需求激增。\n  - **E (經濟層面)**：單人經濟蓬勃，精緻個人份與小資團購最具性價比優勢。\n  - **T (科技與通路)**：社群短影音與團購主 (KOC) 帶貨成甜點第一大轉換觸點。\n- **競品對照矩陣**：\n  - **競品 A (市場霸主)**：品牌聲量大，但產品高糖高脂，常被詬病過膩。\n  - **本案差異化定位**：主打「微甜高纖、低卡生乳」，定價策略鎖定 380~420 元黃金帶。",
+    "golden_prompt": "你是一位資深商業顧問與行銷情資情報專家。請針對【{brand_product}】（所屬產業：{target_industry}），以嚴謹客觀的視角進行外部情資偵查：\n1. 運用 PESTEL 架構分析當前總體大趨勢（特別著重社會文化 S 與科技趨勢 T）。\n2. 針對主要競品【{core_competitor}】進行 SWOT 交叉比對，找出市場尚未被滿足的「藍海缺口」。\n3. 提煉出 3 個最具爆發力的企劃戰略洞察。"
+  },
+  {
+    "id": "stp_persona",
+    "name": "STP 受眾定位與 Persona 畫像 Agent",
+    "role": "消費者心理學與人群畫像架構師",
+    "icon": "fa-users",
+    "badge_color": "bg-success",
+    "description": "將模糊的目標客群（如「20-40歲年輕人」）精準切分，生成具備真實姓名、日常痛點、消費心智的活體 Persona。",
+    "mission": "讓企劃案不再自嗨，精準錨定最願意掏錢的核心鐵粉 (Core Adopters)。",
+    "fields": [
+      {
+        "id": "brand_product",
+        "label": "產品或服務名稱",
+        "type": "text",
+        "default": "元氣燕麥生乳捲"
+      },
+      {
+        "id": "price_range",
+        "label": "預期價格帶",
+        "type": "text",
+        "default": "單條 420 元 / 團購 3 條免運"
+      },
+      {
+        "id": "consumption_scene",
+        "label": "典型消費情境",
+        "type": "text",
+        "default": "週三辦公室下午茶疲憊時、週末自律放鬆"
+      },
+      {
+        "id": "gender_age_hint",
+        "label": "初步客群猜想",
+        "type": "text",
+        "default": "25~35 歲都會上班族女性，重視體態但愛吃甜食"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "Demographic_Segmenter",
+        "desc": "人口統計學與心理變數交叉切分"
+      },
+      {
+        "name": "Persona_Synthesizer",
+        "desc": "擬真人格模型、日常旅程與購買抗拒點生成"
+      },
+      {
+        "name": "Value_Proposition_Canvas",
+        "desc": "價值主張畫布配對 (Pain Relief & Gain Creator)"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "目標受眾若僅寫「上班族」過於寬泛。需深挖心理變數：渴望犒賞自己，但害怕熱量超標的矛盾心理。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "Demographic_Segmenter",
+        "params": {
+          "target": "都會粉領",
+          "lifestyle": "瑜伽健身/輕食主義"
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "切分出三大區隔：A. 狂熱甜點控（不在乎熱量）、B. 自律矛盾型（想吃但怕胖，佔 48%）、C. 禮品採購族（送禮體面）。"
+      },
+      {
+        "step": 4,
+        "type": "Thought",
+        "content": "決定選擇最具高頻回購價值的「B. 自律矛盾型」作為主要目標市場 (Targeting)。生成第一代表人物。"
+      },
+      {
+        "step": 5,
+        "type": "Action",
+        "tool": "Persona_Synthesizer",
+        "params": {
+          "persona_archetype": "追求生活質感的都會自律女子"
+        }
+      },
+      {
+        "step": 6,
+        "type": "Observation",
+        "content": "生成虛擬角色【林雅婷 (Tina)，30歲，科技業行銷專員】。月薪 5.2 萬，每週健身 2 次，最怕下午開完會精神崩潰卻只能吃罪惡手搖飲。"
+      },
+      {
+        "step": 7,
+        "type": "Decision",
+        "content": "定位核心價值：不是「低熱量減肥餐」，而是「懂妳辛苦、不必妥協身材的治癒系甜點首選」！"
+      }
+    ],
+    "proposal_snippet": "### 【STP 與目標受眾畫像 (Persona)】\n- **S (市場區隔)**：依甜點消費動機切分為「放縱解饞型」、「自律平衡型」、「送禮社交型」。\n- **T (目標市場)**：鎖定 26-36 歲「自律平衡型」都會白領女性（核心佔比 65%）。\n- **P (品牌定位)**：兼具生乳捲極致絲滑口感 ✕ 高纖減負擔的辦公室療癒下午茶第一品牌。\n- **核心 Persona 代表：林雅婷 (Tina, 30歲)**\n  - **痛點 (Pains)**：下午工作倦怠想吃甜點，但擔心體脂肪飆升與皮膚老化。\n  - **期待 (Gains)**：好吃不甜膩、包裝精緻能發 IG 限動、能與同事分食開話題。\n  - **觸媒 (Triggers)**：辦公室團購發起、KOL 推薦「吃完無腹擔的深夜生乳捲」。",
+    "golden_prompt": "你是一位消費者洞察專家。請根據產品【{brand_product}】（價位：{price_range}，情境：{consumption_scene}）：\n1. 執行精確的 STP 架構分析（S區隔條件、T目標選擇理由、P定位知覺一句話）。\n2. 塑造一位具體生動的 Buyer Persona 代表（包含姓名、年齡、職業、月收入、日常生活場景、最痛的購買阻礙、成交的決定性理由）。\n3. 針對此 Persona 提出「行銷文案一句入魂心法」。"
+  },
+  {
+    "id": "scamper_ideation",
+    "name": "SCAMPER 奔馳法創意發想 Agent",
+    "role": "水平思考與突破性企劃創意總監",
+    "icon": "fa-lightbulb",
+    "badge_color": "bg-warning text-dark",
+    "description": "運用 SCAMPER 7 大維度（替代、結合、調整、修改、挪作他用、消除、重組），強迫大腦跳脫常軌產生 10 倍亮眼企劃案。",
+    "mission": "打破「大家都在打九折」的陳腔濫調，設計出讓人驚呼「這招太聰明」的爆款企劃。",
+    "fields": [
+      {
+        "id": "brand_product",
+        "label": "核心推廣主體",
+        "type": "text",
+        "default": "元氣燕麥生乳捲"
+      },
+      {
+        "id": "current_pain",
+        "label": "傳統做法遇到的瓶頸",
+        "type": "text",
+        "default": "一般生乳捲只能整條買，吃不完容易壞；大家只在節慶送禮才買"
+      },
+      {
+        "id": "crazy_degree",
+        "label": "創意大膽程度",
+        "type": "select",
+        "options": [
+          "穩中求新 (適合主流品牌)",
+          "前衛吸睛 (適合社群引爆)",
+          "徹底顛覆 (適合跨界破圈)"
+        ],
+        "default": "前衛吸睛 (適合社群引爆)"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "SCAMPER_Engine",
+        "desc": "七大奔馳法維度自動置換演算"
+      },
+      {
+        "name": "Cross_Industry_Matcher",
+        "desc": "跨界異業異質元素媒合 (如甜點 ✕ 健身房)"
+      },
+      {
+        "name": "Viral_Factor_Scorer",
+        "desc": "社群轉發傳播因子可行性評分"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "傳統痛點：「整條吃不完」、「熱量壓力」、「日常消費頻次低」。開始啟動 SCAMPER 矩陣展開。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "SCAMPER_Engine",
+        "params": {
+          "technique": "C (Combine 結合) + M (Modify 修改)"
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "產出構想：結合「週一到週五的體重秤卡路里」與「七天份迷你切片裝」，每一片標示當日激勵金句。"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Cross_Industry_Matcher",
+        "params": {
+          "industry_A": "甜品",
+          "industry_B": "連鎖健身房/瑜伽會館"
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "匹配靈感：與 World Gym / AnyTime Fitness 跨界，憑當週運動打卡紀錄，換取專屬折扣碼或「熱量等價兌換券」。"
+      },
+      {
+        "step": 6,
+        "type": "Thought",
+        "content": "篩選出最容易在普通教室課堂與期末發表打動評審的 3 款實戰級創意方案。"
+      },
+      {
+        "step": 7,
+        "type": "Decision",
+        "content": "選定【週三無罪日！辦公室負能量熱量置換企劃】：每逢週三小週末，上傳辦公室厭世小故事，AI 替妳換算「可被原諒的燕麥卡路里券」。"
+      }
+    ],
+    "proposal_snippet": "### 【SCAMPER 創意企劃點子庫】\n1. **C (結合) - 「流汗等價置換」跨界聯名**：\n   - 攜手連鎖健身房或 Apple Health 步數，每走 10,000 步折抵 20 元，將體態焦慮轉化為正向健康動力。\n2. **M (修改) - 「切片日曆盒 (Calendar Box)」**：\n   - 改傳統整條為單人切片獨立充氮包裝，外盒印有「週一抗憂鬱」、「週三小確幸」等手撕籤詩。\n3. **R (重組/反轉) - 「只在深夜開賣的無罪深夜食堂」**：\n   - 顛覆「減肥者晚上不能吃甜食」禁忌，每晚 9:00 限時預購「吃完安眠好入睡的洋甘菊燕麥生乳捲」，引爆話題。",
+    "golden_prompt": "你是一位廣告金獎創意總監。請使用【SCAMPER 奔馳法】的 7 大維度（Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse），針對【{brand_product}】提出 7 個打破常規但符合商業邏輯的行銷企劃點子。最後評選出 1 個最值得在社群引爆的「王牌活動」，並給出活動概念案名稱與核心標語。"
+  },
+  {
+    "id": "viral_copy",
+    "name": "爆款社群文案與短影音腳本 Agent",
+    "role": "社群瘋傳演算法與短影音分鏡編劇",
+    "icon": "fa-hashtag",
+    "badge_color": "bg-danger",
+    "description": "產出符合 Instagram Reels、TikTok、Threads 與 Facebook 演算法之黃金 3 秒吸睛前言、痛點共鳴、反轉情節與 Call-to-Action。",
+    "mission": "讓行銷企劃案中的宣傳排程，配備可以直接投產、秒吸點擊的實戰社群內容素材。",
+    "fields": [
+      {
+        "id": "campaign_name",
+        "label": "行銷活動名稱",
+        "type": "text",
+        "default": "週三無罪日！高纖燕麥生乳捲上市快閃"
+      },
+      {
+        "id": "main_benefit",
+        "label": "主打核心利益 (USP)",
+        "type": "text",
+        "default": "減糖 40%、添加澳洲燕麥高纖、熱量比一顆蘋果還低"
+      },
+      {
+        "id": "target_platform",
+        "label": "主要傳播平台",
+        "type": "select",
+        "options": [
+          "Instagram Reels / 限動",
+          "Threads 串文",
+          "TikTok 短影音",
+          "Facebook 團購長文"
+        ],
+        "default": "Instagram Reels / 限動"
+      },
+      {
+        "id": "tone_voice",
+        "label": "文案口吻風格",
+        "type": "select",
+        "options": [
+          "幽默自嘲 / 職場共鳴",
+          "精緻生活 / 治癒溫暖",
+          "犀利痛點 / 反轉打臉",
+          "專業權威 / 數據對比"
+        ],
+        "default": "幽默自嘲 / 職場共鳴"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "Hook_Generator",
+        "desc": "黃金 3 秒開場鉤子庫 (Hook Library)"
+      },
+      {
+        "name": "Storyboard_Composer",
+        "desc": "短影音分鏡 (Visual/Audio/Text) 排版引擎"
+      },
+      {
+        "name": "CTA_Optimization",
+        "desc": "高轉化行動呼籲與 Hashtag 聚類"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "短影音最忌諱前 3 秒平鋪直敘介紹產品名稱。必須先拋出「職場受害者的極端情境」引發秒停滑動。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "Hook_Generator",
+        "params": {
+          "theme": "減肥與辦公室下午茶誘惑",
+          "tone": "職場幽默"
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "推薦鉤子：「主管下午發飆，但最讓我崩潰的是抽屜只有高熱量奶酥麵包...」"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Storyboard_Composer",
+        "params": {
+          "duration_seconds": 30,
+          "scenes_count": 4
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "建構 4 幕分鏡：1. 崩潰敲鍵盤 ➔ 2. 撕開低卡生乳捲特寫爆漿 ➔ 3. 偷吃幸福表情 ➔ 4. 打卡免運 CTA。"
+      },
+      {
+        "step": 6,
+        "type": "Decision",
+        "content": "完成 30 秒 Reels 腳本與 Threads 爆款串文，預估完播率與留言分享率提升 2.5 倍。"
+      }
+    ],
+    "proposal_snippet": "### 【爆款短影音 30 秒腳本：週三辦公室無罪指南】\n- **時長**：30 秒 ｜ **節奏**：明快輕快 ｜ **BGM**：爵士放鬆打字機節奏\n- **【00-03s】鉤子 (Hook)**：\n  - *畫面*：主角眼神死盯著螢幕滿滿修改意見，右手無意識想抓餅乾。\n  - *字幕*：「下午 3:45，比主管更殘酷的是...妳的體重計。」\n- **【04-12s】痛點共鳴 (Pain)**：\n  - *旁白*：「想吃甜食犒賞自己，又怕明早臉腫腹肌說再見？別再為難自己了！」\n- **【13-22s】解決方案 (USP)**：\n  - *畫面*：叉子優雅切入元氣燕麥生乳捲，燕麥乳霜緩緩流出，高清特寫。\n  - *字幕*：「減糖 40% ✕ 高纖燕麥乳霜！熱量居然比手搖茶還低！」\n- **【23-30s】行動呼籲 (CTA)**：\n  - *口播*：「標記妳最愛吃甜點的同事，輸入【NO_GUILT】本週團購享 88 折免運！」",
+    "golden_prompt": "你是一位精通社群短影音演算法的千萬級操盤手。請針對活動【{campaign_name}】（賣點：{main_benefit}，口吻：{tone_voice}）：\n1. 撰寫 3 組能在前 3 秒抓住眼球的「爆款鉤子文案 (Hooks)」。\n2. 設計一份完整的 30 秒短影音分鏡腳本（包含：秒數、鏡頭畫面描述、口播旁白、螢幕字卡、音效提示）。\n3. 產出一篇適合 Threads 平台的吸睛討論串文，並附上 5 個高權重 Hashtag。"
+  },
+  {
+    "id": "promo_roi",
+    "name": "促銷檔期與折扣利潤試算 Agent",
+    "role": "促銷戰略設計師與財務損益精算師",
+    "icon": "fa-calculator",
+    "badge_color": "bg-info text-dark",
+    "description": "精準計算各類促銷工具（滿額折、第二件五折、加價購、早鳥組合）對毛利率與客單價 (AOV) 的真實影響，預算絕不超支。",
+    "mission": "告別憑感覺打折的惡性虧損，讓促銷企劃具備無懈可擊的財務損益平衡與投報率 (ROI)。",
+    "fields": [
+      {
+        "id": "product_cost",
+        "label": "產品單件成本 (元)",
+        "type": "number",
+        "default": "120"
+      },
+      {
+        "id": "original_price",
+        "label": "單件原定價 (元)",
+        "type": "number",
+        "default": "420"
+      },
+      {
+        "id": "promo_type",
+        "label": "擬採用的促銷誘因",
+        "type": "select",
+        "options": [
+          "第二件半價 (折合75折)",
+          "滿 1,000 現折 150 (階梯滿額)",
+          "買二送一 (折合67折)",
+          "早鳥加價 59 元換購機能燕麥飲"
+        ],
+        "default": "第二件半價 (折合75折)"
+      },
+      {
+        "id": "target_sales_volume",
+        "label": "預期檔期銷售件數",
+        "type": "number",
+        "default": "2000"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "Margin_Break_Even_Calculator",
+        "desc": "毛利額與損益兩平銷售量計算"
+      },
+      {
+        "name": "Basket_Size_Simulator",
+        "desc": "購物車客單價提升潛力評估"
+      },
+      {
+        "name": "Marketing_Budget_Allocater",
+        "desc": "廣告支出與通路抽成預留"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "輸入參數：成本 120 元，原價 420 元（原始毛利率達 71.4%），採用「第二件半價」。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "Margin_Break_Even_Calculator",
+        "params": {
+          "cost": 120,
+          "price": 420,
+          "mechanism": "buy1_get_2nd_half"
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "試算結果：兩件總售價 630 元（平均每件 315 元）。兩件總成本 240 元。促銷毛利額為 390 元，促銷毛利率為 61.9%（僅下降 9.5%，依然非常健康！）。"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Basket_Size_Simulator",
+        "params": {
+          "original_aov": 420,
+          "promo_aov": 630
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "顧客客單價 (AOV) 從 420 元直接拉抬至 630 元，增加幅度達 50%，同時解決了冷藏宅配每單免運門檻（設 1,000 元只需 2 組）。"
+      },
+      {
+        "step": 6,
+        "type": "Decision",
+        "content": "建議搭配「滿兩組 (4條) 免運」門檻，預估檔期營收達 63 萬元，毛利額達 39 萬元，保留 8 萬元投放 Meta 廣告，ROI 高達 4.87！"
+      }
+    ],
+    "proposal_snippet": "### 【促銷方案財務損益評估 (ROI Analysis)】\n- **促銷主軸**：「好朋友自律雙拼」第二件 5 折（平均單條 315 元，75折）。\n- **單品財務指標**：\n  - 原毛利率：71.4% ➔ 促銷後毛利率：**61.9%** (健康維持 60% 以上)。\n  - 平均客單價 (AOV)：由 420 元拉升至 **630 元** (+50%)。\n- **檔期損益平衡 (Break-Even) 試算**：\n  - 預估銷售：1,000 組 (共 2,000 條)。\n  - 檔期總營業額：**630,000 元**。\n  - 扣除產品總成本 (24 萬) 與行銷預算 (8 萬)，檔期淨貢獻毛利達 **310,000 元**。\n  - 行銷預算投報率 (ROAS/ROI)：**4.87**。",
+    "golden_prompt": "你是一位兼具財務精算頭腦的行銷總監。請依據以下產品數據：成本【{product_cost}元】、定價【{original_price}元】、方案【{promo_type}】、預估量【{target_sales_volume}件】：\n1. 嚴謹計算原毛利率 vs 促銷後毛利率差異與毛利額變動。\n2. 推導出要達到相同毛利額，銷量必須提升多少百分比（損益兩平增長率）。\n3. 提出 2 個能有效拉升客單價、防止消費者薅羊毛的防禦機制（如門檻設定、加價購搭配）。"
+  },
+  {
+    "id": "pr_crisis",
+    "name": "公關危機輿情與回應 Agent",
+    "role": "品牌公關發言人與危機拆彈專家",
+    "icon": "fa-shield-halved",
+    "badge_color": "bg-secondary",
+    "description": "模擬突發公關危機情境（如品質爭議、KOL翻車、延遲出貨），在黃金 3 小時內產出合規、誠懇且止血的公開聲明與應變 SOP。",
+    "mission": "培養企劃人「居安思危」的風控素養，讓企劃案具備完備的緊急應變預案。",
+    "fields": [
+      {
+        "id": "crisis_scenario",
+        "label": "突發危機事件描述",
+        "type": "text",
+        "default": "母親節前夕因冷鏈物流延誤，100 位客戶收到的生乳捲奶油融化且發酸"
+      },
+      {
+        "id": "public_mood",
+        "label": "社群公眾情緒現況",
+        "type": "select",
+        "options": [
+          "爆料公社發酵、憤怒要求退費賠償",
+          "PTT/Dcard 諷刺嘲笑、質疑食安衛生",
+          "各大團購群組退單、信任危機崩盤"
+        ],
+        "default": "爆料公社發酵、憤怒要求退費賠償"
+      },
+      {
+        "id": "apology_stance",
+        "label": "品牌應對姿態",
+        "type": "select",
+        "options": [
+          "完全承擔誠懇道歉 + 全額退款補償 (推薦)",
+          "釐清物流責任 + 協助客戶更換新品",
+          "嚴正聲明產品無虞 + 追究物流合約責任"
+        ],
+        "default": "完全承擔誠懇道歉 + 全額退款補償 (推薦)"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "Sentiment_Heatmap_Analyzer",
+        "desc": "社群負評擴散速度與利害關係人焦慮點分析"
+      },
+      {
+        "name": "Legal_Compliance_Checker",
+        "desc": "消保法合規性與賠償承諾界線審查"
+      },
+      {
+        "name": "Statement_Crafting_Engine",
+        "desc": "黃金道歉三原則 (共情/事實/補償方案) 文本引擎"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "母親節檔期遇上「奶油融化變質」，對食品品牌是致命傷，切忌第一時間把責任推給物流司機。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "Sentiment_Heatmap_Analyzer",
+        "params": {
+          "event": "生乳捲融化",
+          "stakeholders": [
+            "訂購子女",
+            "受贈母親"
+          ]
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "公眾最憤怒的痛點並非單純幾百元損失，而是「毀了精心準備的母親節孝心」。必須先共情情緒，再給具體補償。"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Legal_Compliance_Checker",
+        "params": {
+          "refund_terms": "全額退費 + 提供等值補償金"
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "合規確認：符合消費者保護法規範，主動補償更有助於平息消保官介入調查之風險。"
+      },
+      {
+        "step": 6,
+        "type": "Decision",
+        "content": "啟動「真心賠付・重拾甜蜜」SOP：創辦人署名公開信、受影響訂單全額退費 + 免費補寄新品/補發 500 元無門檻補償金。"
+      }
+    ],
+    "proposal_snippet": "### 【品牌危機公關處理預案與應對聲明】\n- **黃金 3 小時行動清單**：\n  1. **第一時間止血**：暫停該批次出貨，內部成立 4 人緊急處理小組。\n  2. **客服主動出擊**：不等客戶客訴，主動電話聯絡 100 位受影響訂戶致歉。\n  3. **補償三部曲**：原單「全額退費」 ➔ 專人補送「新鮮保證禮盒」 ➔ 致贈「無使用期限 500 元慰問折價券」。\n- **公開聲明稿精選段落**：\n  > 「我們深知，每一條生乳捲背後，都是大家對家人滿滿的感謝與心意。這一次，我們讓這份心意失望了，任何物流天候的理由，都不能掩蓋我們品管與督導不周的疏失。對不起！...」",
+    "golden_prompt": "你是一位擁有 20 年跨國公關經驗的危機處理大師。針對危機事件【{crisis_scenario}】（當前情緒：{public_mood}，姿態：{apology_stance}）：\n1. 擬定「黃金 24 小時內部應變標準作業程序 (SOP)」。\n2. 撰寫一份發布於官方社群的正式聲明稿（必須符合「道歉真誠、還原客觀事實、承諾徹底改善、給予超乎預期之補償」四原則，嚴禁推託卸責）。\n3. 準備 3 道針對媒體記者或毒舌網紅提問的 Q&A 擬答話術。"
+  },
+  {
+    "id": "martech_journey",
+    "name": "MarTech 顧客旅程與自動化行銷 Agent",
+    "role": "行銷科技架構師與自動化工作流工程師",
+    "icon": "fa-network-wired",
+    "badge_color": "bg-purple text-white",
+    "description": "運用現代行銷科技工具鏈（內容體驗、社群CRM、商務銷售、數據分析、流程自動化），設計全自動化獲客與留存路徑。",
+    "mission": "讓行銷企劃案告別單點廣告投放，升級為具備第一方數據閉環的現代化 MarTech 解決方案。",
+    "fields": [
+      {
+        "id": "brand_type",
+        "label": "品牌經營型態",
+        "type": "select",
+        "options": [
+          "D2C 官網自營電商",
+          "實體門市 + LINE 官方帳號",
+          "OMO 線上線下虛實融合",
+          "B2B 企業合作提案"
+        ],
+        "default": "D2C 官網自營電商"
+      },
+      {
+        "id": "core_touchpoint",
+        "label": "核心接觸管道",
+        "type": "text",
+        "default": "LINE 官方帳號、Shopline 官網、Meta 廣告、簡訊 SMS"
+      },
+      {
+        "id": "martech_focus",
+        "label": "重點強化之 MarTech 構面",
+        "type": "select",
+        "options": [
+          "社群與關係 (LINE CRM 與分眾會員)",
+          "數據與分析 (CDP 第一方標籤與分群)",
+          "內容及體驗 (AI 個人化推薦與動態商品頁)",
+          "商業與銷售 (購物車未結帳自動化召回)"
+        ],
+        "default": "社群與關係 (LINE CRM 與分眾會員)"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "MarTech_Domain_Mapper",
+        "desc": "現代行銷科技工具鏈圖譜對位"
+      },
+      {
+        "name": "Workflow_Automation_Designer",
+        "desc": "觸發條件 (Trigger) ➔ 判斷 (Condition) ➔ 行動 (Action) 流程圖"
+      },
+      {
+        "name": "CDP_Tagging_Synthesizer",
+        "desc": "顧客生命週期 RFM 標籤與自動分流引擎"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "整合現代行銷科技模組。選擇以「LINE CRM ✕ 購物車挽回」打造高轉換自動化閉環。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "MarTech_Domain_Mapper",
+        "params": {
+          "domain": "社群與關係 + 商務與銷售"
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "匹配主流工具：LINE 官方帳號 (Messaging API) + Super 8 / Omnichat + 電商購物車未結挽回模組。"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Workflow_Automation_Designer",
+        "params": {
+          "trigger": "加入購物車滿 2 小時未結帳"
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "設定 3 段挽回觸發：2 小時 LINE 推播暖心提醒 ➔ 24 小時釋出免運倒數券 ➔ 72 小時推播熱銷庫存告急。"
+      },
+      {
+        "step": 6,
+        "type": "Decision",
+        "content": "建立「新客見面禮 ➔ 滿額升級 VIP ➔ 睡眠顧客自動喚醒」全旅程，預估帶動官網回購率提升 35%。"
+      }
+    ],
+    "proposal_snippet": "### 【MarTech 現代行銷科技旅程架構圖】\n- **核心模組**：社群與關係 (CRM) ✕ 商業與銷售 (Commerce) ✕ 數據分析 (Data)。\n- **自動化旅程 4 階段設計**：\n  1. **獲客階段 (Acquisition)**：Meta 廣告導流加入 LINE 官方帳號，點擊圖文選單獲取「9折嚐鮮券」，自動標註【新客_低卡燕麥愛好者】。\n  2. **激活階段 (Activation)**：用戶加入購物車未結帳，2 小時後 LINE 自動發送客製化提醒，挽回率提升 18%。\n  3. **留存階段 (Retention)**：購買後第 14 天，系統自動發送「好口碑再購獨享 88 折優惠」，培養雙週回購習慣。\n  4. **裂變階段 (Referral)**：消費滿 1,500 元解鎖「分享專屬連結送閨蜜 100 元，妳同享 100 元購物金」，創造病毒式拉新。",
+    "golden_prompt": "你是一位專業的 MarTech 行銷科技架構師。請針對【{brand_type}】（接觸管道：{core_touchpoint}，強化構面：{martech_focus}）：\n1. 運用現代行銷科技工具鏈架構，為該品牌量身繪製一張「行銷科技工具鏈矩陣」。\n2. 詳細規劃一條「自動化顧客培育旅程」（包含 Trigger 觸發、Wait 等待條件、Condition 判定與 Action 執行動作）。\n3. 列出需要埋設的 5 個關鍵第一方數據行為標籤 (Tags)。"
+  },
+  {
+    "id": "master_proposal",
+    "name": "行銷企劃全案架構一鍵生成 Agent",
+    "role": "行銷長 (CMO) 與企劃全案統整主筆",
+    "icon": "fa-file-signature",
+    "badge_color": "bg-dark text-white",
+    "description": "參考經典行銷企劃 10 大標準章節，自動將前述所有研究整合成符合期末評分標準的專業企劃書草案。",
+    "mission": "解決期末企劃書「開頭不知怎麼寫、章節東拼西湊」的排版惡夢，提供結構完美的企劃骨架。",
+    "fields": [
+      {
+        "id": "proposal_title",
+        "label": "企劃案全域名稱",
+        "type": "text",
+        "default": "「輕享元氣・甜入心扉」元氣燕麥生乳捲新產品上市行銷企劃案"
+      },
+      {
+        "id": "exec_team",
+        "label": "提案團隊與組員",
+        "type": "text",
+        "default": "進企管四系3甲 第五組 (王小明、李美華、張建國)"
+      },
+      {
+        "id": "timeframe",
+        "label": "企劃執行期間",
+        "type": "text",
+        "default": "2026年10月01日 ~ 2026年12月31日 (為期三個月)"
+      },
+      {
+        "id": "total_budget",
+        "label": "行銷總預算規模",
+        "type": "text",
+        "default": "新台幣 30 萬元整"
+      },
+      {
+        "id": "core_strategy",
+        "label": "核心戰略主軸",
+        "type": "text",
+        "default": "以高纖低卡抗罪惡感為核心，透過短影音種草與週三辦公室團購裂變，引爆都會粉領市場"
+      }
+    ],
+    "simulated_tools": [
+      {
+        "name": "Curriculum_Rubrics_Auditor",
+        "desc": "符合 11501 課程評分標準 (期中30% / 期末30% / 平時40%)"
+      },
+      {
+        "name": "Executive_Summary_Writer",
+        "desc": "黃金一頁式執行摘要 (Executive Summary) 撰寫器"
+      },
+      {
+        "name": "Full_Campaign_Assembler",
+        "desc": "十大標準章節拼裝與排版引擎"
+      }
+    ],
+    "react_steps": [
+      {
+        "step": 1,
+        "type": "Thought",
+        "content": "啟動期末企劃總整 Agent，嚴格檢視是否符合行銷企劃標準十大章節與邱老師評分標準。"
+      },
+      {
+        "step": 2,
+        "type": "Action",
+        "tool": "Curriculum_Rubrics_Auditor",
+        "params": {
+          "target_score": "95分以上",
+          "components": [
+            "環境分析",
+            "STP",
+            "4P策略",
+            "財務預算",
+            "AI應用"
+          ]
+        }
+      },
+      {
+        "step": 3,
+        "type": "Observation",
+        "content": "結構審查完備：包含緣起、目標設定、PESTEL/SWOT、STP、4P戰術、甘特圖時程、預算損益評估與 AI 協同標註。"
+      },
+      {
+        "step": 4,
+        "type": "Action",
+        "tool": "Full_Campaign_Assembler",
+        "params": {
+          "budget": "30萬元",
+          "timeline": "3個月"
+        }
+      },
+      {
+        "step": 5,
+        "type": "Observation",
+        "content": "預算精準切分：社群廣告 40% (12萬)、KOL/KOC體驗品 25% (7.5萬)、快閃線下贈品 20% (6萬)、公關與雜支 15% (4.5萬)。"
+      },
+      {
+        "step": 6,
+        "type": "Decision",
+        "content": "生成完整企劃書大綱草案，支援學生直接複製至 Word/PowerPoint 或直接匯出列印！"
+      }
+    ],
+    "proposal_snippet": "### 【完整行銷企劃書架構草案 (符合企劃十大標準章節)】\n1. **企劃案緣起與背景**：現代健康意識抬頭與都會甜點剛需矛盾。\n2. **總體環境與競爭分析**：外部 PESTEL 趨勢向上，主要競爭者尚未切入低卡常溫即食點心。\n3. **消費者洞察與目標市場 (STP)**：定位為 25-35 歲都會上班族，抗罪惡感下午茶新選擇。\n4. **企劃目標設定 (SMART)**：上市首季達成 12,000 條銷售量，損益兩平點為 8,200 條。\n5. **產品與定價策略 (Product & Price)**：主打比利時進口燕麥與天然代糖，單條定價 150 元。\n6. **通路配送策略 (Place)**：首波以 D2C 官網低溫免運團購為主，第二波進駐全家便利商店。\n7. **推廣與活動規劃 (Promotion)**：短影音種草預熱 ➔ 辦公室萬人試吃活動 ➔ 網紅開箱聯名。\n8. **危機公關與應變預案 (Contingency)**：冷鏈物流破損包退保證，3 小時內主動補發致歉。\n9. **MarTech 數據與顧客留存 (MarTech)**：加入 LINE 領取折扣券，啟動 4 階段回購自動化旅程。\n10. **財務預算與效益評估 (Financials & ROI)**：總預算 30 萬元，預估營業額 180 萬元，ROI 達 250%。",
+    "golden_prompt": "你是一位擁有豐富提案經驗的企劃總監。請依據企劃名稱【{proposal_title}】（提案團隊：{exec_team}，預算：{total_budget}，執行期：{timeframe}，主軸：{core_strategy}）：\n1. 撰寫一份極具說服力的「一頁式執行摘要 (Executive Summary)」，包含痛點、解法、核心亮點與商業預估回報。\n2. 展開為期 3 個月的行銷活動推進時程表（分預熱、引爆、長尾三階段）。\n3. 將 30 萬行銷預算進行科學化百分比配比，並估算預期達成的總曝光量 (Impressions)、點擊數與預估營業額。"
+  }
+]

@@ -1,0 +1,489 @@
+/* ==========================================================================
+   萬能科技大學 - 創意行銷企劃實務 ✕ Agentic AI 互動教學平台
+   授課教師：邱俊維 博士 ｜ 開課班級：進企管四系3甲 (F401 教室)
+   ========================================================================== */
+
+:root {
+  --primary-color: #FF5E3A;       /* 活力珊瑚橘 */
+  --primary-hover: #E04826;
+  --secondary-color: #4F46E5;     /* AI 智慧靛藍 */
+  --secondary-hover: #4338CA;
+  --accent-color: #F59E0B;        /* 靈感琥珀金 */
+  --dark-bg: #0F172A;            /* 極客深灰藍 */
+  --light-bg: #F8FAFC;           /* 珍珠柔白底 */
+  --card-bg: #FFFFFF;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border-color: #E2E8F0;
+  --success-color: #10B981;
+  --danger-color: #EF4444;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 36px rgba(255, 94, 58, 0.12);
+}
+
+body {
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-bottom: 70px;
+}
+
+/* 頂部導航列 */
+.navbar-custom {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-bottom: 2px solid var(--primary-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.brand-badge {
+  background: linear-gradient(135deg, var(--primary-color), #FF8A65);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link-custom {
+  color: #E2E8F0 !important;
+  font-weight: 500;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.nav-link-custom:hover, .nav-link-custom.active {
+  color: #FFFFFF !important;
+  background-color: rgba(255, 94, 58, 0.2);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* 教室投影與手機模式開關 */
+.mode-pill {
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: #F8FAFC;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-pill:hover, .mode-pill.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* 主容器與頁首橫幅 */
+.hero-banner {
+  background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 94, 58, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+  color: #CBD5E1;
+  font-size: 1.05rem;
+}
+
+/* 卡片與元件樣式 */
+.card-custom {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card-custom:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header-gradient {
+  background: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+}
+
+/* 教師個人檔案卡片 */
+.teacher-avatar-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.info-badge {
+  background-color: #F1F5F9;
+  color: #334155;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* 評分標準卡片 */
+.grading-card {
+  border-left: 5px solid var(--primary-color);
+  padding: 1rem;
+  background: #FFF;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.percentage-badge {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+/* 18 週課程地圖時間軸卡片 */
+.week-card {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: white;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.week-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.week-badge {
+  background: linear-gradient(135deg, var(--primary-color), #FF8A65);
+  color: white;
+  font-weight: 800;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.tag-martech {
+  background-color: #EDE9FE;
+  color: #6D28D9;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.tag-textbook {
+  background-color: #E0F2FE;
+  color: #0369A1;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* 課堂專用：靈感抽卡機 (Idea Deck) */
+.idea-card {
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  background: white;
+  box-shadow: var(--shadow-sm);
+  border: 2px dashed #CBD5E1;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.idea-card.target-card { border-color: #3B82F6; background: #EFF6FF; }
+.idea-card.pain-card { border-color: #EF4444; background: #FEF2F2; }
+.idea-card.tech-card { border-color: #8B5CF6; background: #F5F3FF; }
+.idea-card.scene-card { border-color: #F59E0B; background: #FFFBEB; }
+
+.idea-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 創意大轉盤 (Spin Wheel) */
+.wheel-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+#wheel-canvas {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 24px solid #DC2626;
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* SCAMPER 課堂計時器 */
+.timer-display {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: var(--dark-bg);
+  background: #F1F5F9;
+  border-radius: 12px;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+
+/* Agentic AI ReAct 終端機視窗 */
+.terminal-window {
+  background-color: #0D1117;
+  border-radius: var(--radius-md);
+  color: #C9D1D9;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid #30363D;
+}
+
+.terminal-header {
+  background-color: #161B22;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #30363D;
+}
+
+.terminal-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  margin-right: 6px;
+  display: inline-block;
+}
+.dot-red { background-color: #FF5F56; }
+.dot-yellow { background-color: #FFBD2E; }
+.dot-green { background-color: #27C93F; }
+
+.terminal-body {
+  padding: 1.25rem;
+  max-height: 480px;
+  overflow-y: auto;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.react-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-right: 6px;
+}
+
+.badge-thought { background: #1E3A8A; color: #93C5FD; }
+.badge-action { background: #92400E; color: #FDE68A; }
+.badge-observation { background: #065F46; color: #A7F3D0; }
+.badge-decision { background: #701A75; color: #F5D0FE; }
+
+/* 測驗系統樣式 */
+.quiz-option {
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.quiz-option:hover {
+  border-color: var(--secondary-color);
+  background: #F8FAFC;
+}
+
+.quiz-option.selected {
+  border-color: var(--primary-color);
+  background: #FFF5F2;
+  font-weight: 600;
+}
+
+.quiz-option.correct {
+  border-color: var(--success-color);
+  background: #ECFDF5;
+}
+
+.quiz-option.incorrect {
+  border-color: var(--danger-color);
+  background: #FEF2F2;
+}
+
+.option-prefix {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.quiz-option.selected .option-prefix {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* 成就勳章徽章 */
+.badge-card {
+  text-align: center;
+  padding: 1.2rem;
+  border-radius: var(--radius-md);
+  background: white;
+  border: 1px solid var(--border-color);
+  transition: all 0.25s ease;
+}
+
+.badge-card.unlocked {
+  border-color: var(--accent-color);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFFBEB 100%);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.badge-icon {
+  font-size: 2.5rem;
+  color: #CBD5E1;
+  margin-bottom: 0.5rem;
+}
+
+.badge-card.unlocked .badge-icon {
+  color: var(--accent-color);
+  transform: scale(1.08);
+}
+
+/* 手機適配專屬響應式優化 (Mobile Friendly) */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px;
+  }
+  .hero-banner {
+    padding: 1.5rem 1.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-title {
+    font-size: 1.45rem;
+  }
+  .timer-display {
+    font-size: 2.8rem;
+  }
+  .wheel-container {
+    width: 270px;
+    height: 270px;
+  }
+  #wheel-canvas {
+    width: 270px;
+    height: 270px;
+  }
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #0F172A;
+    border-top: 1px solid #334155;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    z-index: 1000;
+  }
+  .mobile-nav-btn {
+    color: #94A3B8;
+    text-decoration: none;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mobile-nav-btn i {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+  }
+  .mobile-nav-btn.active {
+    color: var(--primary-color);
+  }
+}
+
+/* 列印專屬樣式 (一頁式企劃書草案列印用) */
+@media print {
+  body {
+    background: white !important;
+    padding: 0 !important;
+    font-size: 12pt;
+    color: black;
+  }
+  .no-print, .navbar, .mobile-bottom-nav, .btn, .nav-tabs {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .card-custom {
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+  }
+}
