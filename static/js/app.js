@@ -405,11 +405,6 @@ async function loadSystemData() {
 }
 
 function renderHeaderInfo() {
-  const urlSpan = document.getElementById('classroom-url-display');
-  if (urlSpan) {
-    urlSpan.textContent = systemInfo.classroom_url || window.location.href;
-  }
-
   const btnGoogleLogin = document.getElementById('btn-google-login');
   const userAuthBox = document.getElementById('user-auth-box');
   const studentBadge = document.getElementById('student-info-badge');
