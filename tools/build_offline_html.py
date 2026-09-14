@@ -53,18 +53,22 @@ def build_offline():
         with open(vibe_path, 'r', encoding='utf-8') as f:
             vibe_guide = f.read()
 
+    # 安全跳脫函式：防止 JSON 字串內的 </script> 或 </ 提前閉合 HTML <script> 標籤
+    def safe_script_embed(raw_json_str):
+        return raw_json_str.replace('</', '<\\/')
+
     # 1. 內嵌 CSS
     html = html.replace('<link rel="stylesheet" href="/static/css/style.css">', f'<style>\n{css}\n</style>')
 
-    # 2. 注入離線全量資料庫
+    # 2. 注入離線全量資料庫 (經安全跳脫，確保各項資料正常加載且代碼不外洩)
     embedded_data = f"""
   <!-- 離線全量內嵌資料庫 -->
   <script>
-    window.OFFLINE_CURRICULUM = {curriculum};
-    window.OFFLINE_QUESTIONS = {questions};
-    window.OFFLINE_TEMPLATES = {templates};
-    window.OFFLINE_SAMPLE_WORKS = {sample_works};
-    window.OFFLINE_VIBE_GUIDE = {vibe_guide};
+    window.OFFLINE_CURRICULUM = {safe_script_embed(curriculum)};
+    window.OFFLINE_QUESTIONS = {safe_script_embed(questions)};
+    window.OFFLINE_TEMPLATES = {safe_script_embed(templates)};
+    window.OFFLINE_SAMPLE_WORKS = {safe_script_embed(sample_works)};
+    window.OFFLINE_VIBE_GUIDE = {safe_script_embed(vibe_guide)};
     window.IS_STANDALONE_OFFLINE = true;
   </script>
 """
