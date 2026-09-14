@@ -1,0 +1,4574 @@
+{
+  "1": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.01",
+      "title": "Hero 視覺區塊 ✕ 品牌調性：轉換戰略定位",
+      "subtitle": "第 1 週主題組件：為何「Hero 視覺區塊 ✕ 品牌調性」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：首屏全寬大標題、漸層背景與核心價值",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「Hero 視覺區塊 ✕ 品牌調性」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：Hero 視覺區塊 ✕ 品牌調性」",
+          "「視覺風格要求：現代深藍紫微漸層搭配白色大字」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「header.hero」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 header",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「現代深藍紫微漸層搭配白色大字」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「Hero 視覺區塊 ✕ 品牌調性」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 header.hero",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 01 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「Hero 視覺區塊 ✕ 品牌調性」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "2": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.01",
+      "title": "一頁式標準 5 大區塊搭建：轉換戰略定位",
+      "subtitle": "第 2 週主題組件：為何「一頁式標準 5 大區塊搭建」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：Header、痛點、解方、證明、Footer",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「一頁式標準 5 大區塊搭建」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：一頁式標準 5 大區塊搭建」",
+          "「視覺風格要求：高對比清爽卡片式模組排版」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「main.landing-container」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 main",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「高對比清爽卡片式模組排版」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「一頁式標準 5 大區塊搭建」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 main.landing-container",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 02 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「一頁式標準 5 大區塊搭建」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "3": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.01",
+      "title": "Hero 區塊大標題與 CTA 按鈕：轉換戰略定位",
+      "subtitle": "第 3 週主題組件：為何「Hero 區塊大標題與 CTA 按鈕」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：高轉換率 Call-to-Action 行動按鈕",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「Hero 區塊大標題與 CTA 按鈕」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：Hero 區塊大標題與 CTA 按鈕」",
+          "「視覺風格要求：亮橘色按鈕帶有呼吸光暈動態效果」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「button.cta-primary」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 button",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「亮橘色按鈕帶有呼吸光暈動態效果」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「Hero 區塊大標題與 CTA 按鈕」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 button.cta-primary",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 03 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「Hero 區塊大標題與 CTA 按鈕」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "4": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.01",
+      "title": "PESTEL 6 欄響應式網格卡片組件：轉換戰略定位",
+      "subtitle": "第 4 週主題組件：為何「PESTEL 6 欄響應式網格卡片組件」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：政治、經濟、社會、科技、環境、法規",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「PESTEL 6 欄響應式網格卡片組件」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：PESTEL 6 欄響應式網格卡片組件」",
+          "「視覺風格要求：CSS Grid 響應式 3 欄自適應排版」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.pestel-grid」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「CSS Grid 響應式 3 欄自適應排版」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「PESTEL 6 欄響應式網格卡片組件」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.pestel-grid",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 04 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「PESTEL 6 欄響應式網格卡片組件」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "5": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.01",
+      "title": "3 欄式競品對比卡片網頁組件：轉換戰略定位",
+      "subtitle": "第 5 週主題組件：為何「3 欄式競品對比卡片網頁組件」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：我方優勢 vs 直接對手 vs 跨界替代品",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「3 欄式競品對比卡片網頁組件」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：3 欄式競品對比卡片網頁組件」",
+          "「視覺風格要求：中間推薦卡片凸起且加金邊微陰影」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.pricing-compare」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「中間推薦卡片凸起且加金邊微陰影」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「3 欄式競品對比卡片網頁組件」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.pricing-compare",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 05 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「3 欄式競品對比卡片網頁組件」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "6": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.01",
+      "title": "核心價值主張 (UVP) 卡片：轉換戰略定位",
+      "subtitle": "第 6 週主題組件：為何「核心價值主張 (UVP) 卡片」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：獨特價值主張與顧客三大核心利益",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「核心價值主張 (UVP) 卡片」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：核心價值主張 (UVP) 卡片」",
+          "「視覺風格要求：毛玻璃磨砂效果搭配圓角微投影」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.uvp-card-group」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「毛玻璃磨砂效果搭配圓角微投影」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「核心價值主張 (UVP) 卡片」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.uvp-card-group",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 06 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「核心價值主張 (UVP) 卡片」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "7": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.01",
+      "title": "互動式 SWOT 九宮格點擊展開模組：轉換戰略定位",
+      "subtitle": "第 7 週主題組件：為何「互動式 SWOT 九宮格點擊展開模組」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：點擊卡片彈出視窗查看策略詳情",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「互動式 SWOT 九宮格點擊展開模組」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：互動式 SWOT 九宮格點擊展開模組」",
+          "「視覺風格要求：CSS Flex 佈局搭配 JavaScript Modal 彈窗」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.swot-matrix-modal」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「CSS Flex 佈局搭配 JavaScript Modal 彈窗」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「互動式 SWOT 九宮格點擊展開模組」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.swot-matrix-modal",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 07 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「互動式 SWOT 九宮格點擊展開模組」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "8": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.01",
+      "title": "課堂靈感抽卡機與便利貼倒數計時：轉換戰略定位",
+      "subtitle": "第 8 週主題組件：為何「課堂靈感抽卡機與便利貼倒數計時」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：隨機抽選 SCAMPER 靈感卡與限時器",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「課堂靈感抽卡機與便利貼倒數計時」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：課堂靈感抽卡機與便利貼倒數計時」",
+          "「視覺風格要求：隨機數演算法與純 CSS 翻卡動畫」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.card-picker-timer」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「隨機數演算法與純 CSS 翻卡動畫」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「課堂靈感抽卡機與便利貼倒數計時」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.card-picker-timer",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 08 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「課堂靈感抽卡機與便利貼倒數計時」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "9": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.01",
+      "title": "期中提案一頁式成果展示頁發布：轉換戰略定位",
+      "subtitle": "第 9 週主題組件：為何「期中提案一頁式成果展示頁發布」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：章節平滑滾動導覽與成果卡片",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「期中提案一頁式成果展示頁發布」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：期中提案一頁式成果展示頁發布」",
+          "「視覺風格要求：平滑滾動 smooth-scroll 與 Sticky 導航」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「nav.sticky-nav」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 nav",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「平滑滾動 smooth-scroll 與 Sticky 導航」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「期中提案一頁式成果展示頁發布」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 nav.sticky-nav",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 09 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「期中提案一頁式成果展示頁發布」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "10": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.01",
+      "title": "新產品線上早鳥預購一頁式網頁：轉換戰略定位",
+      "subtitle": "第 10 週主題組件：為何「新產品線上早鳥預購一頁式網頁」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：預購數量選擇器與前台表單驗證",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「新產品線上早鳥預購一頁式網頁」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：新產品線上早鳥預購一頁式網頁」",
+          "「視覺風格要求：原生 HTML5 表單驗證與即時金額加總」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「form.preorder-form」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 form",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「原生 HTML5 表單驗證與即時金額加總」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「新產品線上早鳥預購一頁式網頁」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 form.preorder-form",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 10 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「新產品線上早鳥預購一頁式網頁」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "11": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.01",
+      "title": "倒數計時器 (Countdown) 與限量標籤：轉換戰略定位",
+      "subtitle": "第 11 週主題組件：為何「倒數計時器 (Countdown) 與限量標籤」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：最後席次急迫感與倒數計時",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「倒數計時器 (Countdown) 與限量標籤」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：倒數計時器 (Countdown) 與限量標籤」",
+          "「視覺風格要求：setInterval 遞減秒數與紅標跳動動畫」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.countdown-badge」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「setInterval 遞減秒數與紅標跳動動畫」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「倒數計時器 (Countdown) 與限量標籤」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.countdown-badge",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 11 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「倒數計時器 (Countdown) 與限量標籤」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "12": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.01",
+      "title": "快閃活動報名表單與時間軸組件：轉換戰略定位",
+      "subtitle": "第 12 週主題組件：為何「快閃活動報名表單與時間軸組件」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：垂直時序圖呈現活動三大流程",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「快閃活動報名表單與時間軸組件」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：快閃活動報名表單與時間軸組件」",
+          "「視覺風格要求：垂直線條連接圓點節點之時間軸」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.vertical-timeline」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「垂直線條連接圓點節點之時間軸」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「快閃活動報名表單與時間軸組件」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.vertical-timeline",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 12 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「快閃活動報名表單與時間軸組件」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "13": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.01",
+      "title": "常見問答 (FAQ) 折疊手風琴組件：轉換戰略定位",
+      "subtitle": "第 13 週主題組件：為何「常見問答 (FAQ) 折疊手風琴組件」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：點擊展開收合解答與平滑過渡",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「常見問答 (FAQ) 折疊手風琴組件」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：常見問答 (FAQ) 折疊手風琴組件」",
+          "「視覺風格要求：details/summary 或 JS 點擊切換高度」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.accordion-item」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「details/summary 或 JS 點擊切換高度」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「常見問答 (FAQ) 折疊手風琴組件」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.accordion-item",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 13 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「常見問答 (FAQ) 折疊手風琴組件」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "14": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.01",
+      "title": "折價券領取彈窗與滿額免運進度條：轉換戰略定位",
+      "subtitle": "第 14 週主題組件：為何「折價券領取彈窗與滿額免運進度條」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：新客折價券彈窗與消費進度條",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「折價券領取彈窗與滿額免運進度條」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：折價券領取彈窗與滿額免運進度條」",
+          "「視覺風格要求：固定底端浮動條搭配動態寬度進度」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.coupon-popup-bar」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「固定底端浮動條搭配動態寬度進度」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「折價券領取彈窗與滿額免運進度條」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.coupon-popup-bar",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 14 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「折價券領取彈窗與滿額免運進度條」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "15": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.01",
+      "title": "LINE 官方帳號導流與多連結導航頁：轉換戰略定位",
+      "subtitle": "第 15 週主題組件：為何「LINE 官方帳號導流與多連結導航頁」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：手機版專屬 Link in Bio 多功能跳轉",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「LINE 官方帳號導流與多連結導航頁」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：LINE 官方帳號導流與多連結導航頁」",
+          "「視覺風格要求：直式卡片堆疊與社群圖示漸變按鈕」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.link-in-bio」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「直式卡片堆疊與社群圖示漸變按鈕」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「LINE 官方帳號導流與多連結導航頁」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.link-in-bio",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 15 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「LINE 官方帳號導流與多連結導航頁」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "16": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.01",
+      "title": "個人行銷企劃全案單頁展示官網：轉換戰略定位",
+      "subtitle": "第 16 週主題組件：為何「個人行銷企劃全案單頁展示官網」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：十大章節錨點跳轉與全案目錄",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「個人行銷企劃全案單頁展示官網」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：個人行銷企劃全案單頁展示官網」",
+          "「視覺風格要求：側邊目錄欄與滾動監聽 active 狀態」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「section.full-case-site」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 section",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「側邊目錄欄與滾動監聽 active 狀態」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「個人行銷企劃全案單頁展示官網」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 section.full-case-site",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 16 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「個人行銷企劃全案單頁展示官網」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "17": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.01",
+      "title": "個人成果作品集首頁 (Portfolio)：轉換戰略定位",
+      "subtitle": "第 17 週主題組件：為何「個人成果作品集首頁 (Portfolio)」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：作品網格瀑布流展示與外鏈預覽",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「個人成果作品集首頁 (Portfolio)」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：個人成果作品集首頁 (Portfolio)」",
+          "「視覺風格要求：懸停圖片放大與作品資訊浮現效果」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.portfolio-grid」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「懸停圖片放大與作品資訊浮現效果」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「個人成果作品集首頁 (Portfolio)」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.portfolio-grid",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 17 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「個人成果作品集首頁 (Portfolio)」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ],
+  "18": [
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.01",
+      "title": "作品上傳教學展示廊並永久保存：轉換戰略定位",
+      "subtitle": "第 18 週主題組件：為何「作品上傳教學展示廊並永久保存」是行銷網頁的核心抓手",
+      "layout": "2card",
+      "left": {
+        "title": "行銷溝通痛點與目標",
+        "theme": "blue",
+        "points": [
+          "痛點：傳統書面企劃缺乏即時互動感",
+          "角色：整合 Google 試算表與雲端展示",
+          "吸睛力：在 3 秒內抓住目標客群目光",
+          "引導力：降低認知負荷引導採取行動"
+        ]
+      },
+      "right": {
+        "title": "零代碼意圖驅動理念",
+        "theme": "teal",
+        "points": [
+          "無需背誦語法：以自然語言下達意圖",
+          "企管核心：專注於內容訊息與排版邏輯",
+          "即時回饋：所見即所得快速修改微調",
+          "商務價值：企劃案附帶可點擊網頁原型"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.02",
+      "title": "自然語言意圖提示詞 (Vibe Prompt)",
+      "subtitle": "如何對 AI Studio 或 Cursor 下達指令生成「作品上傳教學展示廊並永久保存」",
+      "layout": "2card",
+      "left": {
+        "title": "結構化提示詞公式",
+        "theme": "blue",
+        "points": [
+          "「請幫我建立一個行銷網頁組件：作品上傳教學展示廊並永久保存」",
+          "「視覺風格要求：動態讀取 JSON 渲染全班作品展示牆」",
+          "「響應式規範：確保手機與電腦皆完美呈現」",
+          "「技術要求：純 HTML/CSS/JS 單一檔案產出」"
+        ]
+      },
+      "right": {
+        "title": "行銷文案內嵌指示",
+        "theme": "teal",
+        "points": [
+          "填入真實企劃文案，杜絕 Lorem Ipsum",
+          "字體要求：使用乾淨微軟正黑體或思源黑體",
+          "行動呼籲：文字需具備強烈召喚力",
+          "色彩規範：呼應品牌主題調性色彩"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.03",
+      "title": "HTML 語意化結構骨架剖析",
+      "subtitle": "看懂「div.gallery-viewer」骨架結構，掌握網頁組件之積木原理",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 外層容器 (Container)",
+          "theme": "blue",
+          "points": [
+            "標籤選擇：使用語意化 div",
+            "類別命名：給予清楚 class 易於辨識",
+            "最大寬度限制：設定 max-width 1200px",
+            "自動水平置中：margin: 0 auto 規範"
+          ]
+        },
+        {
+          "title": "2. 核心內容層 (Body)",
+          "theme": "teal",
+          "points": [
+            "主標題：以 h2 或 h3 標註核心訊息",
+            "段落說明：以 p 標籤承載輔助說明文字",
+            "資訊群組：善用 div 包裹獨立資訊單元",
+            "圖文整合：使用 img 或 svg 圖示強化焦點"
+          ]
+        },
+        {
+          "title": "3. 互動按鈕層 (Action)",
+          "theme": "amber",
+          "points": [
+            "觸發元件：使用 a 連結或 button 標籤",
+            "無障礙標籤：標記 aria-label 增進體驗",
+            "點擊回饋：設定指針游標 cursor: pointer",
+            "跳轉錨點：設定 href 導向特定轉換段落"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.04",
+      "title": "CSS 現代美學排版與視覺調教",
+      "subtitle": "打造「動態讀取 JSON 渲染全班作品展示牆」的高質感商業介面美學",
+      "layout": "2card",
+      "left": {
+        "title": "色彩與背景設計規範",
+        "theme": "blue",
+        "points": [
+          "主色調配置：佔比 60% 營造沉穩品牌氛圍",
+          "強調色配置：佔比 10% 用於關鍵按鈕焦點",
+          "字體對比：確保深淺對比符合閱讀舒適度",
+          "留白呼吸感：加大 padding 避免擁擠窒息"
+        ]
+      },
+      "right": {
+        "title": "圓角、陰影與微互動",
+        "theme": "teal",
+        "points": [
+          "圓角設計：border-radius: 12px 溫潤現代",
+          "多層微陰影：box-shadow 營造精緻立體懸浮",
+          "懸停過渡：transition: all 0.3s 平滑反饋",
+          "按鈕按壓感：transform: translateY(-2px)"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.05",
+      "title": "JavaScript 核心互動控制要領",
+      "subtitle": "賦予「作品上傳教學展示廊並永久保存」動態生命力，零基礎也能看懂的邏輯",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "1. 選取目標元素",
+          "theme": "blue",
+          "points": [
+            "語法：document.querySelector()",
+            "目標：準確鎖定 div.gallery-viewer",
+            "指派變數：儲存元件方便後續操作",
+            "安全防護：檢查元素是否存在防報錯"
+          ]
+        },
+        {
+          "title": "2. 監聽使用者動作",
+          "theme": "teal",
+          "points": [
+            "事件綁定：addEventListener()",
+            "常見動作：click 點擊、scroll 滾動",
+            "即時反應：使用者一觸碰立刻觸發指令",
+            "防止跳頁：event.preventDefault()"
+          ]
+        },
+        {
+          "title": "3. 切換視覺狀態",
+          "theme": "amber",
+          "points": [
+            "類別切換：classList.toggle(\"active\")",
+            "顯示隱藏：修改 display 或 opacity",
+            "數值計算：即時更新購物金額或折扣",
+            "彈出提示：優雅呈現操作成功訊息"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.06",
+      "title": "手機直式瀏覽 (RWD) 響應式檢測",
+      "subtitle": "台灣超過 85% 訪客使用手機瀏覽！排版絕不能跑版破裂",
+      "layout": "2card",
+      "left": {
+        "title": "手機端版面自適應法則",
+        "theme": "blue",
+        "points": [
+          "視窗標籤：必備 viewport meta 宣告",
+          "多欄自動折行：電腦 3 欄變為手機單欄",
+          "按鈕觸控區域：高度至少 44px 方便大拇指",
+          "字體大小調降：標題縮減至 22~26px 適配小螢幕"
+        ]
+      },
+      "right": {
+        "title": "F12 開發者工具檢驗三步驟",
+        "theme": "teal",
+        "points": [
+          "按下 F12：切換至手機模擬裝置視角",
+          "選擇機型：切換 iPhone 14/15 尺寸測試",
+          "水平滑動檢查：杜絕出現惱人的左右捲軸",
+          "字級閱讀檢核：確認免放大即可舒適閱讀"
+        ]
+      }
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.07",
+      "title": "GitHub Pages 30 秒一鍵全球上線",
+      "subtitle": "完全免費、免伺服器，將你的數位原型變成全世界可開網址",
+      "layout": "3card",
+      "cards": [
+        {
+          "title": "步驟一：建立倉庫",
+          "theme": "blue",
+          "points": [
+            "登入個人的 GitHub 免費帳號",
+            "新建 Repository 並勾選 Public 公開",
+            "專案命名規範：英文字母無空格",
+            "將網頁代碼命名為 index.html"
+          ]
+        },
+        {
+          "title": "步驟二：上傳檔案",
+          "theme": "teal",
+          "points": [
+            "點擊 Upload files 將檔案拖拉上傳",
+            "輸入 Commit message 點擊綠色確認",
+            "等待檔案完成雲端儲存與版控",
+            "單一 html 檔架構維護最為簡便"
+          ]
+        },
+        {
+          "title": "步驟三：啟用 Pages",
+          "theme": "amber",
+          "points": [
+            "進入專案 Settings ➔ 左側 Pages 分頁",
+            "Branch 選擇 main 點擊 Save 儲存",
+            "等待 30 秒重新整理獲得專屬網址",
+            "複製網址即可分享至社群或履歷"
+          ]
+        }
+      ]
+    },
+    {
+      "badge": "VIBE CODING 原型實作 ｜ 第 18 週",
+      "sec": "數位原型 P.08",
+      "title": "零基礎除錯急救包與避坑指引",
+      "subtitle": "遇到跑版、按鈕沒反應？三句指令讓 AI 瞬間修復「作品上傳教學展示廊並永久保存」",
+      "layout": "2card",
+      "left": {
+        "title": "常見初學者三大地雷",
+        "theme": "rose",
+        "points": [
+          "地雷一：檔名未命名為 index.html 導致 404",
+          "地雷二：CSS 漏寫關閉括號導致整頁破版",
+          "地雷三：圖片外鏈失效顯示破損打叉圖標",
+          "警惕：不要手動亂改不懂的代碼片段"
+        ]
+      },
+      "right": {
+        "title": "AI 急救修復指令模板",
+        "theme": "teal",
+        "points": [
+          "「我手機上看按鈕文字被截斷，請修正」",
+          "「點擊時彈窗沒有跳出來，請檢查 JS 語法」",
+          "「請將所有 CSS 與 JS 合併回單一檔案」",
+          "將整段代碼貼給 AI，要求一鍵修復即可"
+        ]
+      }
+    }
+  ]
+}

@@ -1,8 +1,22 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 萬能科技大學 11501 創意行銷企劃實務 - 51 頁全景投影片生成引擎 (tools/slide_engine.py)
 負責將每一週的週次配置，精準生成 51 張高畫質、符合 28 號字排版、零溢出的投影片
 """
+import os
+import json
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+
+with open(os.path.join(DATA_DIR, 'chapter_slides.json'), 'r', encoding='utf-8') as f:
+    CHAPTER_SLIDES = json.load(f)
+
+with open(os.path.join(DATA_DIR, 'agent_slides.json'), 'r', encoding='utf-8') as f:
+    AGENT_SLIDES = json.load(f)
+
+with open(os.path.join(DATA_DIR, 'vibe_slides.json'), 'r', encoding='utf-8') as f:
+    VIBE_SLIDES = json.load(f)
 
 def build_week_slides(wc):
     week_num = wc['week']
@@ -204,280 +218,17 @@ def build_week_slides(wc):
     # -------------------------------------------------------------
     # Section 2: 曾光華《行銷企劃》經典學理深度拆解 (P.06 ~ P.23, 18 slides)
     # -------------------------------------------------------------
-    sec2_titles = [
-        ('核心定義與理論基石', '深入拆解學理基礎與關鍵商業概念範疇', '定義本質與核心價值', '企劃目的與戰略使命'),
-        ('關鍵程序與推導步驟', '科學化推導程序確保企劃邏輯嚴謹連貫', '前期分析與問題界定程序', '中期決策與後期控管步驟'),
-        ('企劃分析框架三大維度', '以三維立體視角全面檢視商業環境變數', None, None), # 3card
-        ('核心指標與評估尺規', '將抽象戰略轉化為具體量化之檢驗指標', '量化成果檢驗維度', '質化效益與品牌資產累積'),
-        ('結構化分析模型運用', '善用經典商學模型提升分析精準度', '模型架構與理論邊界', '實務導入流程與檢驗標準'),
-        ('企劃成功三大關鍵支柱', '缺一不可的企劃成功的黃金支撐架構', None, None), # 3card
-        (f'經典案例一：{case}', '標竿企業如何成功運用本章學理翻轉劣勢', '案例市場背景與面臨瓶頸', '關鍵企劃切入點與落實作為'),
-        ('經典案例二：台灣在地中小企業突圍', '桃園在地產業如何以小博大創造利基市場', '在地資源限制與市場痛點', '低成本高轉換之企劃策略'),
-        ('案例成敗對比：成功 vs 失敗', '深度剖析同一產業下不同企劃策略之命運差異', None, None), # 3card
-        (f'企劃常犯盲點：{pitfall}', '深入剖析導致企劃失敗的常見盲點與誤區', '表面現象與背後真正成因', '決策偏差之心理與組織根源'),
-        ('專業企劃人員自我檢核清單', '提案前務必逐項確認的十點防禦性指標', '結構邏輯檢核要點', '市場落地可行性查核'),
-        ('企劃書實戰撰寫要領', '如何寫出讓老闆與客戶一眼看懂的專業文稿', None, None), # 3card
-        ('質化與量化資料蒐集標準流程', '垃圾進垃圾出：確保企劃引用資料真實可靠', '次級資料蒐集與篩選標準', '初級市場調研之田野調查法'),
-        ('數據解讀與市場洞察轉化藝術', '如何從冰冷的數字中看見消費者的真實渴望', '統計數據背後的行為動機', '將洞察轉化為具體行動綱領'),
-        ('跨通路整合思維與接觸點佈局', '全通路時代顧客在各接觸點的一致體驗', None, None), # 3card
-        ('預算配置原則與效益試算邏輯', '精打細算每一分行銷費用，說服財務長批准', '行銷費用分類與配置比例', '邊際貢獻率與損益平衡試算'),
-        ('風險控制與危機應變機制設計', '預先設定最壞情境並備妥退場方案', '潛在風險預警指標設定', '應急備案 (Plan B) 啟動門檻'),
-        ('本章學理精華小結與知識脈絡', '回顧本單元核心知識點並連結全案架構', None, None) # 3card
-    ]
-
-    for idx, item in enumerate(sec2_titles):
-        p_num = 6 + idx
-        s_title, s_sub, left_t, right_t = item
-        if left_t is None:
-            # 3card layout
-            slides.append({
-                'layout': '3card',
-                'badge': '曾光華 5E 經典學理拆解',
-                'sec': f'學理深化 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'cards': [
-                    {
-                        'title': '核心維度一：邏輯',
-                        'theme': 'blue',
-                        'points': [
-                            f'奠基於 {concept} 之嚴謹論證',
-                            '問題定義與解決方案緊密扣合',
-                            '以客觀次級資料與調研為支撐',
-                            '杜絕自相矛盾的跳躍式推導'
-                        ]
-                    },
-                    {
-                        'title': '核心維度二：創意',
-                        'theme': 'teal',
-                        'points': [
-                            '突破陳腔濫調，創造市場記憶點',
-                            '以非對稱思維發掘潛在利基點',
-                            f'借力 {scamper} 啟發突破切角',
-                            '讓行銷訴求直擊目標客群痛點'
-                        ]
-                    },
-                    {
-                        'title': '核心維度三：執行',
-                        'theme': 'amber',
-                        'points': [
-                            '排定明確可控的甘特圖里程碑',
-                            '嚴格控管人事物預算資源配比',
-                            '設定客觀即時的量化檢驗指標',
-                            '預留危機應對與調整優化彈性'
-                        ]
-                    }
-                ]
-            })
-        else:
-            # 2card layout
-            slides.append({
-                'layout': '2card',
-                'badge': '曾光華 5E 經典學理拆解',
-                'sec': f'學理深化 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'left': {
-                    'title': f'{left_t}',
-                    'theme': 'blue',
-                    'points': [
-                        f'理論基石：緊扣 {concept} 原則',
-                        '結構清晰：層層推演商業運作因果',
-                        '依據充分：結合最新產業調研數據',
-                        '實務導向：杜絕無效空談的理論教條'
-                    ]
-                },
-                'right': {
-                    'title': f'{right_t}',
-                    'theme': 'teal',
-                    'points': [
-                        f'實戰要領：精準防範 {pitfall}',
-                        '決策標準：設定可驗證之衡量規準',
-                        '行動方針：指引企劃書具體撰寫段落',
-                        '企管思維：兼顧營收效益與品牌聲譽'
-                    ]
-                }
-            })
+    slides.extend(CHAPTER_SLIDES.get(str(week_num), []))
 
     # -------------------------------------------------------------
     # Section 3: Agentic AI 智慧代理人協同實戰 (P.24 ~ P.35, 12 slides)
     # -------------------------------------------------------------
-    sec3_titles = [
-        ('為什麼需要 Agentic AI？行銷指揮官思維', '從手動勞力密集搬運，躍升為策略指揮中樞', '傳統行銷人工作盲點', '現代 AI 行銷指揮官優勢'),
-        ('ReAct 推理架構深度解析', 'Thought ➔ Action ➔ Observation ➔ Decision 循環', 'ReAct 核心運作四步驟', '行銷決策場景應用示範'),
-        (f'本週專屬智能體：{agent}', '專精特定行銷任務領域的專家代理人角色設定', None, None), # 3card
-        ('CLEAR 提示詞黃金框架詳解', '商務提問五大維度：Context, Limits, Expectation, Action, Role', 'CLEAR 框架前三維度', 'CLEAR 框架後兩維度'),
-        ('提示詞對比演練：劣質 vs 專業級 CLEAR', '一字之差，AI 產出品質有天壤之別的實證', '常見無效劣質 Prompt 盲點', '專業級 CLEAR 提示詞示範'),
-        ('Agent 多輪引導技巧：追問、補強與校準', '如何像資深顧問一樣引導 AI 深化分析層次', None, None), # 3card
-        ('實機示範一：使用 Agent 進行市場分析', '以自然語言指令驅動 AI 完成專業級情資初探', '輸入指令與情境背景設定', 'AI 推理軌跡與結構化輸出'),
-        ('實機示範二：使用 Agent 產出企劃草案', '將碎片化的思考整合為條理分明的標準提案段落', '企劃草案結構要求設定', '高質量輸出成果要點解析'),
-        ('AI 產出成果的批判性審查三原則', 'AI 是你的智囊團，但企劃成敗全權由你負責', None, None), # 3card
-        ('提示詞資料庫建置：累積專屬行銷咒語庫', '將成功的對話歷程轉化為可重複調用的資產', '咒語庫分類與標籤管理', '持續迭代與客製化優化'),
-        ('AI 協同工作流防呆與學術倫理指引', '誠信學習、客觀檢驗與合理標註 AI 協同歷程', '防呆檢核與事實查核 SOP', '學術誠信與職場 AI 引用倫理'),
-        ('Agentic AI 本週實作小結與關鍵收穫', '總結本週智慧代理人實務演練之核心心得', None, None) # 3card
-    ]
-
-    for idx, item in enumerate(sec3_titles):
-        p_num = 24 + idx
-        s_title, s_sub, left_t, right_t = item
-        if left_t is None:
-            # 3card
-            slides.append({
-                'layout': '3card',
-                'badge': 'AGENTIC AI 智慧協同實戰',
-                'sec': f'AI 工坊 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'cards': [
-                    {
-                        'title': '步驟一：情境與角色設定',
-                        'theme': 'blue',
-                        'points': [
-                            f'啟用：{agent}',
-                            '賦予具備 20 年經驗之資深角色',
-                            '明確交代萬能科大企管專案背景',
-                            '設定專業、嚴謹且客觀的輸出調性'
-                        ]
-                    },
-                    {
-                        'title': '步驟二：工具調用與 ReAct',
-                        'theme': 'teal',
-                        'points': [
-                            '調用結構化分析與企劃審查工具',
-                            '觀察 AI 逐步推導之思考歷程',
-                            '針對邏輯漏洞提出多輪追加指令',
-                            '要求產出符合標準規範的成果'
-                        ]
-                    },
-                    {
-                        'title': '步驟三：批判審查與在地化',
-                        'theme': 'amber',
-                        'points': [
-                            '嚴格查核關鍵數據與法規依據',
-                            '融入台灣在地消費習慣與語境',
-                            '確認符合期末全案評分規準',
-                            '妥善記錄提示詞歷程作為附錄'
-                        ]
-                    }
-                ]
-            })
-        else:
-            # 2card
-            slides.append({
-                'layout': '2card',
-                'badge': 'AGENTIC AI 智慧協同實戰',
-                'sec': f'AI 工坊 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'left': {
-                    'title': f'{left_t}',
-                    'theme': 'blue',
-                    'points': [
-                        f'核心原則：以 {agent} 協同',
-                        '指令清晰：杜絕模稜兩可模糊字眼',
-                        '邊界分明：嚴格限制輸出範圍與格式',
-                        '數據支撐：要求列出推論邏輯依據'
-                    ]
-                },
-                'right': {
-                    'title': f'{right_t}',
-                    'theme': 'teal',
-                    'points': [
-                        '實戰操作：CLEAR 提示詞框架落地',
-                        '多輪追問：深化洞察切入深度',
-                        '在地轉化：融入桃園在地消費市場',
-                        '專業把關：人工審查確保商業可行性'
-                    ]
-                }
-            })
+    slides.extend(AGENT_SLIDES.get(str(week_num), []))
 
     # -------------------------------------------------------------
     # Section 4: Vibe Coding 操作手冊與數位原型開發 (P.36 ~ P.43, 8 slides)
     # -------------------------------------------------------------
-    sec4_titles = [
-        ('Vibe Coding 核心哲學：自然語言即代碼', 'Andrej Karpathy 提出之全新人機協同軟體開發典範', '傳統程式開發痛點', 'Vibe Coding 革命優勢'),
-        ('企管學生的三步驟原型法', '從生活痛點到一頁式互動原型 (MVP) 之標準路徑', '步驟一與步驟二要領', '步驟三與發布指引'),
-        ('本週推薦工具鏈：AI Studio ✕ Cursor ✕ GitHub', '打造極致流暢且免付費的現代行銷原型工具鏈', None, None), # 3card
-        ('一頁式行銷網頁 (MVP) 必備結構', '提升訪客停留率與行動轉換率的標準骨架排版', '上半部黃金視覺區塊', '下半部轉換與信賴區塊'),
-        (f'本週主題組件實作：{vibe}', '以自然語言意圖指揮 AI 打造專屬行銷功能組件', '組件功能需求描述', '互動細節與美感提示詞'),
-        ('手機直式瀏覽 (RWD) 檢視與調校要點', '確保 90% 手機端訪客擁有順暢無跑版的極致體驗', None, None), # 3card
-        ('GitHub Pages 30 秒免費全球上線指引', '無需購買伺服器與網址，一鍵發布個人企劃展示頁', 'GitHub 倉庫建立與上傳', 'Settings 啟用與取得 Live 網址'),
-        ('避坑指南與常見跑版/語法無痛除錯', '零程式基礎同學遇到畫面異常時的急救口訣', '常見錯誤原因排查', '無痛修正與重新發布步驟')
-    ]
-
-    for idx, item in enumerate(sec4_titles):
-        p_num = 36 + idx
-        s_title, s_sub, left_t, right_t = item
-        if left_t is None:
-            # 3card
-            slides.append({
-                'layout': '3card',
-                'badge': 'VIBE CODING 操作手冊實踐',
-                'sec': f'數位原型 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'cards': [
-                    {
-                        'title': '工具 1：Google AI Studio',
-                        'theme': 'blue',
-                        'points': [
-                            '零門檻純瀏覽器免安裝環境',
-                            '支援百萬長文本與多模態圖片',
-                            '快速輸入 CLEAR 提示詞驗證概念',
-                            '一鍵生成完整單檔案 HTML 代碼'
-                        ]
-                    },
-                    {
-                        'title': '工具 2：Cursor IDE',
-                        'theme': 'teal',
-                        'points': [
-                            '專業級 AI 代碼編輯器體驗',
-                            '按 Cmd+K / Ctrl+K 自然語言修改',
-                            '即時多檔案同步編輯與預覽',
-                            '適合進階同學微調樣式與組件'
-                        ]
-                    },
-                    {
-                        'title': '工具 3：GitHub Pages',
-                        'theme': 'amber',
-                        'points': [
-                            '微軟旗下全球最大開源代碼託管',
-                            '完全免費、免租用伺服器主機',
-                            '30 秒取得個人專屬公開網址',
-                            '成果上傳教學平台展示廊必備'
-                        ]
-                    }
-                ]
-            })
-        else:
-            # 2card
-            slides.append({
-                'layout': '2card',
-                'badge': 'VIBE CODING 操作手冊實踐',
-                'sec': f'數位原型 P.{idx+1:02d}',
-                'title': f'{s_title}',
-                'subtitle': f'{s_sub}',
-                'left': {
-                    'title': f'{left_t}',
-                    'theme': 'blue',
-                    'points': [
-                        '自然語言驅動：無需熟背程式語法',
-                        f'核心目標：打造 {vibe}',
-                        '意圖精確：明確交代排版與元件需求',
-                        '結構完備：純 HTML + Tailwind CSS'
-                    ]
-                },
-                'right': {
-                    'title': f'{right_t}',
-                    'theme': 'teal',
-                    'points': [
-                        '快速迭代：觀察即時預覽效果',
-                        '對話微調：大白話要求 AI 修正破版',
-                        '免費上線：發布至 GitHub Pages',
-                        '求職作品：累積具備實體的作品集'
-                    ]
-                }
-            })
+    slides.extend(VIBE_SLIDES.get(str(week_num), []))
 
     # -------------------------------------------------------------
     # Section 5: 課堂個人獨立實作演練 ✕ IPAS 證照題庫解析 (P.44 ~ P.48, 5 slides)
