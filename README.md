@@ -105,7 +105,7 @@
 │  index.html                     <- GitHub Pages 部署首頁 (全內嵌獨立單機版)
 │  創意行銷企劃實務.html          <- 課程專屬命名單機離線版 (雙擊即開)
 │  平台首頁(單機離線直接點開).html <- 備用單機離線版 (全內嵌所有資源)
-│  Full_Screen_Presentation.html  <- 18 週 93 張全景教學簡報投影系統
+│  Full_Screen_Presentation.html  <- 18 週 918 張全景教學簡報投影系統 (每週 51 頁，滿足 2 小時授課需求)
 │  啟動教學平台.bat                <- 教師講台一鍵啟動批次檔
 │  app.py                         <- Python Flask 後端伺服器 (支援 RESTful API)
 │  README.md                      <- 本系統操作手冊與課堂說明
