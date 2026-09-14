@@ -79,6 +79,17 @@
 
 ---
 
+## 🔐 雲端身分驗證與作品即時同步 (Firebase Authentication ✕ Firestore)
+
+本平台已全面整合 Google Firebase 雲端生態系（專案 ID：`vnu-marketing-planning-11501`）：
+1. **Google 帳號一鍵登入**：學生與教師可直接點擊右上角「Google 登入」按鈕，快速完成身分鑑別與學籍綁定。
+2. **學籍身分自動同步**：綁定學生學號、真實姓名與班級（進企管四系3甲），資料即時同步至 Firestore 雲端資料庫。
+3. **學生作品成果雲端展示廊**：學生上傳個人企劃案（含 GitHub Pages 成果連結）後，即時寫入 Firestore `works` 集合，全班畫面透過 `onSnapshot` 即時同步更新！
+4. **授課教師管理後台與 Excel 匯出**：授課教師（邱俊維 博士）登入後自動取得教師權限，可於右上角下拉選單一鍵匯出全班企劃作品清單與 GitHub Pages 成果連結至 Excel CSV 報表。
+5. **平滑離線容錯**：若處於無網路或本地離線模式，系統自動切換至 `localStorage` 儲存，功能 100% 正常運作。
+
+---
+
 ## 🌐 線上部署與訪問 (GitHub Pages)
 
 本平台支援免安裝、免伺服器直接於 GitHub Pages 線上瀏覽使用：

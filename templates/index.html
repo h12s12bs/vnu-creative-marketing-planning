@@ -14,6 +14,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
   <!-- 自案樣式表 -->
   <link rel="stylesheet" href="/static/css/style.css">
+  <!-- Firebase SDK (v10 Compat for Google Sign-In & Firestore Cloud Storage) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics-compat.js"></script>
 </head>
 <body>
 
@@ -37,11 +42,36 @@
         <code class="text-warning fw-bold" id="classroom-url-display">載入中...</code>
       </div>
 
-      <!-- 個人學號按鈕 -->
-      <button class="btn btn-sm btn-outline-light d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#userProfileModal">
-        <i class="fas fa-user-circle me-1"></i>
-        <span id="student-info-badge">學號登記</span>
-      </button>
+      <div class="d-flex align-items-center gap-2">
+        <!-- 簡報播放快捷按鈕 -->
+        <a href="Full_Screen_Presentation.html" target="_blank" class="btn btn-sm btn-outline-warning text-white d-none d-sm-inline-flex align-items-center" title="開啟 18 週全景簡報">
+          <i class="fas fa-desktop me-1"></i>
+          <span>簡報投影</span>
+        </a>
+
+        <!-- Google 登入按鈕 (未登入時顯示) -->
+        <button type="button" class="btn btn-sm btn-light text-dark fw-bold align-items-center shadow-sm" id="btn-google-login" onclick="loginWithGoogle()" style="display: inline-flex;">
+          <i class="fab fa-google text-danger me-1"></i>
+          <span class="d-none d-sm-inline">Google 登入</span>
+          <span class="d-inline d-sm-none">登入</span>
+        </button>
+
+        <!-- 已登入使用者資訊下拉選單 -->
+        <div class="dropdown" id="user-auth-box" style="display: none;">
+          <button class="btn btn-sm btn-outline-light d-flex align-items-center dropdown-toggle" type="button" id="userDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+            <img id="user-avatar-img" src="" alt="avatar" class="rounded-circle me-1" style="width: 22px; height: 22px; object-fit: cover; display: none;">
+            <i class="fas fa-user-circle me-1" id="user-avatar-icon"></i>
+            <span id="student-info-badge">學號登記</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow border-0 small">
+            <li><h6 class="dropdown-header text-primary fw-bold" id="dropdown-user-email">Google 使用者</h6></li>
+            <li><a class="dropdown-item" href="javascript:void(0)" onclick="openProfileModal()"><i class="fas fa-id-card me-2 text-warning"></i>修改學號與姓名</a></li>
+            <li id="teacher-export-menu-item" style="display: none;"><a class="dropdown-item text-success fw-bold" href="javascript:void(0)" onclick="exportGradesToCSV()"><i class="fas fa-file-excel me-2"></i>匯出全班企劃成果 (Excel)</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item text-danger fw-bold" href="javascript:void(0)" onclick="logoutUser()"><i class="fas fa-sign-out-alt me-2"></i>登出 Google 帳號</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -696,25 +726,43 @@
   <!-- 學號設定 Modal -->
   <div class="modal fade" id="userProfileModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title fw-bold"><i class="fas fa-id-card text-primary me-2"></i>設定學生學習身分</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header bg-dark text-white border-0">
+          <h5 class="modal-title fw-bold"><i class="fas fa-id-card text-warning me-2"></i>進企管四系3甲 學生學籍登記</h5>
+          <button type="button" class="btn-close btn-close-white" id="btn-close-profile" data-bs-dismiss="modal"></button>
         </div>
-        <div class="modal-body">
-          <p class="small text-muted mb-3">設定您的學號與姓名，系統將在瀏覽器自動儲存測驗歷程、錯題筆記與成就勳章！</p>
+        <div class="modal-body p-4">
+          <div id="force-profile-notice" class="alert alert-warning py-2 px-3 small fw-bold mb-3" style="display: none;">
+            <i class="fas fa-exclamation-triangle me-1"></i>依課堂規範，Google 登入後請務必填寫學號與真實姓名以完成學籍綁定！
+          </div>
+          <div class="mb-3 p-3 bg-light rounded-3 border border-success border-opacity-25" id="google-account-info-box" style="display: none;">
+            <label class="form-label fw-bold small text-success mb-1"><i class="fab fa-google me-1"></i>已綁定 Google 帳號</label>
+            <input type="text" class="form-control form-control-sm bg-white text-muted fw-bold" id="input-google-email" readonly>
+            <div class="form-text small text-muted" style="font-size: 0.75rem;">系統將自動將您的個人企劃成果、題庫測驗與成就歷程同步至此 Google 雲端帳號。</div>
+          </div>
+          <p class="small text-muted mb-3">請登記您的真實學號與姓名，以便授課教師進行課堂點名、個人企劃審查與學期成績登記。</p>
           <div class="mb-3">
-            <label class="form-label fw-bold">學號 (Student ID)</label>
-            <input type="text" class="form-control" id="input-student-id" placeholder="例如：11200123">
+            <label class="form-label fw-bold small">學生學號 (必填) <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="input-student-id" placeholder="例如：11109012" required>
           </div>
           <div class="mb-3">
-            <label class="form-label fw-bold">姓名 (Student Name)</label>
-            <input type="text" class="form-control" id="input-student-name" placeholder="例如：王小明">
+            <label class="form-label fw-bold small">學生姓名 (必填) <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="input-student-name" placeholder="例如：林郁翔" required>
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <label class="form-label fw-bold small text-secondary"><i class="fas fa-university me-1"></i>開課班級</label>
+              <input type="text" class="form-control form-control-sm bg-light" value="進企管四系3甲" readonly>
+            </div>
+            <div class="col-6">
+              <label class="form-label fw-bold small text-secondary"><i class="fas fa-user-check me-1"></i>專案模式</label>
+              <input type="text" class="form-control form-control-sm bg-light text-primary fw-bold" value="個人實務獨立企劃" readonly>
+            </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" onclick="saveUserProfile()">儲存並同步</button>
+        <div class="modal-footer border-0 bg-light">
+          <button type="button" class="btn btn-secondary btn-sm" id="btn-cancel-profile" data-bs-dismiss="modal">取消返回</button>
+          <button type="button" class="btn btn-primary btn-sm px-3 fw-bold" onclick="saveUserProfile()">確認登記並同步</button>
         </div>
       </div>
     </div>
