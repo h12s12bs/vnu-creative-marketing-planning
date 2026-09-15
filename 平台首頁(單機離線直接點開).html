@@ -665,7 +665,7 @@ body {
         <!-- 評分標準卡片 -->
         <div class="card-custom p-4 mb-4">
           <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
-            <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-clipboard-check text-primary me-2"></i>學期成績評分標準 (期中考 30% ✕ 期末考 30% ✕ 平時出席 40%)</h5>
+            <h5 class="fw-bold mb-0 text-dark"><i class="fas fa-clipboard-check text-primary me-2"></i>學期成績評分標準 (期中考 40% ✕ 期末考 40% ✕ 平時出席 20%)</h5>
             <span class="badge bg-success">通過標準 60 分</span>
           </div>
           <div id="grading-policy-box">
@@ -1434,38 +1434,38 @@ body {
     },
     "grading_policy": {
       "midterm_exam": {
-        "percentage": 30,
-        "title": "期中考試 (30%)",
+        "percentage": 40,
+        "title": "期中考試 (40%)",
         "description": "第 9 週舉行期中考試（筆試/實務測驗），檢測前半學期行銷企劃核心學理與實務觀念。",
         "breakdown": [
           {
             "item": "期中考試成績",
-            "weight": "30%",
+            "weight": "40%",
             "desc": "涵蓋曾光華教科書 CH01~CH05 重點觀念、企劃架構邏輯與實務案例分析題型。"
           }
         ]
       },
       "final_exam": {
-        "percentage": 30,
-        "title": "期末考試 (30%)",
+        "percentage": 40,
+        "title": "期末考試 (40%)",
         "description": "第 18 週舉行期末考試（筆試/實務測驗），綜合檢驗全學期行銷企劃整合與個案應用能力。",
         "breakdown": [
           {
             "item": "期末考試成績",
-            "weight": "30%",
+            "weight": "40%",
             "desc": "涵蓋全學期行銷企劃架構、4P 執行策略、公關促銷與商業實務綜合整合題型。"
           }
         ]
       },
       "attendance": {
-        "percentage": 40,
-        "title": "平時出席 (40%)",
-        "description": "每週課堂常態點名與出勤記錄，準時到課即有基本分，缺曠課依校規扣分。",
+        "percentage": 20,
+        "title": "平時出席 (20%)",
+        "description": "降低出席佔比以體恤進修部在職同學！每週課堂常態點名，出席即得基本加分。",
         "breakdown": [
           {
             "item": "課堂出勤紀錄",
-            "weight": "40%",
-            "desc": "每週課堂常態點名紀錄，出缺席計分客觀明確、零爭議，期末直接依到課率計分。"
+            "weight": "20%",
+            "desc": "每週課堂常態點名紀錄，佔比降為 20%，讓同學能以期中期末考專心衝刺及格。"
           }
         ]
       }
@@ -1628,8 +1628,8 @@ body {
       "week": 9,
       "title": "【期中週】期中考試（筆試/實務測驗）",
       "chapter": "期中考試與階段能力評量",
-      "textbook_ref": "參考用書：曾光華《行銷企劃》第 1~5 章重點 (評分佔比 30%)",
-      "martech_domain": "期中評量：期中考試（筆試/實務測驗，佔學期成績 30%）",
+      "textbook_ref": "參考用書：曾光華《行銷企劃》第 1~5 章重點 (評分佔比 40%)",
+      "martech_domain": "期中評量：期中考試（筆試/實務測驗，佔學期成績 40%）",
       "break_ice": "期中驗收時刻：檢視前半學期的行銷企劃學理與實務觀念！",
       "traditional_vs_ai": "透過紙筆測驗與實務題型，客觀全面檢定前半學期行銷觀念與企劃思維邏輯。",
       "classroom_activity": "【期中考試】期中筆試/實務測驗 ➔ 試卷重點解析 ➔ 前半學期學習成效總檢定。",
@@ -1790,8 +1790,8 @@ body {
       "week": 18,
       "title": "【期末週】期末考試（筆試/實務測驗）與學期總結",
       "chapter": "期末考試與學期成績總結",
-      "textbook_ref": "全書回顧與期末考試 (評分佔比 30%)",
-      "martech_domain": "期末評量：期末考試（筆試/實務測驗，佔學期成績 30%）與總成績核算",
+      "textbook_ref": "全書回顧與期末考試 (評分佔比 40%)",
+      "martech_domain": "期末評量：期末考試（筆試/實務測驗，佔學期成績 40%）與總成績核算",
       "break_ice": "18 週充實旅程圓滿落幕！檢驗全學期行銷企劃整合實力，邁向職場新舞台！",
       "traditional_vs_ai": "全面驗收全書企劃實務邏輯，將行銷知識化為未來職場的終身競爭力。",
       "classroom_activity": "【期末考試】期末筆試/實務測驗 ➔ 試卷重點回顧 ➔ 學期成績核算說明與學期總結。",
@@ -1799,7 +1799,7 @@ body {
       "key_concepts": [
         "期末考試綜合評量",
         "全學期行銷知識整合",
-        "學期總成績核算 (期中30% + 期末30% + 出席40%)",
+        "學期總成績核算 (期中40% + 期末40% + 出席20%)",
         "行銷企劃職場實務應用",
         "終身自主學習與專業素養"
       ]
@@ -7297,13 +7297,13 @@ function renderCurriculum(filterPhase = 'all') {
     `;
   }
 
-  // 評分標準卡片 (極簡計算：期中考 30% ✕ 期末考 30% ✕ 平時出席 40%)
+  // 評分標準卡片 (體恤在職學生：期中考 40% ✕ 期末考 40% ✕ 平時出席 20%)
   const gradingEl = document.getElementById('grading-policy-box');
   if (gradingEl && info && info.grading_policy) {
     const gp = info.grading_policy;
-    const midterm = gp.midterm_exam || gp.midterm_assessment || { title: '期中考試 (30%)', percentage: 30, description: '第 9 週筆試/實務測驗，檢定前半學期觀念與企劃邏輯。' };
-    const finalEx = gp.final_exam || gp.final_project || { title: '期末考試 (30%)', percentage: 30, description: '第 18 週筆試/實務測驗，綜合檢驗全學期企劃整合能力。' };
-    const attendance = gp.attendance || gp.learning_attitude || { title: '平時出席 (40%)', percentage: 40, description: '每週課堂出勤與常態點名紀錄，到課即有分，計分客觀透明。' };
+    const midterm = gp.midterm_exam || gp.midterm_assessment || { title: '期中考試 (40%)', percentage: 40, description: '第 9 週筆試/實務測驗，檢定前半學期觀念與企劃邏輯。' };
+    const finalEx = gp.final_exam || gp.final_project || { title: '期末考試 (40%)', percentage: 40, description: '第 18 週筆試/實務測驗，綜合檢驗全學期企劃整合能力。' };
+    const attendance = gp.attendance || gp.learning_attitude || { title: '平時出席 (20%)', percentage: 20, description: '降低出席佔比體恤進修部同學！每週常態點名，出席即得基本加分。' };
 
     gradingEl.innerHTML = `
       <div class="row g-3 mb-3">
@@ -7339,14 +7339,14 @@ function renderCurriculum(filterPhase = 'all') {
             </div>
             <p class="small text-muted mb-2">${attendance.description}</p>
             <div class="small text-secondary bg-light p-2 rounded">
-              <i class="fas fa-check-circle text-success me-1"></i><strong>評分形式</strong>：每週課堂常態點名與到課記錄
+              <i class="fas fa-check-circle text-success me-1"></i><strong>評分形式</strong>：每週課堂常態點名 (佔比降至 20%)
             </div>
           </div>
         </div>
       </div>
       <div class="alert alert-light border d-flex align-items-center justify-content-between py-2 px-3 mb-0 rounded-3">
         <div class="small text-secondary">
-          <i class="fas fa-calculator text-primary me-2"></i><strong>學期總成績計算公式</strong>：<code>總成績 ＝ (期中考 × 30%) ＋ (期末考 × 30%) ＋ (平時出席 × 40%)</code>
+          <i class="fas fa-calculator text-primary me-2"></i><strong>學期總成績計算公式</strong>：<code>總成績 ＝ (期中考 × 40%) ＋ (期末考 × 40%) ＋ (平時出席 × 20%)</code>
         </div>
         <span class="badge bg-success text-white">通過及格標準：60 分</span>
       </div>

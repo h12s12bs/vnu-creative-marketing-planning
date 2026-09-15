@@ -609,13 +609,13 @@ function renderCurriculum(filterPhase = 'all') {
     `;
   }
 
-  // 評分標準卡片 (極簡計算：期中考 30% ✕ 期末考 30% ✕ 平時出席 40%)
+  // 評分標準卡片 (體恤在職學生：期中考 40% ✕ 期末考 40% ✕ 平時出席 20%)
   const gradingEl = document.getElementById('grading-policy-box');
   if (gradingEl && info && info.grading_policy) {
     const gp = info.grading_policy;
-    const midterm = gp.midterm_exam || gp.midterm_assessment || { title: '期中考試 (30%)', percentage: 30, description: '第 9 週筆試/實務測驗，檢定前半學期觀念與企劃邏輯。' };
-    const finalEx = gp.final_exam || gp.final_project || { title: '期末考試 (30%)', percentage: 30, description: '第 18 週筆試/實務測驗，綜合檢驗全學期企劃整合能力。' };
-    const attendance = gp.attendance || gp.learning_attitude || { title: '平時出席 (40%)', percentage: 40, description: '每週課堂出勤與常態點名紀錄，到課即有分，計分客觀透明。' };
+    const midterm = gp.midterm_exam || gp.midterm_assessment || { title: '期中考試 (40%)', percentage: 40, description: '第 9 週筆試/實務測驗，檢定前半學期觀念與企劃邏輯。' };
+    const finalEx = gp.final_exam || gp.final_project || { title: '期末考試 (40%)', percentage: 40, description: '第 18 週筆試/實務測驗，綜合檢驗全學期企劃整合能力。' };
+    const attendance = gp.attendance || gp.learning_attitude || { title: '平時出席 (20%)', percentage: 20, description: '降低出席佔比體恤進修部同學！每週常態點名，出席即得基本加分。' };
 
     gradingEl.innerHTML = `
       <div class="row g-3 mb-3">
@@ -651,14 +651,14 @@ function renderCurriculum(filterPhase = 'all') {
             </div>
             <p class="small text-muted mb-2">${attendance.description}</p>
             <div class="small text-secondary bg-light p-2 rounded">
-              <i class="fas fa-check-circle text-success me-1"></i><strong>評分形式</strong>：每週課堂常態點名與到課記錄
+              <i class="fas fa-check-circle text-success me-1"></i><strong>評分形式</strong>：每週課堂常態點名 (佔比降至 20%)
             </div>
           </div>
         </div>
       </div>
       <div class="alert alert-light border d-flex align-items-center justify-content-between py-2 px-3 mb-0 rounded-3">
         <div class="small text-secondary">
-          <i class="fas fa-calculator text-primary me-2"></i><strong>學期總成績計算公式</strong>：<code>總成績 ＝ (期中考 × 30%) ＋ (期末考 × 30%) ＋ (平時出席 × 40%)</code>
+          <i class="fas fa-calculator text-primary me-2"></i><strong>學期總成績計算公式</strong>：<code>總成績 ＝ (期中考 × 40%) ＋ (期末考 × 40%) ＋ (平時出席 × 20%)</code>
         </div>
         <span class="badge bg-success text-white">通過及格標準：60 分</span>
       </div>
