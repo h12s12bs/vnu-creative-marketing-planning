@@ -609,63 +609,58 @@ function renderCurriculum(filterPhase = 'all') {
     `;
   }
 
-  // 評分標準卡片
+  // 評分標準卡片 (極簡計算：期中考 30% ✕ 期末考 30% ✕ 平時出席 40%)
   const gradingEl = document.getElementById('grading-policy-box');
   if (gradingEl && info && info.grading_policy) {
     const gp = info.grading_policy;
+    const midterm = gp.midterm_exam || gp.midterm_assessment || { title: '期中考試 (30%)', percentage: 30, description: '第 9 週筆試/實務測驗，檢定前半學期觀念與企劃邏輯。' };
+    const finalEx = gp.final_exam || gp.final_project || { title: '期末考試 (30%)', percentage: 30, description: '第 18 週筆試/實務測驗，綜合檢驗全學期企劃整合能力。' };
+    const attendance = gp.attendance || gp.learning_attitude || { title: '平時出席 (40%)', percentage: 40, description: '每週課堂出勤與常態點名紀錄，到課即有分，計分客觀透明。' };
+
     gradingEl.innerHTML = `
-      <div class="row g-3">
-        <div class="col-md-6 col-lg-3">
-          <div class="grading-card h-100" style="border-left-color: #F59E0B;">
+      <div class="row g-3 mb-3">
+        <div class="col-md-4">
+          <div class="grading-card h-100 p-3 rounded bg-white border-start border-4 shadow-sm" style="border-left-color: #F59E0B !important;">
             <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="fw-bold mb-0 text-dark">${gp.midterm_assessment ? gp.midterm_assessment.title : '期中評量'}</h6>
-              <span class="percentage-badge" style="color: #D97706; background: #FEF3C7;">${gp.midterm_assessment ? gp.midterm_assessment.percentage : 30}%</span>
+              <h6 class="fw-bold mb-0 text-dark"><i class="fas fa-file-signature text-warning me-2"></i>${midterm.title}</h6>
+              <span class="percentage-badge" style="color: #D97706; background: #FEF3C7; font-weight: 700; padding: 4px 10px; border-radius: 20px;">${midterm.percentage}%</span>
             </div>
-            <p class="small text-muted mb-2">${gp.midterm_assessment ? gp.midterm_assessment.description : '企劃構想書審查與階段評量'}</p>
-            <ul class="small ps-3 mb-0 text-secondary">
-              ${(gp.midterm_assessment ? gp.midterm_assessment.breakdown : []).map(b => `<li><strong>${b.item} (${b.weight})</strong>: ${b.desc}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="grading-card h-100">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="fw-bold mb-0 text-dark">${gp.final_project.title}</h6>
-              <span class="percentage-badge">${gp.final_project.percentage}%</span>
-            </div>
-            <p class="small text-muted mb-2">${gp.final_project.description}</p>
-            <ul class="small ps-3 mb-0 text-secondary">
-              ${gp.final_project.breakdown.map(b => `<li><strong>${b.item} (${b.weight})</strong>: ${b.desc}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="grading-card h-100" style="border-left-color: #4F46E5;">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="fw-bold mb-0 text-dark">${gp.classroom_engagement.title}</h6>
-              <span class="percentage-badge" style="color: #4F46E5; background: #EEF2FF;">${gp.classroom_engagement.percentage}%</span>
-            </div>
-            <p class="small text-muted mb-2">${gp.classroom_engagement.description}</p>
-            <ul class="small ps-3 mb-0 text-secondary">
-              ${gp.classroom_engagement.breakdown.map(b => `<li><strong>${b.item} (${b.weight})</strong>: ${b.desc}</li>`).join('')}
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="grading-card h-100" style="border-left-color: #10B981;">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h6 class="fw-bold mb-0 text-dark">${gp.learning_attitude.title}</h6>
-              <span class="percentage-badge" style="color: #10B981; background: #ECFDF5;">${gp.learning_attitude.percentage}%</span>
-            </div>
-            <p class="small text-muted mb-2">${gp.learning_attitude.description}</p>
-            <ul class="small ps-3 mb-0 text-secondary">
-              ${gp.learning_attitude.breakdown.map(b => `<li><strong>${b.item} (${b.weight})</strong>: ${b.desc}</li>`).join('')}
-            </ul>
-            <div class="mt-2 pt-2 border-top small text-success">
-              <i class="fas fa-star me-1"></i><strong>${gp.extra_bonus ? gp.extra_bonus.title : '榮譽加分'}</strong>：${gp.extra_bonus ? gp.extra_bonus.breakdown[0].desc : '參與企劃競賽專案加分'}
+            <p class="small text-muted mb-2">${midterm.description}</p>
+            <div class="small text-secondary bg-light p-2 rounded">
+              <i class="fas fa-check-circle text-warning me-1"></i><strong>評分形式</strong>：第 9 週筆試 / 實務測驗題型
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+          <div class="grading-card h-100 p-3 rounded bg-white border-start border-4 shadow-sm" style="border-left-color: #2563EB !important;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="fw-bold mb-0 text-dark"><i class="fas fa-graduation-cap text-primary me-2"></i>${finalEx.title}</h6>
+              <span class="percentage-badge" style="color: #2563EB; background: #EFF6FF; font-weight: 700; padding: 4px 10px; border-radius: 20px;">${finalEx.percentage}%</span>
+            </div>
+            <p class="small text-muted mb-2">${finalEx.description}</p>
+            <div class="small text-secondary bg-light p-2 rounded">
+              <i class="fas fa-check-circle text-primary me-1"></i><strong>評分形式</strong>：第 18 週筆試 / 企劃實務整合測驗
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="grading-card h-100 p-3 rounded bg-white border-start border-4 shadow-sm" style="border-left-color: #10B981 !important;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="fw-bold mb-0 text-dark"><i class="fas fa-user-check text-success me-2"></i>${attendance.title}</h6>
+              <span class="percentage-badge" style="color: #059669; background: #ECFDF5; font-weight: 700; padding: 4px 10px; border-radius: 20px;">${attendance.percentage}%</span>
+            </div>
+            <p class="small text-muted mb-2">${attendance.description}</p>
+            <div class="small text-secondary bg-light p-2 rounded">
+              <i class="fas fa-check-circle text-success me-1"></i><strong>評分形式</strong>：每週課堂常態點名與到課記錄
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-light border d-flex align-items-center justify-content-between py-2 px-3 mb-0 rounded-3">
+        <div class="small text-secondary">
+          <i class="fas fa-calculator text-primary me-2"></i><strong>學期總成績計算公式</strong>：<code>總成績 ＝ (期中考 × 30%) ＋ (期末考 × 30%) ＋ (平時出席 × 40%)</code>
+        </div>
+        <span class="badge bg-success text-white">通過及格標準：60 分</span>
       </div>
     `;
   }
