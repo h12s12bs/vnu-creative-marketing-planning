@@ -164,101 +164,53 @@ def build_presentation_html():
             transform: scale(1.02);
         }}
 
-        /* 內容字體大小 28 點規格 (28pt ≈ 37.33px，大教室投影機遠距專用) */
-        .point-28pt {{
+        /* 統一超大字體投影規格 (大教室投影機遠距極致清晰，鎖定大字絕不縮小) */
+        .point-28pt, .point-multi-card {{
             font-size: 28pt !important;
-            line-height: 1.38 !important;
+            line-height: 1.40 !important;
+            font-weight: 700 !important;
             word-break: break-word;
         }}
-        .point-multi-card {{
-            font-size: 24pt !important;
-            line-height: 1.32 !important;
-            word-break: break-word;
-        }}
-        .card-title-28pt {{
-            font-size: 28pt !important;
-            line-height: 1.30 !important;
-            font-weight: 900 !important;
-        }}
-        .card-title-multi {{
-            font-size: 24pt !important;
-            line-height: 1.28 !important;
+        .card-title-28pt, .card-title-multi {{
+            font-size: 30pt !important;
+            line-height: 1.25 !important;
             font-weight: 900 !important;
         }}
         .header-title-34pt {{
-            font-size: 34pt !important;
-            line-height: 1.20 !important;
+            font-size: 36pt !important;
+            line-height: 1.18 !important;
             font-weight: 900 !important;
         }}
         .header-subtitle-24pt {{
-            font-size: 24pt !important;
-            line-height: 1.32 !important;
+            font-size: 26pt !important;
+            line-height: 1.30 !important;
             font-weight: 700 !important;
         }}
         .badge-16pt {{
-            font-size: 16pt !important;
+            font-size: 18pt !important;
             font-weight: 800 !important;
         }}
-        @media (max-width: 1600px) {{
-            .point-28pt {{
-                font-size: 26pt !important;
-                line-height: 1.35 !important;
-            }}
-            .point-multi-card {{
-                font-size: 22pt !important;
-                line-height: 1.30 !important;
-            }}
-            .card-title-28pt {{
-                font-size: 26pt !important;
-            }}
-            .card-title-multi {{
-                font-size: 22pt !important;
-            }}
-        }}
-        @media (max-width: 1366px), (max-height: 750px) {{
-            .point-28pt {{
-                font-size: 24pt !important;
-                line-height: 1.32 !important;
-            }}
-            .point-multi-card {{
-                font-size: 20pt !important;
-                line-height: 1.28 !important;
-            }}
-            .card-title-28pt {{
-                font-size: 24pt !important;
-            }}
-            .card-title-multi {{
-                font-size: 20pt !important;
-            }}
-        }}
-        @media (max-width: 1024px) {{
-            .point-28pt {{
-                font-size: 15pt !important;
-                line-height: 1.32 !important;
-            }}
-            .point-multi-card {{
-                font-size: 13pt !important;
-                line-height: 1.28 !important;
-            }}
-        }}
+
+        /* 僅保留行動裝置極端小螢幕適配，電腦、筆電與投影機一律維持 100% 超大字體 */
         @media (max-width: 768px) {{
-            .point-28pt {{
-                font-size: 1.025rem !important; /* ~16.4px */
+            .point-28pt, .point-multi-card {{
+                font-size: 1.125rem !important; /* ~18px */
                 line-height: 1.45 !important;
             }}
-            .point-multi-card {{
-                font-size: 0.90rem !important; /* ~14.4px */
-                line-height: 1.40 !important;
+            .card-title-28pt, .card-title-multi {{
+                font-size: 1.35rem !important;
+            }}
+            .header-title-34pt {{
+                font-size: 1.6rem !important;
+            }}
+            .header-subtitle-24pt {{
+                font-size: 1.15rem !important;
             }}
         }}
         @media (max-width: 480px) {{
-            .point-28pt {{
-                font-size: 0.925rem !important; /* ~14.8px */
+            .point-28pt, .point-multi-card {{
+                font-size: 1.0rem !important; /* ~16px */
                 line-height: 1.40 !important;
-            }}
-            .point-multi-card {{
-                font-size: 0.825rem !important; /* ~13.2px */
-                line-height: 1.35 !important;
             }}
         }}
     </style>
@@ -546,11 +498,11 @@ def build_presentation_html():
                         <h3 class="card-title-28pt ${{tCard.text}} mb-4">
                             ${{escapeHtml(card.title)}}
                         </h3>
-                        <ul class="space-y-3.5 my-auto">
+                        <ul class="space-y-4 my-auto">
                             ${{(card.points || []).map(p => `
-                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-medium leading-relaxed">
-                                <span class="${{tCard.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                            <li class="flex items-start gap-3.5 text-slate-100 point-28pt font-bold leading-relaxed">
+                                <span class="${{tCard.text}} font-black text-4xl shrink-0 mt-0.5">•</span>
+                                <span class="${{p.includes('★') ? 'text-amber-300 font-black' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
                         </ul>
@@ -574,9 +526,9 @@ def build_presentation_html():
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${{(left.points || []).map(p => `
-                            <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
+                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-bold leading-relaxed">
                                 <span class="${{tLeft.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                                <span class="${{p.includes('★') ? 'text-amber-300 font-black' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
                         </ul>
@@ -588,9 +540,9 @@ def build_presentation_html():
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${{(right.points || []).map(p => `
-                            <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
+                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-bold leading-relaxed">
                                 <span class="${{tRight.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                                <span class="${{p.includes('★') ? 'text-amber-300 font-black' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
                         </ul>
@@ -622,14 +574,14 @@ def build_presentation_html():
                         return `
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-5 lg:p-6 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
-                            <h3 class="card-title-multi ${{tCard.text}} mb-3.5">
+                            <h3 class="card-title-28pt ${{tCard.text}} mb-3.5">
                                 ${{escapeHtml(c.title)}}
                             </h3>
-                            <ul class="space-y-2.5 my-auto">
+                            <ul class="space-y-3 my-auto">
                                 ${{pointsList.map(p => `
-                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
-                                    <span class="${{tCard.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
-                                    <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                                <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-bold leading-relaxed">
+                                    <span class="${{tCard.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
+                                    <span class="${{p.includes('★') ? 'text-amber-300 font-black' : ''}}">${{escapeHtml(p)}}</span>
                                 </li>
                                 `).join('')}}
                             </ul>
@@ -652,18 +604,18 @@ def build_presentation_html():
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-4 lg:p-5 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
                             ${{c.num ? `
-                            <span class="text-xs font-black tracking-wider px-2 py-0.5 rounded ${{tCard.badge}} w-fit mb-2">
+                            <span class="text-sm font-black tracking-wider px-2.5 py-1 rounded ${{tCard.badge}} w-fit mb-2">
                                 ${{escapeHtml(c.num)}}
                             </span>
                             ` : ''}}
-                            <h3 class="text-lg md:text-xl font-black ${{tCard.text}} mb-2.5">
+                            <h3 class="card-title-28pt ${{tCard.text}} mb-3">
                                 ${{escapeHtml(c.title)}}
                             </h3>
-                            <ul class="space-y-2 my-auto">
+                            <ul class="space-y-2.5 my-auto">
                                 ${{pointsList.map(p => `
-                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
-                                    <span class="${{tCard.text}} font-black text-xl shrink-0 mt-0.5">•</span>
-                                    <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                                <li class="flex items-start gap-2 text-slate-100 point-28pt font-bold leading-relaxed">
+                                    <span class="${{tCard.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                    <span class="${{p.includes('★') ? 'text-amber-300 font-black' : ''}}">${{escapeHtml(p)}}</span>
                                 </li>
                                 `).join('')}}
                             </ul>

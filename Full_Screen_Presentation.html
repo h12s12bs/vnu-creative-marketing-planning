@@ -114,101 +114,53 @@
             transform: scale(1.02);
         }
 
-        /* 內容字體大小 28 點規格 (28pt ≈ 37.33px，大教室投影機遠距專用) */
-        .point-28pt {
+        /* 統一超大字體投影規格 (大教室投影機遠距極致清晰，鎖定大字絕不縮小) */
+        .point-28pt, .point-multi-card {
             font-size: 28pt !important;
-            line-height: 1.38 !important;
+            line-height: 1.40 !important;
+            font-weight: 700 !important;
             word-break: break-word;
         }
-        .point-multi-card {
-            font-size: 24pt !important;
-            line-height: 1.32 !important;
-            word-break: break-word;
-        }
-        .card-title-28pt {
-            font-size: 28pt !important;
-            line-height: 1.30 !important;
-            font-weight: 900 !important;
-        }
-        .card-title-multi {
-            font-size: 24pt !important;
-            line-height: 1.28 !important;
+        .card-title-28pt, .card-title-multi {
+            font-size: 30pt !important;
+            line-height: 1.25 !important;
             font-weight: 900 !important;
         }
         .header-title-34pt {
-            font-size: 34pt !important;
-            line-height: 1.20 !important;
+            font-size: 36pt !important;
+            line-height: 1.18 !important;
             font-weight: 900 !important;
         }
         .header-subtitle-24pt {
-            font-size: 24pt !important;
-            line-height: 1.32 !important;
+            font-size: 26pt !important;
+            line-height: 1.30 !important;
             font-weight: 700 !important;
         }
         .badge-16pt {
-            font-size: 16pt !important;
+            font-size: 18pt !important;
             font-weight: 800 !important;
         }
-        @media (max-width: 1600px) {
-            .point-28pt {
-                font-size: 26pt !important;
-                line-height: 1.35 !important;
-            }
-            .point-multi-card {
-                font-size: 22pt !important;
-                line-height: 1.30 !important;
-            }
-            .card-title-28pt {
-                font-size: 26pt !important;
-            }
-            .card-title-multi {
-                font-size: 22pt !important;
-            }
-        }
-        @media (max-width: 1366px), (max-height: 750px) {
-            .point-28pt {
-                font-size: 24pt !important;
-                line-height: 1.32 !important;
-            }
-            .point-multi-card {
-                font-size: 20pt !important;
-                line-height: 1.28 !important;
-            }
-            .card-title-28pt {
-                font-size: 24pt !important;
-            }
-            .card-title-multi {
-                font-size: 20pt !important;
-            }
-        }
-        @media (max-width: 1024px) {
-            .point-28pt {
-                font-size: 15pt !important;
-                line-height: 1.32 !important;
-            }
-            .point-multi-card {
-                font-size: 13pt !important;
-                line-height: 1.28 !important;
-            }
-        }
+
+        /* 僅保留行動裝置極端小螢幕適配，電腦、筆電與投影機一律維持 100% 超大字體 */
         @media (max-width: 768px) {
-            .point-28pt {
-                font-size: 1.025rem !important; /* ~16.4px */
+            .point-28pt, .point-multi-card {
+                font-size: 1.125rem !important; /* ~18px */
                 line-height: 1.45 !important;
             }
-            .point-multi-card {
-                font-size: 0.90rem !important; /* ~14.4px */
-                line-height: 1.40 !important;
+            .card-title-28pt, .card-title-multi {
+                font-size: 1.35rem !important;
+            }
+            .header-title-34pt {
+                font-size: 1.6rem !important;
+            }
+            .header-subtitle-24pt {
+                font-size: 1.15rem !important;
             }
         }
         @media (max-width: 480px) {
-            .point-28pt {
-                font-size: 0.925rem !important; /* ~14.8px */
+            .point-28pt, .point-multi-card {
+                font-size: 1.0rem !important; /* ~16px */
                 line-height: 1.40 !important;
-            }
-            .point-multi-card {
-                font-size: 0.825rem !important; /* ~13.2px */
-                line-height: 1.35 !important;
             }
         }
     </style>
@@ -2839,23 +2791,23 @@
         "badge": "WEEK 02 ｜ CH01 行銷企劃本質與三大支柱",
         "sec": "人機協同治理",
         "title": "AI 協同治理底線（Human-in-the-Loop, HITL）",
-        "subtitle": "企劃人永遠是最終責任人，嚴禁完全盲目交付決策權",
+        "subtitle": "企劃人永遠是最終責任人，嚴禁盲目交付決策權",
         "left": {
-          "title": "AI Agent 絕不可越權的三大領域",
+          "title": "AI Agent 絕不可越權三大領域",
           "theme": "blue",
           "points": [
-            "價值觀與道德審查：AI 缺乏真實社會同理心，不可讓 AI 決定涉及人倫爭議之公關言論",
-            "最終財務承諾：AI 無法承擔破產風險，合約簽署與資金動撥必須由真實人類核可",
-            "品牌靈魂塑造：品牌的深層情感溫度源自創辦人的人生歷練，AI 只能作為輔助潤色"
+            "★【倫理道德底線】：AI 缺乏社會同理心，人倫公關言論嚴禁由 AI 拍板",
+            "★【最終財務承諾】：AI 無法承擔破產風險，重大預算與合約簽署由真人簽核",
+            "★【品牌靈魂溫度】：品牌深層情感源自真實歷練，AI 只能作為輔助潤色"
           ]
         },
         "right": {
-          "title": "企劃人在協同體中的角色定位",
+          "title": "企劃人在協同體中三大角色定位",
           "theme": "teal",
           "points": [
-            "總架構師（Chief Architect）：設定專案願景、界定邊界條件、指派 Agent 任務分工",
-            "主審查官（Chief Reviewer）：驗證數據真實性、批判邏輯鏈條、剔除幻覺空談",
-            "終極裁決者（Final Decision Maker）：在相互衝突的方案中權衡利弊，勇敢拍板負責"
+            "★【總架構師 (Architect)】：設定商業願景、界定邊界條件、調配 Agent 專業分工",
+            "★【主審核官 (Reviewer)】：驗證資料真實性、嚴格檢驗推論、徹底剔除 AI 幻覺",
+            "★【終極決策者 (Decision)】：在衝突方案中權衡利弊，勇敢拍板負責並承擔成敗"
           ]
         }
       },
@@ -28839,11 +28791,11 @@
                         <h3 class="card-title-28pt ${tCard.text} mb-4">
                             ${escapeHtml(card.title)}
                         </h3>
-                        <ul class="space-y-3.5 my-auto">
+                        <ul class="space-y-4 my-auto">
                             ${(card.points || []).map(p => `
-                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-medium leading-relaxed">
-                                <span class="${tCard.text} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${p.includes('★') ? 'text-amber-300 font-bold' : ''}">${escapeHtml(p)}</span>
+                            <li class="flex items-start gap-3.5 text-slate-100 point-28pt font-bold leading-relaxed">
+                                <span class="${tCard.text} font-black text-4xl shrink-0 mt-0.5">•</span>
+                                <span class="${p.includes('★') ? 'text-amber-300 font-black' : ''}">${escapeHtml(p)}</span>
                             </li>
                             `).join('')}
                         </ul>
@@ -28867,9 +28819,9 @@
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${(left.points || []).map(p => `
-                            <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
+                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-bold leading-relaxed">
                                 <span class="${tLeft.text} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${p.includes('★') ? 'text-amber-300 font-bold' : ''}">${escapeHtml(p)}</span>
+                                <span class="${p.includes('★') ? 'text-amber-300 font-black' : ''}">${escapeHtml(p)}</span>
                             </li>
                             `).join('')}
                         </ul>
@@ -28881,9 +28833,9 @@
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${(right.points || []).map(p => `
-                            <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
+                            <li class="flex items-start gap-3 text-slate-100 point-28pt font-bold leading-relaxed">
                                 <span class="${tRight.text} font-black text-3xl shrink-0 mt-0.5">•</span>
-                                <span class="${p.includes('★') ? 'text-amber-300 font-bold' : ''}">${escapeHtml(p)}</span>
+                                <span class="${p.includes('★') ? 'text-amber-300 font-black' : ''}">${escapeHtml(p)}</span>
                             </li>
                             `).join('')}
                         </ul>
@@ -28915,14 +28867,14 @@
                         return `
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${tCard.border} p-5 lg:p-6 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${tCard.bar}"></div>
-                            <h3 class="card-title-multi ${tCard.text} mb-3.5">
+                            <h3 class="card-title-28pt ${tCard.text} mb-3.5">
                                 ${escapeHtml(c.title)}
                             </h3>
-                            <ul class="space-y-2.5 my-auto">
+                            <ul class="space-y-3 my-auto">
                                 ${pointsList.map(p => `
-                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
-                                    <span class="${tCard.text} font-black text-2xl shrink-0 mt-0.5">•</span>
-                                    <span class="${p.includes('★') ? 'text-amber-300 font-bold' : ''}">${escapeHtml(p)}</span>
+                                <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-bold leading-relaxed">
+                                    <span class="${tCard.text} font-black text-3xl shrink-0 mt-0.5">•</span>
+                                    <span class="${p.includes('★') ? 'text-amber-300 font-black' : ''}">${escapeHtml(p)}</span>
                                 </li>
                                 `).join('')}
                             </ul>
@@ -28945,18 +28897,18 @@
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${tCard.border} p-4 lg:p-5 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${tCard.bar}"></div>
                             ${c.num ? `
-                            <span class="text-xs font-black tracking-wider px-2 py-0.5 rounded ${tCard.badge} w-fit mb-2">
+                            <span class="text-sm font-black tracking-wider px-2.5 py-1 rounded ${tCard.badge} w-fit mb-2">
                                 ${escapeHtml(c.num)}
                             </span>
                             ` : ''}
-                            <h3 class="text-lg md:text-xl font-black ${tCard.text} mb-2.5">
+                            <h3 class="card-title-28pt ${tCard.text} mb-3">
                                 ${escapeHtml(c.title)}
                             </h3>
-                            <ul class="space-y-2 my-auto">
+                            <ul class="space-y-2.5 my-auto">
                                 ${pointsList.map(p => `
-                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
-                                    <span class="${tCard.text} font-black text-xl shrink-0 mt-0.5">•</span>
-                                    <span class="${p.includes('★') ? 'text-amber-300 font-bold' : ''}">${escapeHtml(p)}</span>
+                                <li class="flex items-start gap-2 text-slate-100 point-28pt font-bold leading-relaxed">
+                                    <span class="${tCard.text} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                    <span class="${p.includes('★') ? 'text-amber-300 font-black' : ''}">${escapeHtml(p)}</span>
                                 </li>
                                 `).join('')}
                             </ul>

@@ -48,6 +48,28 @@ def get_week02_slides(wc=None):
         if i == 34: # 35th slide (index 34)
             if 'subtitle' in s and '抽籤' in s['subtitle']:
                 s['subtitle'] = s['subtitle'].replace('一次性抽籤', '一次性隨機生成')
+        # Upgrade Slide 38 specifically with large, bold, punchy points!
+        if i == 37: # 38th slide (index 37)
+            s['title'] = 'AI 協同治理底線（Human-in-the-Loop, HITL）'
+            s['subtitle'] = '企劃人永遠是最終責任人，嚴禁盲目交付決策權'
+            s['left'] = {
+                'title': 'AI Agent 絕不可越權三大領域',
+                'theme': 'blue',
+                'points': [
+                    '★【倫理道德底線】：AI 缺乏社會同理心，人倫公關言論嚴禁由 AI 拍板',
+                    '★【最終財務承諾】：AI 無法承擔破產風險，重大預算與合約簽署由真人簽核',
+                    '★【品牌靈魂溫度】：品牌深層情感源自真實歷練，AI 只能作為輔助潤色'
+                ]
+            }
+            s['right'] = {
+                'title': '企劃人在協同體中三大角色定位',
+                'theme': 'teal',
+                'points': [
+                    '★【總架構師 (Architect)】：設定商業願景、界定邊界條件、調配 Agent 專業分工',
+                    '★【主審核官 (Reviewer)】：驗證資料真實性、嚴格檢驗推論、徹底剔除 AI 幻覺',
+                    '★【終極決策者 (Decision)】：在衝突方案中權衡利弊，勇敢拍板負責並承擔成敗'
+                ]
+            }
         slides.append(s)
     
     # -------------------------------------------------------------
