@@ -11,8 +11,9 @@ with open(html_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # 1. Check font sizes and media queries
-assert 'font-size: 28px !important;' in content, 'Missing 28px font rule!'
+assert 'font-size: 28pt !important;' in content, 'Missing 28pt font rule!'
 assert '.card-title-28pt' in content, 'Missing .card-title-28pt rule!'
+assert '.point-multi-card' in content, 'Missing .point-multi-card rule!'
 
 # Media query check
 if '@media (max-width: 1280px)' in content:
@@ -20,7 +21,7 @@ if '@media (max-width: 1280px)' in content:
     if m:
         assert 'point-28pt' not in m.group(1), 'point-28pt found in max-width: 1280px media query!'
 
-print("[OK] CSS font rules and media query overrides verified.")
+print("[OK] CSS 28pt / 24pt font rules and media query overrides verified.")
 
 # 2. Parse curriculum JSON inside HTML
 match = re.search(r'const\s+CURRICULUM\s*=\s*(\[.*?\]);\s*let\s+currentWeekIdx', content, re.DOTALL)
@@ -29,8 +30,9 @@ assert match, "Could not find CURRICULUM in HTML!"
 curriculum = json.loads(match.group(1))
 print(f"[OK] Parsed {len(curriculum)} weeks from HTML.")
 total_slides = sum(len(w['slides']) for w in curriculum)
-print(f"[OK] Total slides: {total_slides} (Target: 918)")
-assert total_slides == 918, f"Expected 918 slides, got {total_slides}"
+print(f"[OK] Total slides: {total_slides} (Week 2 has {len(curriculum[1]['slides'])} slides)")
+assert len(curriculum[1]['slides']) == 62, f"Expected 62 slides in Week 2, got {len(curriculum[1]['slides'])}"
+assert total_slides == 929, f"Expected 929 slides, got {total_slides}"
 
 # 3. Forbidden terms for Week 2 ~ 18 (Week 1 kept untouched)
 forbidden = [

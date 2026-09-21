@@ -164,29 +164,102 @@ def build_presentation_html():
             transform: scale(1.02);
         }}
 
-        /* 內容字體大小 28 規格：強制鎖定 28px，大教室投影機遠距專用 */
+        /* 內容字體大小 28 點規格 (28pt ≈ 37.33px，大教室投影機遠距專用) */
         .point-28pt {{
-            font-size: 28px !important;
-            line-height: 1.5 !important;
+            font-size: 28pt !important;
+            line-height: 1.38 !important;
+            word-break: break-word;
+        }}
+        .point-multi-card {{
+            font-size: 24pt !important;
+            line-height: 1.32 !important;
+            word-break: break-word;
         }}
         .card-title-28pt {{
-            font-size: 28px !important;
-            line-height: 1.35 !important;
+            font-size: 28pt !important;
+            line-height: 1.30 !important;
+            font-weight: 900 !important;
+        }}
+        .card-title-multi {{
+            font-size: 24pt !important;
+            line-height: 1.28 !important;
             font-weight: 900 !important;
         }}
         .header-title-34pt {{
-            font-size: 34px !important;
-            line-height: 1.25 !important;
+            font-size: 34pt !important;
+            line-height: 1.20 !important;
             font-weight: 900 !important;
         }}
         .header-subtitle-24pt {{
-            font-size: 24px !important;
-            line-height: 1.35 !important;
+            font-size: 24pt !important;
+            line-height: 1.32 !important;
             font-weight: 700 !important;
         }}
         .badge-16pt {{
-            font-size: 16px !important;
+            font-size: 16pt !important;
             font-weight: 800 !important;
+        }}
+        @media (max-width: 1600px) {{
+            .point-28pt {{
+                font-size: 26pt !important;
+                line-height: 1.35 !important;
+            }}
+            .point-multi-card {{
+                font-size: 22pt !important;
+                line-height: 1.30 !important;
+            }}
+            .card-title-28pt {{
+                font-size: 26pt !important;
+            }}
+            .card-title-multi {{
+                font-size: 22pt !important;
+            }}
+        }}
+        @media (max-width: 1366px), (max-height: 750px) {{
+            .point-28pt {{
+                font-size: 24pt !important;
+                line-height: 1.32 !important;
+            }}
+            .point-multi-card {{
+                font-size: 20pt !important;
+                line-height: 1.28 !important;
+            }}
+            .card-title-28pt {{
+                font-size: 24pt !important;
+            }}
+            .card-title-multi {{
+                font-size: 20pt !important;
+            }}
+        }}
+        @media (max-width: 1024px) {{
+            .point-28pt {{
+                font-size: 15pt !important;
+                line-height: 1.32 !important;
+            }}
+            .point-multi-card {{
+                font-size: 13pt !important;
+                line-height: 1.28 !important;
+            }}
+        }}
+        @media (max-width: 768px) {{
+            .point-28pt {{
+                font-size: 1.025rem !important; /* ~16.4px */
+                line-height: 1.45 !important;
+            }}
+            .point-multi-card {{
+                font-size: 0.90rem !important; /* ~14.4px */
+                line-height: 1.40 !important;
+            }}
+        }}
+        @media (max-width: 480px) {{
+            .point-28pt {{
+                font-size: 0.925rem !important; /* ~14.8px */
+                line-height: 1.40 !important;
+            }}
+            .point-multi-card {{
+                font-size: 0.825rem !important; /* ~13.2px */
+                line-height: 1.35 !important;
+            }}
         }}
     </style>
 </head>
@@ -525,24 +598,71 @@ def build_presentation_html():
                 </div>
             </div>
             `;
+        }} else if (layout === 'section') {{
+            html = `
+            <div class="h-full flex flex-col justify-center px-4 py-4 sm:px-8 md:px-20 animate-fadeIn">
+                <div class="inline-block px-5 py-2.5 rounded-xl bg-blue-600 text-white font-black text-base md:text-lg tracking-widest mb-6 w-fit shadow-xl shadow-blue-500/30">
+                    ${{escapeHtml(slide.num || 'CHAPTER SECTION')}}
+                </div>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 leading-tight max-w-5xl drop-shadow-md">
+                    ${{escapeHtml(slide.title)}}
+                </h2>
+                ${{slide.desc ? `<p class="text-base sm:text-xl md:text-2xl lg:text-3xl text-slate-300 font-semibold max-w-4xl leading-relaxed">${{escapeHtml(slide.desc)}}</p>` : ''}}
+            </div>
+            `;
         }} else if (layout === '3card') {{
-            const cards = slide.cards || [];
+            const cards = slide.cards || (slide.col1 ? [slide.col1, slide.col2, slide.col3] : (slide.c1 ? [slide.c1, slide.c2, slide.c3, slide.c4] : []));
             html = `
             <div class="h-full flex flex-col animate-fadeIn">
                 ${{renderHeader(slide.badge, slide.sec, slide.title, slide.subtitle, curNum, total)}}
                 <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 py-2 items-stretch overflow-y-auto custom-scrollbar">
                     ${{cards.map((c, idx) => {{
                         const tCard = getThemeStyles(c.theme || (idx === 0 ? 'blue' : (idx === 1 ? 'teal' : 'amber')));
+                        const pointsList = Array.isArray(c.points) ? c.points : (typeof c.points === 'string' ? [c.points] : (c.points ? [c.points] : []));
                         return `
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-5 lg:p-6 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
-                            <h3 class="card-title-28pt ${{tCard.text}} mb-3.5" style="font-size: 26px !important;">
+                            <h3 class="card-title-multi ${{tCard.text}} mb-3.5">
                                 ${{escapeHtml(c.title)}}
                             </h3>
                             <ul class="space-y-2.5 my-auto">
-                                ${{(c.points || []).map(p => `
-                                <li class="flex items-start gap-2 text-slate-100 point-28pt font-medium leading-relaxed">
+                                ${{pointsList.map(p => `
+                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
                                     <span class="${{tCard.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                    <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
+                                </li>
+                                `).join('')}}
+                            </ul>
+                        </div>
+                        `;
+                    }}).join('')}}
+                </div>
+            </div>
+            `;
+        }} else if (layout === '4card') {{
+            const cards = slide.cards || (slide.c1 ? [slide.c1, slide.c2, slide.c3, slide.c4] : (slide.col1 ? [slide.col1, slide.col2, slide.col3, slide.col4] : []));
+            html = `
+            <div class="h-full flex flex-col animate-fadeIn">
+                ${{renderHeader(slide.badge, slide.sec, slide.title, slide.subtitle, curNum, total)}}
+                <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 py-2 items-stretch overflow-y-auto custom-scrollbar">
+                    ${{cards.map((c, idx) => {{
+                        const tCard = getThemeStyles(c.theme || (idx === 0 ? 'blue' : (idx === 1 ? 'teal' : (idx === 2 ? 'indigo' : 'amber'))));
+                        const pointsList = Array.isArray(c.points) ? c.points : (typeof c.points === 'string' ? [c.points] : (c.points ? [c.points] : []));
+                        return `
+                        <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-4 lg:p-5 flex flex-col shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
+                            ${{c.num ? `
+                            <span class="text-xs font-black tracking-wider px-2 py-0.5 rounded ${{tCard.badge}} w-fit mb-2">
+                                ${{escapeHtml(c.num)}}
+                            </span>
+                            ` : ''}}
+                            <h3 class="text-lg md:text-xl font-black ${{tCard.text}} mb-2.5">
+                                ${{escapeHtml(c.title)}}
+                            </h3>
+                            <ul class="space-y-2 my-auto">
+                                ${{pointsList.map(p => `
+                                <li class="flex items-start gap-2 text-slate-100 point-multi-card font-medium leading-relaxed">
+                                    <span class="${{tCard.text}} font-black text-xl shrink-0 mt-0.5">•</span>
                                     <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
                                 </li>
                                 `).join('')}}

@@ -47,6 +47,10 @@ def split_text(text, max_len=36):
 
 def build_week_slides(wc):
     week_num = wc['week']
+    if week_num == 2:
+        from week02_master_slides import get_week02_slides
+        return get_week02_slides(wc)
+
     mod = wc['module']
     title = wc['title']
     sub = wc['subtitle']
