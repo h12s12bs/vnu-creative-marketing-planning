@@ -112,7 +112,7 @@ def get_week_configs():
             'subtitle': '水平思考法 ✕ 奔馳 7 步發散 ✕ 荒謬聯想收斂',
             'chapter': '曾光華 CH05 激發行銷企劃創意',
             'agent': 'Agent 4：SCAMPER 創意奔馳 Agent',
-            'vibe': '課堂靈感抽卡機與便利貼倒數計時',
+            'vibe': '創意決策隨機抽卡與動態倒數模組',
             'ipas': '創新思維與行銷創意工具應用',
             'core_concept': 'SCAMPER 七步法：代/併/調/改/用/除/反',
             'case_name': '宜家家居 IKEA 肉丸與家具複合策展',

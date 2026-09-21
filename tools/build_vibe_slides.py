@@ -18,8 +18,8 @@ VIBE_COMPONENTS = {
     5: ("3 欄式競品對比卡片網頁組件", "我方優勢 vs 直接對手 vs 跨界替代品", "div.pricing-compare", "中間推薦卡片凸起且加金邊微陰影"),
     6: ("核心價值主張 (UVP) 卡片", "獨特價值主張與顧客三大核心利益", "div.uvp-card-group", "毛玻璃磨砂效果搭配圓角微投影"),
     7: ("互動式 SWOT 九宮格點擊展開模組", "點擊卡片彈出視窗查看策略詳情", "div.swot-matrix-modal", "CSS Flex 佈局搭配 JavaScript Modal 彈窗"),
-    8: ("課堂靈感抽卡機與便利貼倒數計時", "隨機抽選 SCAMPER 靈感卡與限時器", "div.card-picker-timer", "隨機數演算法與純 CSS 翻卡動畫"),
-    9: ("期中提案一頁式成果展示頁發布", "章節平滑滾動導覽與成果卡片", "nav.sticky-nav", "平滑滾動 smooth-scroll 與 Sticky 導航"),
+    8: ("創意決策隨機抽卡與動態倒數模組", "隨機抽選 SCAMPER 靈感方案與決策限時器", "div.card-picker-timer", "隨機數演算法與純 CSS 翻卡動畫"),
+    9: ("期中數位測驗系統與即時題型解析", "整合章節核心題庫、作答倒數與觀念檢定", "div.midterm-exam-panel", "測驗題型切換與即時觀念回饋互動面板"),
     10: ("新產品線上早鳥預購一頁式網頁", "預購數量選擇器與前台表單驗證", "form.preorder-form", "原生 HTML5 表單驗證與即時金額加總"),
     11: ("倒數計時器 (Countdown) 與限量標籤", "最後席次急迫感與倒數計時", "div.countdown-badge", "setInterval 遞減秒數與紅標跳動動畫"),
     12: ("快閃活動報名表單與時間軸組件", "垂直時序圖呈現活動三大流程", "div.vertical-timeline", "垂直線條連接圓點節點之時間軸"),
@@ -28,7 +28,7 @@ VIBE_COMPONENTS = {
     15: ("LINE 官方帳號導流與多連結導航頁", "手機版專屬 Link in Bio 多功能跳轉", "div.link-in-bio", "直式卡片堆疊與社群圖示漸變按鈕"),
     16: ("個人行銷企劃全案單頁展示官網", "十大章節錨點跳轉與全案目錄", "section.full-case-site", "側邊目錄欄與滾動監聽 active 狀態"),
     17: ("個人成果作品集首頁 (Portfolio)", "作品網格瀑布流展示與外鏈預覽", "div.portfolio-grid", "懸停圖片放大與作品資訊浮現效果"),
-    18: ("作品上傳教學展示廊並永久保存", "整合 Google 試算表與雲端展示", "div.gallery-viewer", "動態讀取 JSON 渲染全班作品展示牆")
+    18: ("期末數位測驗系統與學期成果回饋", "整合測驗題庫、即時計分與知識資產典藏", "div.final-exam-system", "動態讀取測驗數據與多維度學習評量報表")
 }
 
 def generate_vibe_slides():

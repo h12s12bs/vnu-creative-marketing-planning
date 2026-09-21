@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 萬能科技大學 11501 創意行銷企劃實務 - 18 週全景教學簡報生成器 (tools/build_presentation_html.py)
 生成 Full_Screen_Presentation.html
@@ -164,23 +164,29 @@ def build_presentation_html():
             transform: scale(1.02);
         }}
 
-        /* 內容字體大小 28 規格 (維持 28 大小，大教室投影機遠距專用) */
+        /* 內容字體大小 28 規格：強制鎖定 28px，大教室投影機遠距專用 */
         .point-28pt {{
             font-size: 28px !important;
-            line-height: 1.45 !important;
+            line-height: 1.5 !important;
         }}
-
-        @media (max-width: 1280px) {{
-            .point-28pt {{
-                font-size: 24px !important;
-                line-height: 1.4 !important;
-            }}
+        .card-title-28pt {{
+            font-size: 28px !important;
+            line-height: 1.35 !important;
+            font-weight: 900 !important;
         }}
-        @media (max-width: 768px) {{
-            .point-28pt {{
-                font-size: 18px !important;
-                line-height: 1.35 !important;
-            }}
+        .header-title-34pt {{
+            font-size: 34px !important;
+            line-height: 1.25 !important;
+            font-weight: 900 !important;
+        }}
+        .header-subtitle-24pt {{
+            font-size: 24px !important;
+            line-height: 1.35 !important;
+            font-weight: 700 !important;
+        }}
+        .badge-16pt {{
+            font-size: 16px !important;
+            font-weight: 800 !important;
         }}
     </style>
 </head>
@@ -392,20 +398,20 @@ def build_presentation_html():
         return `
         <div class="border-b border-slate-800 pb-3 mb-3 shrink-0">
             <div class="flex items-center justify-between mb-1.5">
-                <div class="flex items-center gap-2">
-                    <span class="text-xs font-black tracking-widest px-2.5 py-0.5 rounded bg-blue-950/80 border border-blue-600/60 text-blue-300 uppercase">
+                <div class="flex items-center gap-2.5">
+                    <span class="badge-16pt tracking-widest px-3 py-1 rounded bg-blue-950/80 border border-blue-600/60 text-blue-300 uppercase">
                         ${{escapeHtml(badge || '萬能企管 創意行銷企劃實務')}}
                     </span>
-                    ${{sec ? `<span class="text-xs font-bold text-slate-400">/ ${{escapeHtml(sec)}}</span>` : ''}}
+                    ${{sec ? `<span class="badge-16pt font-bold text-slate-300">/ ${{escapeHtml(sec)}}</span>` : ''}}
                 </div>
-                <span class="text-xs font-mono font-bold text-teal-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">
+                <span class="badge-16pt font-mono font-bold text-teal-400 bg-slate-800/80 px-3 py-1 rounded border border-slate-700">
                     SLIDE ${{curNum}} OF ${{total}}
                 </span>
             </div>
-            <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight leading-snug">
+            <h2 class="header-title-34pt text-white tracking-tight leading-snug">
                 ${{escapeHtml(title || '')}}
             </h2>
-            ${{subtitle ? `<p class="text-slate-300 text-sm md:text-base font-semibold mt-1 leading-normal truncate">${{escapeHtml(subtitle)}}</p>` : ''}}
+            ${{subtitle ? `<p class="header-subtitle-24pt text-teal-300 mt-1 leading-normal">${{escapeHtml(subtitle)}}</p>` : ''}}
         </div>
         `;
     }}
@@ -432,24 +438,24 @@ def build_presentation_html():
             html = `
             <div class="h-full flex flex-col justify-between px-4 md:px-12 py-4 animate-fadeIn">
                 <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <span class="text-xs md:text-sm font-bold tracking-widest text-teal-400 px-3 py-1 rounded-full bg-teal-950/60 border border-teal-500/40">
+                    <span class="badge-16pt font-bold tracking-widest text-teal-400 px-4 py-1.5 rounded-full bg-teal-950/60 border border-teal-500/40">
                         ${{escapeHtml(slide.badge || '萬能科技大學 企業管理系')}}
                     </span>
-                    <span class="text-xs md:text-sm font-mono text-slate-400">11501 學期 ｜ 進企管四系3甲</span>
+                    <span class="badge-16pt font-mono text-slate-400">11501 學期 ｜ 進企管四系3甲</span>
                 </div>
                 <div class="my-auto py-6">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight mb-4 drop-shadow-lg">
+                    <h1 class="font-black text-white tracking-tight leading-tight mb-4 drop-shadow-lg" style="font-size: 52px !important;">
                         ${{escapeHtml(slide.title)}}
                     </h1>
-                    <p class="text-lg md:text-2xl font-bold text-teal-300 max-w-4xl leading-relaxed">
+                    <p class="font-bold text-teal-300 max-w-4xl leading-relaxed" style="font-size: 28px !important;">
                         ${{escapeHtml(slide.subtitle)}}
                     </p>
                 </div>
-                <div class="pt-4 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs md:text-sm text-slate-300">
+                <div class="pt-4 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-slate-200" style="font-size: 22px !important; line-height: 1.4 !important;">
                     ${{(slide.meta || []).map(m => `
-                    <div class="flex items-center gap-2 bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/60">
-                        <span class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></span>
-                        <span class="font-medium">${{escapeHtml(m)}}</span>
+                    <div class="flex items-center gap-2.5 bg-slate-800/80 p-3 rounded-xl border border-slate-700/80">
+                        <span class="w-3 h-3 rounded-full bg-teal-400 shrink-0"></span>
+                        <span class="font-bold">${{escapeHtml(m)}}</span>
                     </div>
                     `).join('')}}
                 </div>
@@ -464,13 +470,13 @@ def build_presentation_html():
                 <div class="flex-1 flex flex-col justify-center py-2 overflow-y-auto custom-scrollbar">
                     <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-6 md:p-8 shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
-                        <h3 class="text-xl md:text-2xl font-black ${{tCard.text}} mb-4">
+                        <h3 class="card-title-28pt ${{tCard.text}} mb-4">
                             ${{escapeHtml(card.title)}}
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${{(card.points || []).map(p => `
                             <li class="flex items-start gap-3 text-slate-100 point-28pt font-medium leading-relaxed">
-                                <span class="${{tCard.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                <span class="${{tCard.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
                                 <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
@@ -490,13 +496,13 @@ def build_presentation_html():
                 <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 py-2 items-stretch overflow-y-auto custom-scrollbar">
                     <div class="bg-slate-800/90 rounded-2xl border-2 ${{tLeft.border}} p-5 lg:p-7 flex flex-col shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tLeft.bar}}"></div>
-                        <h3 class="text-xl md:text-2xl font-black ${{tLeft.text}} mb-3.5">
+                        <h3 class="card-title-28pt ${{tLeft.text}} mb-3.5">
                             ${{escapeHtml(left.title)}}
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${{(left.points || []).map(p => `
                             <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
-                                <span class="${{tLeft.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                <span class="${{tLeft.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
                                 <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
@@ -504,13 +510,13 @@ def build_presentation_html():
                     </div>
                     <div class="bg-slate-800/90 rounded-2xl border-2 ${{tRight.border}} p-5 lg:p-7 flex flex-col shadow-2xl relative overflow-hidden">
                         <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tRight.bar}}"></div>
-                        <h3 class="text-xl md:text-2xl font-black ${{tRight.text}} mb-3.5">
+                        <h3 class="card-title-28pt ${{tRight.text}} mb-3.5">
                             ${{escapeHtml(right.title)}}
                         </h3>
                         <ul class="space-y-3.5 my-auto">
                             ${{(right.points || []).map(p => `
                             <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
-                                <span class="${{tRight.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
+                                <span class="${{tRight.text}} font-black text-3xl shrink-0 mt-0.5">•</span>
                                 <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
                             </li>
                             `).join('')}}
@@ -530,13 +536,13 @@ def build_presentation_html():
                         return `
                         <div class="bg-slate-800/90 rounded-2xl border-2 ${{tCard.border}} p-5 lg:p-6 flex flex-col shadow-2xl relative overflow-hidden">
                             <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${{tCard.bar}}"></div>
-                            <h3 class="text-lg md:text-xl font-black ${{tCard.text}} mb-3.5">
+                            <h3 class="card-title-28pt ${{tCard.text}} mb-3.5" style="font-size: 26px !important;">
                                 ${{escapeHtml(c.title)}}
                             </h3>
                             <ul class="space-y-2.5 my-auto">
                                 ${{(c.points || []).map(p => `
-                                <li class="flex items-start gap-2.5 text-slate-100 point-28pt font-medium leading-relaxed">
-                                    <span class="${{tCard.text}} font-black text-xl shrink-0 mt-0.5">•</span>
+                                <li class="flex items-start gap-2 text-slate-100 point-28pt font-medium leading-relaxed">
+                                    <span class="${{tCard.text}} font-black text-2xl shrink-0 mt-0.5">•</span>
                                     <span class="${{p.includes('★') ? 'text-amber-300 font-bold' : ''}}">${{escapeHtml(p)}}</span>
                                 </li>
                                 `).join('')}}
@@ -553,14 +559,14 @@ def build_presentation_html():
                 <div class="inline-block px-4 py-1.5 rounded-xl bg-amber-600 text-white font-black text-sm md:text-base tracking-widest mb-4 w-fit shadow-xl shadow-amber-500/30">
                     WEEKLY UNIT COMPLETED
                 </div>
-                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight max-w-5xl drop-shadow-md">
+                <h2 class="font-black text-white mb-5 leading-tight max-w-5xl drop-shadow-md" style="font-size: 52px !important;">
                     ${{escapeHtml(slide.title || '單元授課完畢')}}
                 </h2>
-                <p class="text-xl md:text-2xl text-slate-200 font-bold max-w-4xl leading-relaxed mb-6">
-                    ${{escapeHtml(slide.subtitle || '感謝各位的專注投入與深度研討！請同學們妥善保存企劃進度。')}}
+                <p class="text-slate-200 font-bold max-w-4xl leading-relaxed mb-6" style="font-size: 28px !important;">
+                    ${{escapeHtml(slide.subtitle || '感謝各位進修部同學的專注聽講！請大家課後自主溫習，輕鬆準備考試。')}}
                 </p>
-                <div class="pt-5 border-t-2 border-slate-800 text-base md:text-lg font-bold text-teal-400">
-                    ${{escapeHtml(slide.final_message || '期末成果閉環：曾光華企劃架構 ✕ Agentic AI 協同 ➔ GitHub Pages 全球發布 ➔ 期末發表全案展示')}}
+                <div class="pt-5 border-t-2 border-slate-800 font-bold text-teal-400" style="font-size: 24px !important;">
+                    ${{escapeHtml(slide.final_message || '學期考核評分：期中考 40% ✕ 期末考 40% ✕ 平時出席 20%')}}
                 </div>
             </div>
             `;
