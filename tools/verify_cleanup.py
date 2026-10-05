@@ -35,11 +35,11 @@ assert len(curriculum[1]['slides']) == 62, f"Expected 62 slides in Week 2, got {
 assert len(curriculum[2]['slides']) == 62, f"Expected 62 slides in Week 3, got {len(curriculum[2]['slides'])}"
 assert total_slides == 940, f"Expected 940 slides, got {total_slides}"
 
-# Check Week 3 has no empty talk
+# Check Week 3 has no empty talk, no cramming terms, and no repeated textbook author mentions
 w3_str = json.dumps(curriculum[2], ensure_ascii=False)
-for empty_term in ['下周單元預告', '下週單元預告', '下週主題預告', '下週預告', '掌握期中期末重點', '自主溫習指引', '輕鬆準備考試']:
-    assert empty_term not in w3_str, f"Found empty talk term '{empty_term}' in Week 3!"
-print("[OK] Week 3 zero empty talk terms verified.")
+for prohibited_w3 in ['下周單元預告', '下週單元預告', '下週主題預告', '下週預告', '掌握期中期末重點', '自主溫習指引', '輕鬆準備考試', '曾光華', '核心考點', '應試精華', '自我檢核', '自主溫習', '廢話', '空洞']:
+    assert prohibited_w3 not in w3_str, f"Found prohibited term '{prohibited_w3}' in Week 3!"
+print("[OK] Week 3 zero empty talk and zero cramming/author buzzwords verified.")
 
 # 3. Forbidden terms for Week 2 ~ 18 (Week 1 kept untouched)
 forbidden = [
