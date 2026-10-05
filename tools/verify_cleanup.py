@@ -30,9 +30,16 @@ assert match, "Could not find CURRICULUM in HTML!"
 curriculum = json.loads(match.group(1))
 print(f"[OK] Parsed {len(curriculum)} weeks from HTML.")
 total_slides = sum(len(w['slides']) for w in curriculum)
-print(f"[OK] Total slides: {total_slides} (Week 2 has {len(curriculum[1]['slides'])} slides)")
+print(f"[OK] Total slides: {total_slides} (Week 2 has {len(curriculum[1]['slides'])}, Week 3 has {len(curriculum[2]['slides'])})")
 assert len(curriculum[1]['slides']) == 62, f"Expected 62 slides in Week 2, got {len(curriculum[1]['slides'])}"
-assert total_slides == 929, f"Expected 929 slides, got {total_slides}"
+assert len(curriculum[2]['slides']) == 62, f"Expected 62 slides in Week 3, got {len(curriculum[2]['slides'])}"
+assert total_slides == 940, f"Expected 940 slides, got {total_slides}"
+
+# Check Week 3 has no empty talk
+w3_str = json.dumps(curriculum[2], ensure_ascii=False)
+for empty_term in ['下周單元預告', '下週單元預告', '下週主題預告', '下週預告', '掌握期中期末重點', '自主溫習指引', '輕鬆準備考試']:
+    assert empty_term not in w3_str, f"Found empty talk term '{empty_term}' in Week 3!"
+print("[OK] Week 3 zero empty talk terms verified.")
 
 # 3. Forbidden terms for Week 2 ~ 18 (Week 1 kept untouched)
 forbidden = [
