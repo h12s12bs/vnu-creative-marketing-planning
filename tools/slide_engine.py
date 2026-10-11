@@ -53,6 +53,9 @@ def build_week_slides(wc):
     if week_num == 3:
         from week03_master_slides import get_week03_slides
         return get_week03_slides(wc)
+    if week_num == 4:
+        from week04_master_slides import get_week04_slides
+        return get_week04_slides(wc)
 
     mod = wc['module']
     title = wc['title']
