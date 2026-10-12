@@ -34,14 +34,15 @@ print(f"[OK] Total slides: {total_slides} (Week 2 has {len(curriculum[1]['slides
 assert len(curriculum[1]['slides']) == 62, f"Expected 62 slides in Week 2, got {len(curriculum[1]['slides'])}"
 assert len(curriculum[2]['slides']) == 62, f"Expected 62 slides in Week 3, got {len(curriculum[2]['slides'])}"
 assert len(curriculum[3]['slides']) == 62, f"Expected 62 slides in Week 4, got {len(curriculum[3]['slides'])}"
-assert total_slides == 951, f"Expected 951 slides, got {total_slides}"
+assert len(curriculum[4]['slides']) == 62, f"Expected 62 slides in Week 5, got {len(curriculum[4]['slides'])}"
+assert total_slides == 962, f"Expected 962 slides, got {total_slides}"
 
-# Check Week 3 & 4 have no empty talk, no cramming terms, and no repeated textbook author mentions
-for w_idx, w_label in [(2, 'Week 3'), (3, 'Week 4')]:
+# Check Week 3, 4, 5 have no empty talk, no cramming terms, and no repeated textbook author mentions
+for w_idx, w_label in [(2, 'Week 3'), (3, 'Week 4'), (4, 'Week 5')]:
     w_str = json.dumps(curriculum[w_idx], ensure_ascii=False)
     for prohibited in ['下周單元預告', '下週單元預告', '下週主題預告', '下週預告', '掌握期中期末重點', '自主溫習指引', '輕鬆準備考試', '曾光華', '核心考點', '應試精華', '自我檢核', '自主溫習', '廢話', '空洞']:
         assert prohibited not in w_str, f"Found prohibited term '{prohibited}' in {w_label}!"
-print("[OK] Week 3 & Week 4 zero empty talk and zero cramming/author buzzwords verified.")
+print("[OK] Week 3, Week 4 & Week 5 zero empty talk and zero cramming/author buzzwords verified.")
 
 # 3. Forbidden terms for Week 2 ~ 18 (Week 1 kept untouched)
 forbidden = [
