@@ -66,16 +66,16 @@ def get_week_configs():
         {
             'week': 5,
             'module': '環境洞察與戰略模組',
-            'title': '產業競爭與五力分析模型實戰',
-            'subtitle': '波特五力架構 ✕ 競品優劣矩陣 ✕ 關鍵成功因素',
-            'chapter': '曾光華 CH03 外部環境分析 (Part 2)',
-            'agent': 'Agent 1：市場情資洞察 Agent',
-            'vibe': '3 欄式競品對比卡片網頁組件',
-            'ipas': '波特五力分析與競爭者矩陣',
-            'core_concept': '五力競爭強度與產業獲利空間',
-            'case_name': '全聯福利中心跨足生鮮之競爭突圍',
-            'pitfall': '只看直接對手忽視跨界替代品威脅',
-            'scamper_q': '其他用途 (Put to use)：空瓶轉為環保盆栽'
+            'title': '企業內部環境分析與優劣勢檢核',
+            'subtitle': '六大營運能力檢核 ✕ 假想敵辨認與定位 ✕ VRIO 框架 ✕ SWOT 交叉策略',
+            'chapter': '曾光華 CH04 內部環境分析 (Part 1)',
+            'agent': 'Agent 2：STP 市場定位 Agent',
+            'vibe': '內部營運六大能力維度檢核組件',
+            'ipas': '內部資源盤點與優劣勢分析',
+            'core_concept': '六大營運能力檢核與非對稱競爭定位',
+            'case_name': '麥當勞炸雞案例與麥當勞蛋糕案例',
+            'pitfall': '主觀自我感覺良好與忽視能力情境依賴性',
+            'scamper_q': '組合 (Combine)：將既有通路優勢與新興能力模組化組合'
         },
         {
             'week': 6,
