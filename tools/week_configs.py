@@ -79,17 +79,17 @@ def get_week_configs():
         },
         {
             'week': 6,
-            'module': '環境洞察與戰略模組',
-            'title': '企業內部資源能力與 VRIO 分析',
-            'subtitle': '資源盤點 ✕ VRIO 護城河檢驗 ✕ 核心能力提煉',
-            'chapter': '曾光華 CH04 內部環境分析 (Part 1)',
-            'agent': 'Agent 2：STP 市場定位 Agent',
-            'vibe': '核心價值主張 (Value Proposition) 卡片',
-            'ipas': 'VRIO 分析與企業核心能力檢定',
-            'core_concept': 'VRIO 四檢定：價值稀有難模仿組織',
-            'case_name': '台積電晶圓代工卓越製造生態系',
-            'pitfall': '把人人都有的設備當成核心競爭力',
-            'scamper_q': '消除 (Eliminate)：移除多餘繁瑣包裝耗材'
+            'module': '創意突破與專案推進',
+            'title': '激發行銷企劃創意（上）：逆向假設分析法、全新情境法與加減乘除移五法',
+            'subtitle': '破除慣性思維 ✕ 產品重組創新 ✕ 全新情境法 ✕ 智慧發散推演',
+            'chapter': '曾光華 CH05 激發行銷企劃創意 (Part 1)',
+            'agent': 'Agent 4：SCAMPER 創意奔馳 Agent',
+            'vibe': '加減乘除移五法重組互動卡片',
+            'ipas': '創新思維與行銷創意工具應用',
+            'core_concept': '逆向假設分析與全新情境五法重組',
+            'case_name': '依雲礦泉水、立食居酒屋與手搖飲五法重構案例',
+            'pitfall': '被既有產業慣性假設綁架與為創新而搞怪',
+            'scamper_q': '反轉 (Reverse)：顛覆既有假設，將不可變改為核心特色'
         },
         {
             'week': 7,
