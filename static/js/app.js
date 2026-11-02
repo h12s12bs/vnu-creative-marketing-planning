@@ -1152,11 +1152,12 @@ function startExamMode(mode) {
     count = 5;
     title = '隨堂 5 題隨機快測';
   } else if (mode === 'midterm_40') {
-    pool = pool.filter(q => q.chapter <= 6 || q.module.includes('內容') || q.module.includes('社群'));
+    pool = pool.filter(q => q.chapter <= 5);
     pool.sort(() => 0.5 - Math.random());
     count = Math.min(40, pool.length);
     title = '期中 40 題鑑定模擬測驗 (限時40分鐘)';
   } else if (mode === 'final_60') {
+    pool = pool.filter(q => q.chapter >= 6);
     pool.sort(() => 0.5 - Math.random());
     count = Math.min(60, pool.length);
     title = '期末 60 題綜合能力檢定 (限時60分鐘)';
@@ -1425,6 +1426,201 @@ function clearWrongQuestionsNotebook() {
     alert('已清空錯題筆記本！');
   }
 }
+
+/* ==========================================================================
+   期中考 / 期末考 / 全學期 題庫檢視、下載與列印系統
+   ========================================================================== */
+let currentViewingBankType = 'midterm';
+
+function getAnsLetter(ans) {
+  const letters = ['A', 'B', 'C', 'D'];
+  if (typeof ans === 'number' && ans >= 0 && ans < 4) return letters[ans];
+  if (typeof ans === 'string' && ['A', 'B', 'C', 'D'].includes(ans.toUpperCase())) return ans.toUpperCase();
+  return ans;
+}
+
+function openQuestionBankViewer(bankType) {
+  currentViewingBankType = bankType;
+  const box = document.getElementById('question-bank-viewer-box');
+  const titleEl = document.getElementById('qb-viewer-title');
+  const subEl = document.getElementById('qb-viewer-subtitle');
+  const listEl = document.getElementById('qb-viewer-list');
+  if (!box || !listEl) return;
+
+  let pool = [];
+  let bankName = '';
+  let bankRange = '';
+
+  if (bankType === 'midterm') {
+    pool = questionsData.filter(q => q.chapter <= 5);
+    bankName = '📘 期中考全部考題題庫（含標準答案與詳解）';
+    bankRange = `涵蓋第 1 至第 5 章 ｜ 共 ${pool.length} 題 ｜ 綠底標示為官方標準答案`;
+  } else if (bankType === 'final') {
+    pool = questionsData.filter(q => q.chapter >= 6);
+    bankName = '📙 期末考全部考題題庫（含標準答案與詳解）';
+    bankRange = `涵蓋第 6 至第 11 章 ｜ 共 ${pool.length} 題 ｜ 綠底標示為官方標準答案`;
+  } else {
+    pool = [...questionsData];
+    bankName = '📚 全學期總題庫完整合輯（含標準答案與詳解）';
+    bankRange = `涵蓋全冊第 1 至第 11 章 ｜ 共 ${pool.length} 題 ｜ 綠底標示為官方標準答案`;
+  }
+
+  pool.sort((a, b) => (a.chapter - b.chapter) || String(a.id).localeCompare(String(b.id)));
+
+  if (titleEl) titleEl.textContent = bankName;
+  if (subEl) subEl.textContent = bankRange;
+
+  let lastCh = null;
+  const letters = ['A', 'B', 'C', 'D'];
+
+  listEl.innerHTML = pool.map((q, idx) => {
+    let chHeader = '';
+    if (q.chapter !== lastCh) {
+      lastCh = q.chapter;
+      chHeader = `
+        <div class="text-white px-3 py-2 rounded-2 fw-bold small my-3 d-flex align-items-center justify-content-between" style="background: linear-gradient(135deg, #1e40af, #3b82f6);">
+          <span>【第 ${q.chapter} 章：${q.chapter_title}】</span>
+          <span class="badge bg-light text-primary font-monospace">${q.module || q.ipas_cert || '行銷企劃'}</span>
+        </div>
+      `;
+    }
+
+    const ansLet = getAnsLetter(q.answer);
+
+    return `
+      ${chHeader}
+      <div class="card p-3 mb-2 bg-light border-0 shadow-xs" style="border-left: 4px solid #2563eb !important;">
+        <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+          <div class="fw-bold text-dark small">
+            <span class="badge bg-primary me-1">#${idx + 1}</span>
+            <span>${q.question}</span>
+            <span class="text-muted fw-normal ms-1 font-monospace" style="font-size: 0.75rem;">[${q.ipas_cert || q.source || '教材與IPAS題庫'}]</span>
+          </div>
+          <span class="badge bg-danger shrink-0 font-monospace">答案：(${ansLet})</span>
+        </div>
+
+        <div class="row g-2 mb-2">
+          ${q.options.map((opt, optIdx) => {
+            const isCorrect = (optIdx === q.answer) || (letters[optIdx] === ansLet);
+            return `
+              <div class="col-md-6">
+                <div class="p-2 rounded small ${isCorrect ? 'bg-success bg-opacity-10 text-success fw-bold border border-success border-opacity-25' : 'bg-white text-secondary border border-light'}">
+                  (${letters[optIdx]}) ${opt} ${isCorrect ? '<i class="fas fa-check-circle text-success ms-1"></i>' : ''}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+
+        ${q.explanation ? `
+          <div class="p-2 bg-white rounded small text-secondary border-start border-3 border-info" style="font-size: 0.8rem;">
+            <strong class="text-primary"><i class="fas fa-lightbulb me-1"></i>解析：</strong>${q.explanation.replace(/\n/g, ' ')}
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
+
+  box.style.display = 'block';
+  box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function closeQuestionBankViewer() {
+  const box = document.getElementById('question-bank-viewer-box');
+  if (box) box.style.display = 'none';
+}
+
+function getBankExportHtml() {
+  let pool = [];
+  let bankTitle = '';
+  if (currentViewingBankType === 'midterm') {
+    pool = questionsData.filter(q => q.chapter <= 5);
+    bankTitle = '萬能科技大學 11501《創意行銷企劃實務》期中考全部題庫（含答案）';
+  } else if (currentViewingBankType === 'final') {
+    pool = questionsData.filter(q => q.chapter >= 6);
+    bankTitle = '萬能科技大學 11501《創意行銷企劃實務》期末考全部題庫（含答案）';
+  } else {
+    pool = [...questionsData];
+    bankTitle = '萬能科技大學 11501《創意行銷企劃實務》全學期總題庫完整版（含答案）';
+  }
+  pool.sort((a, b) => (a.chapter - b.chapter) || String(a.id).localeCompare(String(b.id)));
+
+  const letters = ['A', 'B', 'C', 'D'];
+
+  let html = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>${bankTitle}</title>
+<style>
+  body { font-family: "Microsoft JhengHei", "PingFang TC", sans-serif; line-height: 1.6; margin: 30px; color: #1e293b; }
+  h1 { text-align: center; color: #1e3a8a; font-size: 22px; margin-bottom: 5px; }
+  .sub { text-align: center; color: #64748b; font-size: 13px; margin-bottom: 25px; }
+  .ch-header { background: #1e40af; color: white; padding: 6px 12px; font-weight: bold; font-size: 14px; border-radius: 4px; margin-top: 20px; }
+  .q-box { border-bottom: 1px solid #e2e8f0; padding: 12px 0; page-break-inside: avoid; }
+  .q-title { font-weight: bold; font-size: 13px; margin-bottom: 6px; }
+  .ans-badge { color: #b91c1c; font-weight: bold; margin-left: 6px; }
+  .opts { margin-left: 20px; font-size: 12.5px; }
+  .opt { margin-bottom: 3px; }
+  .opt.correct { color: #15803d; font-weight: bold; }
+  .exp { margin-left: 20px; background: #eff6ff; padding: 6px 10px; font-size: 11.5px; color: #1e3a8a; border-left: 3px solid #3b82f6; margin-top: 6px; border-radius: 2px; }
+  @media print { body { margin: 15mm; } button { display: none; } }
+</style>
+</head>
+<body>
+<h1>${bankTitle}</h1>
+<div class="sub">授課教師：邱俊維 博士 ｜ 題數：共 ${pool.length} 題 ｜ 命題依據：考試直接從本題庫抽題</div>
+`;
+
+  let lastCh = null;
+  pool.forEach((q, idx) => {
+    if (q.chapter !== lastCh) {
+      lastCh = q.chapter;
+      html += `<div class="ch-header">【第 ${q.chapter} 章：${q.chapter_title}】（${q.module || q.ipas_cert || '行銷企劃'}）</div>`;
+    }
+    const ansLet = getAnsLetter(q.answer);
+    html += `
+    <div class="q-box">
+      <div class="q-title">${idx + 1}. ${q.question} <span class="ans-badge">【標準答案：(${ansLet})】</span></div>
+      <div class="opts">
+        ${q.options.map((opt, i) => {
+          const isCorrect = (i === q.answer) || (letters[i] === ansLet);
+          return `<div class="opt ${isCorrect ? 'correct' : ''}">(${letters[i]}) ${opt} ${isCorrect ? '✓' : ''}</div>`;
+        }).join('')}
+      </div>
+      ${q.explanation ? `<div class="exp">💡 解析：${q.explanation.replace(/\n/g, ' ')}</div>` : ''}
+    </div>`;
+  });
+
+  html += `</body></html>`;
+  return { html, bankTitle, count: pool.length };
+}
+
+function downloadCurrentBankHtml() {
+  const { html, bankTitle } = getBankExportHtml();
+  const blob = new Blob([html], { type: 'text/html;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${bankTitle}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function printCurrentQuestionBank() {
+  const { html } = getBankExportHtml();
+  const printWindow = window.open('', '_blank');
+  if (printWindow) {
+    printWindow.document.open();
+    printWindow.document.write(html);
+    printWindow.document.close();
+    printWindow.focus();
+    setTimeout(() => { printWindow.print(); }, 500);
+  } else {
+    alert('請允許快顯視窗以開啟列印頁面！');
+  }
+}
+
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
